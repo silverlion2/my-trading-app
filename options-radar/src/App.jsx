@@ -1,91 +1,87 @@
-import React, { useState } from 'react';
-import { Target, Info, AlertTriangle, TrendingUp, ShieldAlert, ArrowRight, BookOpen, Lightbulb, Activity, ArrowUpDown, Search } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Target, Info, AlertTriangle, TrendingUp, ShieldAlert, ArrowRight, BookOpen, Lightbulb, Activity, ArrowUpDown, Search, Loader2 } from 'lucide-react';
 
-// Mock local database with multiple Tickers
+// 模拟数据库 (当 fetch 失败时作为沙盒环境的兜底数据)
 const mockDatabase = {
   "SPY": {
-    metadata: {
-      ticker: "SPY",
-      spot_price: 508.45,
-      expiration_date: "2024-03-15",
-      updated_at: "2024-03-14 16:30:00"
-    },
-    indicators: {
-      max_pain: 507.00,
-      call_wall: 515.00,
-      put_wall: 495.00,
-      zero_gamma: 502.00 
-    },
+    metadata: { ticker: "SPY", spot_price: 508.45, expiration_date: "2024-03-15", updated_at: "Mocked Data (Preview)" },
+    indicators: { max_pain: 507.00, call_wall: 515.00, put_wall: 495.00, zero_gamma: 502.00 },
     gex_chart_data: [
-      { strike: 490, net_gex: -120000 },
-      { strike: 495, net_gex: -450000 }, 
-      { strike: 500, net_gex: -210000 },
-      { strike: 502, net_gex: 0 },       
-      { strike: 505, net_gex: 50000 },
-      { strike: 507, net_gex: 80000 },   
-      { strike: 510, net_gex: 230000 },
-      { strike: 515, net_gex: 580000 },  
-      { strike: 520, net_gex: 150000 }
+      { strike: 490, net_gex: -120000 }, { strike: 495, net_gex: -450000 }, { strike: 500, net_gex: -210000 },
+      { strike: 502, net_gex: 0 }, { strike: 505, net_gex: 50000 }, { strike: 507, net_gex: 80000 },
+      { strike: 510, net_gex: 230000 }, { strike: 515, net_gex: 580000 }, { strike: 520, net_gex: 150000 }
     ]
   },
   "QQQ": {
-    metadata: {
-      ticker: "QQQ",
-      spot_price: 438.20,
-      expiration_date: "2024-03-15",
-      updated_at: "2024-03-14 16:30:00"
-    },
-    indicators: {
-      max_pain: 440.00,
-      call_wall: 445.00,
-      put_wall: 430.00,
-      zero_gamma: 441.00 
-    },
+    metadata: { ticker: "QQQ", spot_price: 438.20, expiration_date: "2024-03-15", updated_at: "Mocked Data (Preview)" },
+    indicators: { max_pain: 440.00, call_wall: 445.00, put_wall: 430.00, zero_gamma: 441.00 },
     gex_chart_data: [
-      { strike: 425, net_gex: -80000 },
-      { strike: 430, net_gex: -320000 }, 
-      { strike: 435, net_gex: -150000 },
-      { strike: 438, net_gex: -40000 },       
-      { strike: 440, net_gex: 20000 },
-      { strike: 441, net_gex: 0 },   
-      { strike: 445, net_gex: 410000 },  
-      { strike: 450, net_gex: 120000 }
+      { strike: 425, net_gex: -80000 }, { strike: 430, net_gex: -320000 }, { strike: 435, net_gex: -150000 },
+      { strike: 438, net_gex: -40000 }, { strike: 440, net_gex: 20000 }, { strike: 441, net_gex: 0 },
+      { strike: 445, net_gex: 410000 }, { strike: 450, net_gex: 120000 }
     ]
   },
   "TSLA": {
-    metadata: {
-      ticker: "TSLA",
-      spot_price: 172.50,
-      expiration_date: "2024-03-15",
-      updated_at: "2024-03-14 16:30:00"
-    },
-    indicators: {
-      max_pain: 175.00,
-      call_wall: 185.00,
-      put_wall: 160.00,
-      zero_gamma: 168.00 
-    },
+    metadata: { ticker: "TSLA", spot_price: 172.50, expiration_date: "2024-03-15", updated_at: "Mocked Data (Preview)" },
+    indicators: { max_pain: 175.00, call_wall: 185.00, put_wall: 160.00, zero_gamma: 168.00 },
     gex_chart_data: [
-      { strike: 155, net_gex: -30000 },
-      { strike: 160, net_gex: -180000 }, 
-      { strike: 165, net_gex: -60000 },
-      { strike: 168, net_gex: 0 },       
-      { strike: 170, net_gex: 40000 },
-      { strike: 172.5, net_gex: 55000 },   
-      { strike: 175, net_gex: 90000 },
-      { strike: 180, net_gex: 120000 },  
-      { strike: 185, net_gex: 210000 }
+      { strike: 155, net_gex: -30000 }, { strike: 160, net_gex: -180000 }, { strike: 165, net_gex: -60000 },
+      { strike: 168, net_gex: 0 }, { strike: 170, net_gex: 40000 }, { strike: 172.5, net_gex: 55000 },
+      { strike: 175, net_gex: 90000 }, { strike: 180, net_gex: 120000 }, { strike: 185, net_gex: 210000 }
     ]
   }
 };
 
-const OptionsDashboard = () => {
+const App = () => {
+  // State for data and UI
+  const [database, setDatabase] = useState(null);
+  const [isMockMode, setIsMockMode] = useState(false);
   const [activeTicker, setActiveTicker] = useState("SPY");
   const [searchInput, setSearchInput] = useState("");
   const [showEducation, setShowEducation] = useState(true);
 
-  // Dynamically get the currently selected data
-  const activeData = mockDatabase[activeTicker];
+  // Fetch real data from dashboard_data.json on mount
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('/dashboard_data.json');
+        if (!response.ok) {
+          throw new Error("Failed to load dashboard_data.json");
+        }
+        const data = await response.json();
+        setDatabase(data);
+        setIsMockMode(false);
+        // If SPY isn't in the dataset, default to the first available ticker
+        if (!data["SPY"] && Object.keys(data).length > 0) {
+          setActiveTicker(Object.keys(data)[0]);
+        }
+      } catch (err) {
+        console.warn("Fetch failed. Falling back to mock data.", err);
+        // Fallback to mock data to prevent crashes
+        setDatabase(mockDatabase);
+        setIsMockMode(true);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (!database) {
+    return (
+      <div className="min-h-screen bg-slate-950 text-slate-200 flex flex-col items-center justify-center">
+        <Loader2 className="animate-spin text-blue-500 mb-4" size={48} />
+        <h2 className="text-lg font-bold animate-pulse">Loading Options Flow Data...</h2>
+      </div>
+    );
+  }
+
+  // Safely get data for active ticker
+  const activeData = database[activeTicker];
+  
+  if (!activeData) {
+    return <div className="min-h-screen bg-slate-950 text-slate-200 p-8">Ticker {activeTicker} data not found in database.</div>;
+  }
+
   const { metadata, indicators, gex_chart_data } = activeData;
 
   // Find the maximum absolute GEX value for calculating chart bar widths
@@ -95,17 +91,17 @@ const OptionsDashboard = () => {
   const handleSearch = (e) => {
     if (e.key === 'Enter') {
       const val = searchInput.trim().toUpperCase();
-      if (mockDatabase[val]) {
+      if (database[val]) {
         setActiveTicker(val);
         setSearchInput("");
       }
-      // Silently ignore if ticker is not in mockDatabase
+      // Silently ignore if ticker is not in database
     }
   };
 
   // Handle quick select clicks
   const handleSelect = (ticker) => {
-    if (mockDatabase[ticker]) {
+    if (database[ticker]) {
       setActiveTicker(ticker);
       setSearchInput("");
     }
@@ -114,14 +110,14 @@ const OptionsDashboard = () => {
   // Determine global Gamma environment and calculate key metric deviations
   const isPositiveGamma = metadata.spot_price >= indicators.zero_gamma;
   const diffToZeroGamma = Math.abs(metadata.spot_price - indicators.zero_gamma);
-  const isNearFlip = diffToZeroGamma <= 1.5;
+  const isNearFlip = diffToZeroGamma <= (metadata.spot_price * 0.005); // ~0.5% buffer
 
   // Smart Market Context AI Logic
   const getMarketContext = () => {
     const diffToMaxPain = Math.abs(metadata.spot_price - indicators.max_pain);
-    const isPinning = diffToMaxPain <= 2;
-    const isNearCallWall = indicators.call_wall - metadata.spot_price <= 3;
-    const isNearPutWall = metadata.spot_price - indicators.put_wall <= 3;
+    const isPinning = diffToMaxPain <= (metadata.spot_price * 0.005);
+    const isNearCallWall = indicators.call_wall - metadata.spot_price <= (metadata.spot_price * 0.01);
+    const isNearPutWall = metadata.spot_price - indicators.put_wall <= (metadata.spot_price * 0.01);
 
     let title = "";
     let description = "";
@@ -159,6 +155,17 @@ const OptionsDashboard = () => {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 p-4 md:p-8 font-sans selection:bg-blue-500/30">
       
+      {/* 针对预览沙盒的警告提示 */}
+      {isMockMode && (
+        <div className="mb-6 bg-amber-900/50 border border-amber-500/50 text-amber-200 px-4 py-3 rounded-xl text-sm flex items-start gap-3">
+          <AlertTriangle className="shrink-0 mt-0.5" size={18} />
+          <div>
+            <strong>No Data File Found:</strong> Failed to fetch <code>/dashboard_data.json</code>. Showing mock data. <br />
+            <span className="opacity-80">Run your Python script to generate real data, place it in the public folder, and refresh.</span>
+          </div>
+        </div>
+      )}
+
       {/* Header Info */}
       <header className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
         <div>
@@ -169,8 +176,8 @@ const OptionsDashboard = () => {
           
           {/* Ticker Switch & Search */}
           <div className="flex flex-wrap items-center gap-3 mt-4">
-            <div className="flex bg-slate-900 rounded-lg p-1 border border-slate-800">
-              {Object.keys(mockDatabase).map(ticker => (
+            <div className="flex flex-wrap bg-slate-900 rounded-lg p-1 border border-slate-800 max-w-2xl">
+              {Object.keys(database).map(ticker => (
                 <button
                   key={ticker}
                   onClick={() => handleSelect(ticker)}
@@ -187,11 +194,11 @@ const OptionsDashboard = () => {
               </div>
               <input
                 type="text"
-                placeholder="Search Ticker (e.g., AAPL)..."
+                placeholder="Search Ticker..."
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value.toUpperCase())}
                 onKeyDown={handleSearch}
-                className="pl-9 pr-4 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-sm text-white uppercase placeholder:text-slate-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all w-64"
+                className="pl-9 pr-4 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-sm text-white uppercase placeholder:text-slate-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all w-48"
               />
             </div>
           </div>
@@ -281,14 +288,14 @@ const OptionsDashboard = () => {
 
               {gex_chart_data.map((data) => {
                 const isCallDominant = data.net_gex > 0;
-                // Calculate width percentage
-                const widthPercent = data.net_gex === 0 ? 0 : (Math.abs(data.net_gex) / maxGexAbs) * 100;
+                // Calculate width percentage safely to avoid dividing by 0
+                const widthPercent = data.net_gex === 0 || maxGexAbs === 0 ? 0 : (Math.abs(data.net_gex) / maxGexAbs) * 100;
                 
                 // Identify key levels
                 const isCallWall = data.strike === indicators.call_wall;
                 const isPutWall = data.strike === indicators.put_wall;
                 const isZeroGamma = data.strike === indicators.zero_gamma;
-                const isSpotNear = Math.abs(data.strike - metadata.spot_price) <= 1.5;
+                const isSpotNear = Math.abs(data.strike - metadata.spot_price) <= (metadata.spot_price * 0.005);
 
                 return (
                   <div key={data.strike} className={`flex items-center relative z-10 group hover:bg-slate-800/80 rounded-md p-1.5 -mx-1.5 transition-colors ${isZeroGamma ? 'bg-blue-900/20 my-1' : ''}`}>
@@ -447,4 +454,4 @@ const OptionsDashboard = () => {
   );
 };
 
-export default OptionsDashboard;
+export default App;
