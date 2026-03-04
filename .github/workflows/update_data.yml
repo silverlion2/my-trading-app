@@ -1,60 +1,309 @@
-name: 自动更新期权雷达数据
+import pandas as pd
+import numpy as np
+import scipy.stats as si
+from scipy import optimize
+import json
+import time
+import random
+import os
+import requests
+from datetime import datetime, date
 
-on:
-  schedule:
-    - cron: '30 21 * * 1-5'
-  workflow_dispatch:
+# ---------------------------------------------------------
+# 1. 核心数学模型：Black-Scholes Gamma 计算
+# ---------------------------------------------------------
+def calculate_gamma(S, K, T, r, sigma):
+    if T <= 0 or sigma <= 0.01:
+        return 0.0
+    
+    d1 = (np.log(S / K) + (r + 0.5 * sigma ** 2) * T) / (sigma * np.sqrt(T))
+    pdf_d1 = si.norm.pdf(d1)
+    gamma = pdf_d1 / (S * sigma * np.sqrt(T))
+    return gamma
 
-# 赋予机器人直接推送代码的写入权限
-permissions:
-  contents: write
+# ---------------------------------------------------------
+# 2. 零伽马测算函数：寻找全市场 Net GEX = 0 的现货价格
+# ---------------------------------------------------------
+def get_total_gex_at_spot(simulated_spot, all_options_data, r):
+    total_gex = 0.0
+    for opt in all_options_data:
+        gamma = calculate_gamma(simulated_spot, opt['strike'], opt['T'], r, opt['iv'])
+        if opt['type'] == 'call':
+            total_gex += gamma * opt['oi'] * 100 * simulated_spot
+        else:
+            total_gex -= gamma * opt['oi'] * 100 * simulated_spot
+    return total_gex
 
-jobs:
-  update-data:
-    runs-on: ubuntu-latest
+# ---------------------------------------------------------
+# 3. 单个标的的数据处理流水线 (携带凭证直连版 + 深度防漏抓)
+# ---------------------------------------------------------
+def process_ticker(ticker_symbol, session, crumb):
+    print(f"\n[{ticker_symbol}] 正在通过原生底层 API 直连获取数据...")
+    
+    base_url = f"https://query2.finance.yahoo.com/v7/finance/options/{ticker_symbol}"
+    
+    try:
+        # 1. 发起初始请求，获取现价和日期列表
+        req_url = f"{base_url}?crumb={crumb}" if crumb else base_url
+        time.sleep(random.uniform(2.0, 4.0)) 
+        res = session.get(req_url, timeout=15)
+        
+        if res.status_code != 200:
+            print(f"[{ticker_symbol}] 初始请求被拒绝 (HTTP {res.status_code})，跳过...")
+            return None
+            
+        data = res.json()
+        result = data.get("optionChain", {}).get("result", [])
+        if not result:
+            print(f"[{ticker_symbol}] 无法解析基础数据")
+            return None
+            
+        # 获取现价
+        spot_price = result[0].get("quote", {}).get("regularMarketPrice")
+        if not spot_price:
+            print(f"[{ticker_symbol}] 未获取到现价")
+            return None
+            
+        # 获取到期日时间戳并截取前 4 个（覆盖核心期限）
+        exp_timestamps = result[0].get("expirationDates", [])[:4]
+        if not exp_timestamps:
+            print(f"[{ticker_symbol}] 未获取到期权链到期日")
+            return None
+            
+        print(f"[{ticker_symbol}] 现价: ${spot_price:.2f} | 聚合到期日数量: {len(exp_timestamps)}")
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+        all_options_data = []
+        max_pain_losses = {}
+        r = 0.04 
+        today_date = date.today()
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
+        # 2. 根据时间戳拉取具体每一期的期权链 (加入强力重试机制)
+        for ts in exp_timestamps:
+            for attempt in range(3): # 最高重试3次
+                try:
+                    # 延长休眠时间，彻底模拟人类浏览
+                    time.sleep(random.uniform(2.5, 5.0)) 
+                    
+                    url = f"{base_url}?date={ts}&crumb={crumb}" if crumb else f"{base_url}?date={ts}"
+                    exp_res = session.get(url, timeout=15)
+                    
+                    if exp_res.status_code != 200:
+                        print(f"    -> [警告] 期限 {ts} 拉取被雅虎拦截 (HTTP {exp_res.status_code})，进入惩罚休眠 ({attempt+1}/3)...")
+                        time.sleep(random.uniform(5.0, 8.0))
+                        continue
+                        
+                    exp_data = exp_res.json()
+                    options_array = exp_data.get("optionChain", {}).get("result", [])
+                    if not options_array:
+                        break
+                        
+                    options = options_array[0].get("options", [])
+                    if not options:
+                        break
+                        
+                    calls = options[0].get("calls", [])
+                    puts = options[0].get("puts", [])
+                    
+                    # 计算该期权的年化到期时间 T
+                    exp_date = datetime.fromtimestamp(ts).date()
+                    days_to_expiry = (exp_date - today_date).days
+                    T = max(days_to_expiry / 365.0, 1/365.0)
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests pandas numpy scipy
+                    # 解析看涨期权 (Calls)
+                    for call in calls:
+                        oi = call.get("openInterest", 0)
+                        iv = call.get("impliedVolatility", 0)
+                        if oi > 0 and iv > 0.01:
+                            all_options_data.append({
+                                'type': 'call', 'strike': call.get("strike"),
+                                'oi': oi, 'iv': iv, 'T': T
+                            })
+                            
+                    # 解析看跌期权 (Puts)
+                    for put in puts:
+                        oi = put.get("openInterest", 0)
+                        iv = put.get("impliedVolatility", 0)
+                        if oi > 0 and iv > 0.01:
+                            all_options_data.append({
+                                'type': 'put', 'strike': put.get("strike"),
+                                'oi': oi, 'iv': iv, 'T': T
+                            })
+                    
+                    # 只要走到这里，说明该期限成功拿到数据，跳出重试循环
+                    break 
+                            
+                except Exception as e:
+                    print(f"    -> [异常] 拉取期限戳 {ts} 网络中断: {e}，重试中 ({attempt+1}/3)...")
+                    time.sleep(random.uniform(4.0, 6.0))
 
-      - name: Run Python script
-        run: |
-          # 智能寻找并运行 Python 脚本 (兼容不同的文件夹层级)
-          if [ -f "data_pipeline.py" ]; then
-            echo "在根目录找到脚本，开始运行..."
-            python data_pipeline.py
-          elif [ -f "options-radar/data_pipeline.py" ]; then
-            echo "在 options-radar 文件夹中找到脚本，开始运行..."
-            cd options-radar
-            python data_pipeline.py
-          else
-            echo "错误: 找不到 data_pipeline.py 文件！请确保它已被推送到 GitHub。"
-            exit 1
-          fi
+        if not all_options_data:
+            print(f"[{ticker_symbol}] ❌ 该标的所有期限均拉取失败或无有效数据。")
+            return None
 
-      - name: Commit and push changes
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          
-          # 将所有变动（无论在哪个子文件夹下生成的 json）安全添加到暂存区
-          git add .
-          
-          # 安全检查：只有当存在修改时才执行 commit 和 push，避免无更新时引发报错
-          if [[ -n $(git status --porcelain) ]]; then
-            git commit -m "Auto-update: Daily Options Data"
-            git push
-            echo "✅ 数据更新成功并推送到仓库！"
-          else
-            echo "⏭️ 数据没有变化，跳过提交。"
-          fi
+        # === 模块A：聚合计算最大痛点 (Max Pain) ===
+        all_strikes = sorted(list(set([opt['strike'] for opt in all_options_data])))
+        
+        for test_strike in all_strikes:
+            total_loss = 0.0
+            for opt in all_options_data:
+                if opt['type'] == 'call' and test_strike > opt['strike']:
+                    total_loss += (test_strike - opt['strike']) * opt['oi']
+                elif opt['type'] == 'put' and test_strike < opt['strike']:
+                    total_loss += (opt['strike'] - test_strike) * opt['oi']
+            max_pain_losses[test_strike] = total_loss
+
+        max_pain = min(max_pain_losses, key=max_pain_losses.get)
+        
+        # === 模块B：计算各行权价的全局 GEX 分布 ===
+        gex_profile = {}
+        
+        for opt in all_options_data:
+            strike = opt['strike']
+            gamma = calculate_gamma(spot_price, strike, opt['T'], r, opt['iv'])
+            
+            if strike not in gex_profile:
+                gex_profile[strike] = {'call_gex': 0, 'put_gex': 0}
+                
+            if opt['type'] == 'call':
+                gex_profile[strike]['call_gex'] += gamma * opt['oi'] * 100 * spot_price
+            else:
+                gex_profile[strike]['put_gex'] -= gamma * opt['oi'] * 100 * spot_price
+
+        for strike in gex_profile:
+            gex_profile[strike]['net_gex'] = gex_profile[strike]['call_gex'] + gex_profile[strike]['put_gex']
+
+        # 提取现价上下 25% 的有效行权价
+        valid_strikes = [s for s in gex_profile.keys() if spot_price * 0.75 < s < spot_price * 1.25]
+        if not valid_strikes:
+            return None
+            
+        call_wall = max(valid_strikes, key=lambda s: gex_profile[s]['call_gex'])
+        put_wall = min(valid_strikes, key=lambda s: gex_profile[s]['put_gex'])
+
+        # === 模块C：使用求根算法寻找全局 Zero-Gamma 点 ===
+        try:
+            zero_gamma = optimize.brentq(
+                get_total_gex_at_spot, spot_price * 0.7, spot_price * 1.3, args=(all_options_data, r)
+            )
+            zero_gamma = round(zero_gamma, 2)
+        except ValueError:
+            zero_gamma = max_pain
+
+        print(f"[{ticker_symbol}] ✅ 完毕 -> Max Pain: {max_pain} | Call Wall: {call_wall} | Put Wall: {put_wall} | Zero Gamma: {zero_gamma}")
+
+        return {
+            "metadata": {
+                "ticker": ticker_symbol,
+                "spot_price": round(spot_price, 2),
+                "expiration_date": "Multiple (Aggregated)",
+                "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            },
+            "indicators": {
+                "max_pain": max_pain,
+                "call_wall": call_wall,
+                "put_wall": put_wall,
+                "zero_gamma": zero_gamma
+            },
+            "gex_chart_data": [
+                {
+                    "strike": strike, 
+                    "net_gex": round(gex_profile[strike]['net_gex'], 2)
+                } 
+                for strike in sorted(valid_strikes)
+            ]
+        }
+
+    except Exception as e:
+        print(f"[{ticker_symbol}] 数据拉取发生致命错误: {e}")
+        return None
+
+def main():
+    # =========================================================
+    # 核心破解逻辑升级：通过隐藏底层接口强制下发 Cookie 和 Crumb 凭证
+    # =========================================================
+    session = requests.Session()
+    
+    # 构建极其逼真的全套请求头
+    session.headers.update({
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Connection": "keep-alive",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "none",
+        "Sec-Fetch-User": "?1",
+        "Cache-Control": "max-age=0"
+    })
+    
+    print("正在初始化 Yahoo API 访问凭证 (Cookie & Crumb)...")
+    crumb = ""
+    try:
+        try:
+            session.get("https://fc.yahoo.com", timeout=10)
+        except Exception:
+            pass 
+            
+        res_crumb = session.get("https://query2.finance.yahoo.com/v1/test/getcrumb", timeout=10)
+        
+        if res_crumb.status_code == 200:
+            crumb = res_crumb.text.strip()
+            if crumb:
+                print(f"✅ 成功获取访问密钥: {crumb[:4]}***")
+            else:
+                print("⚠️ 密钥为空。")
+        else:
+            print(f"⚠️ 获取密钥被拒绝，状态码: {res_crumb.status_code}")
+            
+    except Exception as e:
+        print(f"⚠️ 凭证初始化出错: {e}")
+
+    # =========================================================
+
+    tickers_to_track = [
+        "SPY", "QQQ", "IWM", 
+        "NVDA", "TSLA", "AAPL", "MSFT", "AMZN", "META", "GOOGL",
+        "AMD", "TSM", "SMCI", "AVGO",
+        "PLTR", "COIN", "MSTR", "NFLX", "JPM", "V"
+    ]
+    
+    # =========================================================
+    # ⚠️ 增量更新逻辑 (读取老数据做兜底)
+    # =========================================================
+    final_database = {}
+    db_path = 'public/dashboard_data.json'
+    
+    if not os.path.exists('public'):
+        os.makedirs('public')
+        
+    # 如果存在旧文件，先加载旧文件
+    if os.path.exists(db_path):
+        try:
+            with open(db_path, 'r', encoding='utf-8') as f:
+                final_database = json.load(f)
+            print(f"📦 成功加载本地历史数据，共包含 {len(final_database)} 个标的作为兜底。")
+        except Exception as e:
+            print(f"⚠️ 读取历史数据失败，将建立全新数据库: {e}")
+    
+    for i, ticker in enumerate(tickers_to_track):
+        # 传入 session 和 crumb 凭证
+        data = process_ticker(ticker, session, crumb)
+        if data:
+            final_database[ticker] = data  # 如果成功，用新数据覆盖旧数据
+        else:
+            print(f"⚠️ [{ticker}] 本次云端抓取被拦截，保留其历史数据不变。")
+            
+        # 标的间的基础防暴刷休眠
+        if i < len(tickers_to_track) - 1:
+            time.sleep(random.uniform(3.0, 5.0))
+            
+    # 写回合并后的数据
+    with open(db_path, 'w', encoding='utf-8') as f:
+        json.dump(final_database, f, ensure_ascii=False, indent=2)
+    
+    print("\n✅ 增量更新完毕！所有成功拉取的数据已与历史数据合并，并保存至 public/dashboard_data.json")
+
+if __name__ == "__main__":
+    main()
