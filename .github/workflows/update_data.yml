@@ -28,12 +28,33 @@ jobs:
           pip install requests pandas numpy scipy
 
       - name: Run Python script
-        run: python data_pipeline.py
+        run: |
+          # 智能寻找并运行 Python 脚本 (兼容不同的文件夹层级)
+          if [ -f "data_pipeline.py" ]; then
+            echo "在根目录找到脚本，开始运行..."
+            python data_pipeline.py
+          elif [ -f "options-radar/data_pipeline.py" ]; then
+            echo "在 options-radar 文件夹中找到脚本，开始运行..."
+            cd options-radar
+            python data_pipeline.py
+          else
+            echo "错误: 找不到 data_pipeline.py 文件！请确保它已被推送到 GitHub。"
+            exit 1
+          fi
 
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add public/dashboard_data.json
-          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update: Daily Options Data"
-          git push
+          
+          # 将所有变动（无论在哪个子文件夹下生成的 json）安全添加到暂存区
+          git add .
+          
+          # 安全检查：只有当存在修改时才执行 commit 和 push，避免无更新时引发报错
+          if [[ -n $(git status --porcelain) ]]; then
+            git commit -m "Auto-update: Daily Options Data"
+            git push
+            echo "✅ 数据更新成功并推送到仓库！"
+          else
+            echo "⏭️ 数据没有变化，跳过提交。"
+          fi
