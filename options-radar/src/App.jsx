@@ -80,7 +80,7 @@ const App = () => {
   }
 
   const activeData = database[activeTicker];
-  if (!activeData) return <div className="min-h-screen bg-slate-950 p-8">暂无数据</div>;
+  if (!activeData) return <div className="min-h-screen bg-slate-950 p-8">No data available</div>;
 
   const { metadata, indicators, gex_chart_data } = activeData;
   const maxGexAbs = Math.max(...gex_chart_data.map(d => Math.abs(d.net_gex)));
@@ -95,14 +95,14 @@ const App = () => {
     const isNearCallWall = indicators.call_wall - metadata.spot_price <= (metadata.spot_price * 0.01);
     const isNearPutWall = metadata.spot_price - indicators.put_wall <= (metadata.spot_price * 0.01);
 
-    if (isNearFlip) return { title: "多空分水岭战役", color: "text-blue-400 border-blue-900 bg-blue-950/20", desc: "现价正在试探零伽马反转点。若站稳则回归平缓上涨，跌破则进入高波动负反馈区间。" };
-    if (isPinning) return { title: "Max Pain 引力拉扯", color: "text-purple-400 border-purple-900 bg-purple-950/20", desc: "做市商正在对冲压制现价，使其贴近最大痛点。此区间适合 Theta 耗损策略，不建议买入单边期权。" };
-    if (isNearCallWall) return { title: "触及天花板阻力", color: "text-emerald-400 border-emerald-900 bg-emerald-950/20", desc: "逼近巨大的 Call Wall 阻力。通常难以逾越，但一旦带量突破，将触发做市商追涨逼空 (Gamma Squeeze)。" };
-    if (isNearPutWall) return { title: "触及铁底支撑", color: "text-red-400 border-red-900 bg-red-950/20", desc: "价格落入深水区并测试 Put Wall 终极支撑。大概率产生反弹，若放量跌破则预示恐慌性抛售的开始。" };
+    if (isNearFlip) return { title: "Zero Gamma Battleground", color: "text-blue-400 border-blue-900 bg-blue-950/20", desc: "Spot is testing the Zero Gamma flip point. Holding above means a steady grind higher; breaking below triggers high-volatility negative feedback." };
+    if (isPinning) return { title: "Max Pain Pinning", color: "text-purple-400 border-purple-900 bg-purple-950/20", desc: "Dealers are hedging to pin the spot near Max Pain. High Theta decay zone. Directional buying is not recommended." };
+    if (isNearCallWall) return { title: "Testing Call Wall Resistance", color: "text-emerald-400 border-emerald-900 bg-emerald-950/20", desc: "Approaching massive Call Wall resistance. Hard to break, but a high-volume breakout could trigger a Gamma Squeeze." };
+    if (isNearPutWall) return { title: "Testing Put Wall Support", color: "text-red-400 border-red-900 bg-red-950/20", desc: "Testing the ultimate Put Wall support. High probability of a bounce. A high-volume breakdown indicates panic selling." };
     return { 
-      title: isPositiveGamma ? "正伽马主导 (低波动震荡上涨)" : "负伽马主导 (高波动趋势跟随)", 
+      title: isPositiveGamma ? "Positive Gamma (Low Volatility Grind)" : "Negative Gamma (High Volatility Trend)", 
       color: isPositiveGamma ? "text-emerald-400 border-emerald-900 bg-emerald-950/20" : "text-amber-400 border-amber-900 bg-amber-950/20",
-      desc: isPositiveGamma ? "市场处于平稳期，做市商的操作模式为高抛低吸，打压波动率。寻找支撑位低吸为上策。" : "市场情绪脆弱，做市商的操作模式为追涨杀跌，放大波动率。严禁逆势接飞刀，跟随趋势交易。" 
+      desc: isPositiveGamma ? "Market is calm. Dealers are buying dips and selling rips, suppressing volatility. Look for support to buy." : "Market is fragile. Dealers are selling dips and buying rips, amplifying volatility. Follow the trend, don't catch falling knives." 
     };
   };
 
@@ -190,7 +190,7 @@ const App = () => {
           <p className="text-slate-400 mt-4 flex items-center gap-2 text-sm">
             <span>Ticker: <strong className="text-blue-400">{metadata.ticker}</strong></span>
             <span className="text-slate-600">|</span>
-            <span>更新时间: {metadata.updated_at}</span>
+            <span>Updated: {metadata.updated_at}</span>
           </p>
         </div>
 
@@ -220,7 +220,7 @@ const App = () => {
           <Lightbulb size={24} />
         </div>
         <div>
-          <h3 className="font-bold text-lg mb-1">AI 盘前解析: {marketContext.title}</h3>
+          <h3 className="font-bold text-lg mb-1">AI Market Context: {marketContext.title}</h3>
           <p className="text-sm opacity-80 leading-relaxed">{marketContext.desc}</p>
         </div>
       </div>
@@ -231,14 +231,14 @@ const App = () => {
         <div className="lg:col-span-8 bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col shadow-xl">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-bold text-white flex items-center gap-2">
-              <span className="w-1.5 h-6 bg-blue-500 rounded-full"></span> 全局 GEX 空间地形图
+              <span className="w-1.5 h-6 bg-blue-500 rounded-full"></span> Global Net GEX Profile
             </h2>
           </div>
 
           <div className="relative mt-4 flex-1">
             <div className="absolute left-1/2 top-0 bottom-0 w-px bg-slate-700/50 z-0"></div>
             <div className="flex justify-between text-xs text-slate-500 mb-2 px-2 uppercase font-medium">
-              <span>← Put 主导区 (-Gamma)</span><span>行权价 Strike</span><span>Call 主导区 (+Gamma) →</span>
+              <span>← Put Dominant (-Gamma)</span><span>Strike</span><span>Call Dominant (+Gamma) →</span>
             </div>
 
             <div className="flex flex-col py-2 relative">
@@ -258,7 +258,7 @@ const App = () => {
                       )}
                       {isZeroGamma && (
                         <div className="mr-2 text-xs font-bold text-blue-400 bg-blue-950 px-2 py-0.5 rounded border border-blue-800 flex items-center gap-1">
-                          <ArrowUpDown size={12} /> 翻转点
+                          <ArrowUpDown size={12} /> Flip Point
                         </div>
                       )}
                     </div>
@@ -287,19 +287,19 @@ const App = () => {
         {/* Right Metrics */}
         <div className="lg:col-span-4 flex flex-col gap-4">
           <div className={`bg-slate-900 border ${isNearFlip ? 'border-blue-500' : 'border-slate-800'} p-5 rounded-2xl`}>
-            <h3 className="text-blue-400 font-bold flex items-center gap-2 mb-2"><ArrowUpDown size={18} /> 零伽马反转点 (Zero Gamma)</h3>
+            <h3 className="text-blue-400 font-bold flex items-center gap-2 mb-2"><ArrowUpDown size={18} /> Zero Gamma</h3>
             <div className="text-3xl font-black text-white font-mono">${indicators.zero_gamma.toFixed(2)}</div>
           </div>
           <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
-            <h3 className="text-purple-400 font-bold flex items-center gap-2 mb-2"><Target size={18} /> 最大痛点 (Max Pain)</h3>
+            <h3 className="text-purple-400 font-bold flex items-center gap-2 mb-2"><Target size={18} /> Max Pain</h3>
             <div className="text-3xl font-black text-white font-mono">${indicators.max_pain.toFixed(2)}</div>
           </div>
           <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
-            <h3 className="text-emerald-400 font-bold flex items-center gap-2 mb-2"><TrendingUp size={18} /> 顶部阻力 (Call Wall)</h3>
+            <h3 className="text-emerald-400 font-bold flex items-center gap-2 mb-2"><TrendingUp size={18} /> Call Wall (Resistance)</h3>
             <div className="text-3xl font-black text-white font-mono">${indicators.call_wall.toFixed(2)}</div>
           </div>
           <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
-            <h3 className="text-red-400 font-bold flex items-center gap-2 mb-2"><ShieldAlert size={18} /> 底部支撑 (Put Wall)</h3>
+            <h3 className="text-red-400 font-bold flex items-center gap-2 mb-2"><ShieldAlert size={18} /> Put Wall (Support)</h3>
             <div className="text-3xl font-black text-white font-mono">${indicators.put_wall.toFixed(2)}</div>
           </div>
         </div>
