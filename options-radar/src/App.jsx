@@ -165,7 +165,7 @@ const App = () => {
         <div className="flex items-center gap-4 mt-2 xl:mt-0">
           {/* Donation / Support Button */}
           <a 
-            href="YOUR_PAYMENT_LINK_HERE" 
+            href="https://buy.stripe.com/test_5kQ00bh2u5jP6G5du52B200" 
             target="_blank" 
             rel="noreferrer"
             className="flex items-center gap-2 bg-pink-600 hover:bg-pink-500 text-white px-4 py-2.5 rounded-xl text-sm font-bold transition-all shadow-lg shadow-pink-900/20 group"
