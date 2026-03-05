@@ -18,14 +18,17 @@ HEADERS = {
     'Accept': 'application/json'
 }
 
-# 获取最新的有效交易日 (自动跳过周末)
+# 🌟 核心修复：强制获取上一个【已经完全收盘且归档】的交易日 (T-1)
 def get_last_trading_day():
     today = date.today()
-    if today.weekday() == 5: # Saturday
-        return today - timedelta(days=1)
-    elif today.weekday() == 6: # Sunday
+    weekday = today.weekday()
+    
+    if weekday == 0:     # 周一 (Monday) -> 返回上周五 (-3天)
+        return today - timedelta(days=3)
+    elif weekday == 6:   # 周日 (Sunday) -> 返回上周五 (-2天)
         return today - timedelta(days=2)
-    return today
+    else:                # 周二至周六 -> 返回昨天 (-1天)
+        return today - timedelta(days=1)
 
 def calculate_gamma_bs(S, K, T, r, sigma):
     if T <= 0 or sigma <= 0.01: return 0.0
@@ -49,10 +52,10 @@ def process_ticker(ticker_symbol):
     print(f"\n[{ticker_symbol}] Fetching via Historical Bulked API (Cost-saving mode)...")
     
     try:
-        # 强制使用日期参数，触发 1/1000 的白菜价计费模式
+        # 强制使用 T-1 的日期参数，必定触发 1/1000 的白菜价计费模式
         target_date = get_last_trading_day().strftime('%Y-%m-%d')
         
-        # 1. 获取现价
+        # 1. 获取最新现价 (Quote 不限制历史，永远拿最新的)
         quote_url = f"https://api.marketdata.app/v1/stocks/quotes/{ticker_symbol}/"
         res_quote = requests.get(quote_url, headers=HEADERS, timeout=10)
         quote_data = res_quote.json()
@@ -65,7 +68,7 @@ def process_ticker(ticker_symbol):
         
         spot_price = quote_data.get('last', [0])[0]
 
-        # 2. 🌟 绝杀优化：带上 ?date= 参数，触发 Historical Pricing 
+        # 2. 🌟 绝杀优化：带上 ?date=T-1 参数，请求历史归档的全量期权链
         chain_url = f"https://api.marketdata.app/v1/options/chain/{ticker_symbol}/?date={target_date}"
         res_chain = requests.get(chain_url, headers=HEADERS, timeout=20)
         chain_data = res_chain.json()
@@ -151,7 +154,7 @@ def process_ticker(ticker_symbol):
         print(f"[{ticker_symbol}] ✅ Done! MP: {max_pain} | ZG: {zero_gamma} | Credits Left: {remaining}")
 
         return {
-            "metadata": {"ticker": ticker_symbol, "spot_price": round(spot_price, 2), "expiration_date": f"Bulk Aggregated ({target_date})", "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")},
+            "metadata": {"ticker": ticker_symbol, "spot_price": round(spot_price, 2), "expiration_date": f"Historical Aggregated ({target_date})", "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")},
             "indicators": {"max_pain": max_pain, "call_wall": call_wall, "put_wall": put_wall, "zero_gamma": zero_gamma},
             "gex_chart_data": [{"strike": strike, "net_gex": round(gex_profile[strike]['call_gex'] + gex_profile[strike]['put_gex'], 2)} for strike in sorted(valid_strikes)]
         }
