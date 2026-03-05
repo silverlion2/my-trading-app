@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Target, Info, AlertTriangle, TrendingUp, ShieldAlert, BookOpen, Lightbulb, Activity, ArrowUpDown, Search, Loader2, Lock, X } from 'lucide-react';
+import { Target, Info, AlertTriangle, TrendingUp, ShieldAlert, BookOpen, Lightbulb, Activity, ArrowUpDown, Search, Loader2, Lock, X, Coffee, Megaphone, Heart } from 'lucide-react';
 
 // ============================================================================
 // 1. 本地 Mock 数据兜底 (防报错)
@@ -48,20 +48,15 @@ const App = () => {
     fetchStaticData();
   }, []);
 
-  // ============================================================================
-  // 搜索拦截逻辑 (Mock Premium Upsell)
-  // ============================================================================
   const handleSearch = (e) => {
     if (e.key === 'Enter') {
       const val = searchInput.trim().toUpperCase();
       if (!val) return;
 
       if (database[val]) {
-        // 如果在 Top 20 数据库里，直接显示
         setActiveTicker(val);
         setSearchInput("");
       } else {
-        // 如果不在库里，弹出 Premium 提示
         setTargetTicker(val);
         setShowPremiumModal(true);
         setSearchInput("");
@@ -69,7 +64,6 @@ const App = () => {
     }
   };
 
-  // 渲染 Loading
   if (!database) {
     return (
       <div className="min-h-screen bg-slate-950 text-slate-200 flex flex-col items-center justify-center">
@@ -109,49 +103,29 @@ const App = () => {
   const marketContext = getMarketContext();
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 p-4 md:p-8 font-sans relative">
+    <div className="min-h-screen bg-slate-950 text-slate-200 p-4 md:p-6 lg:p-8 font-sans relative">
       
       {/* ⚠️ Premium Upsell Modal */}
       {showPremiumModal && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="bg-slate-900 border border-slate-700 p-8 rounded-2xl shadow-2xl max-w-lg w-full relative animate-in zoom-in-95 duration-200">
-            <button 
-              onClick={() => setShowPremiumModal(false)} 
-              className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors"
-            >
-              <X size={24}/>
-            </button>
+            <button onClick={() => setShowPremiumModal(false)} className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors"><X size={24}/></button>
             <div className="flex items-center gap-3 mb-4 text-amber-400">
-              <Lock size={28} /> 
-              <h2 className="text-2xl font-bold text-white">Premium Feature</h2>
+              <Lock size={28} /> <h2 className="text-2xl font-bold text-white">Premium Feature</h2>
             </div>
             <p className="text-slate-300 mb-6 text-base leading-relaxed">
               Ticker <strong className="text-white bg-slate-800 px-2 py-0.5 rounded border border-slate-700">{targetTicker}</strong> is not in our pre-loaded Top 20 list.<br/><br/>
               Customized ticker search and on-the-fly live computation will be available for <span className="text-amber-400 font-bold">Premium users</span> in the future. Stay tuned!
             </p>
             <div className="flex justify-end mt-4">
-              <button 
-                onClick={() => setShowPremiumModal(false)} 
-                className="bg-amber-600 hover:bg-amber-500 text-white font-bold px-6 py-2.5 rounded-lg shadow-lg transition-colors"
-              >
-                Got it
-              </button>
+              <button onClick={() => setShowPremiumModal(false)} className="bg-amber-600 hover:bg-amber-500 text-white font-bold px-6 py-2.5 rounded-lg shadow-lg transition-colors">Got it</button>
             </div>
           </div>
         </div>
       )}
 
-      {isMockMode && (
-        <div className="mb-6 bg-amber-900/50 border border-amber-500/50 text-amber-200 px-4 py-3 rounded-xl text-sm flex items-start gap-3">
-          <AlertTriangle className="shrink-0 mt-0.5" size={18} />
-          <div>
-            <strong>Preview Mode Active:</strong> Failed to fetch <code>/dashboard_data.json</code>. Showing mock data. Please run Python script to generate real data.
-          </div>
-        </div>
-      )}
-
-      {/* Header */}
-      <header className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+      {/* Header & Navigation */}
+      <header className="flex flex-col xl:flex-row justify-between items-start xl:items-center mb-6 gap-4">
         <div>
           <h1 className="text-3xl font-black tracking-tight text-white flex items-center gap-3">
             <Activity className="text-blue-500" size={32} />
@@ -159,7 +133,7 @@ const App = () => {
           </h1>
           
           <div className="flex flex-wrap items-center gap-3 mt-4">
-            <div className="flex flex-wrap bg-slate-900 rounded-lg p-1 border border-slate-800 max-w-2xl">
+            <div className="flex flex-wrap bg-slate-900 rounded-lg p-1 border border-slate-800 max-w-3xl">
               {Object.keys(database).map(ticker => (
                 <button
                   key={ticker}
@@ -175,67 +149,116 @@ const App = () => {
               <div className="absolute left-3 text-slate-500"><Search size={16} /></div>
               <input
                 type="text"
-                placeholder="Search any ticker..."
+                placeholder="Search ticker..."
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value.toUpperCase())}
                 onKeyDown={handleSearch}
-                className="pl-9 pr-4 py-1.5 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white uppercase placeholder:text-slate-500 focus:outline-none focus:border-blue-500 transition-all w-48"
+                className="pl-9 pr-4 py-1.5 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white uppercase placeholder:text-slate-500 focus:outline-none focus:border-blue-500 transition-all w-40 md:w-48"
               />
               <div className="absolute right-3 opacity-0 group-hover:opacity-100 transition-opacity">
                 <Lock size={14} className="text-amber-500" />
               </div>
             </div>
           </div>
-
-          <p className="text-slate-400 mt-4 flex items-center gap-2 text-sm">
-            <span>Ticker: <strong className="text-blue-400">{metadata.ticker}</strong></span>
-            <span className="text-slate-600">|</span>
-            <span>Updated: {metadata.updated_at}</span>
-          </p>
         </div>
 
-        <div className="flex items-center gap-4 bg-slate-900 p-3 rounded-xl border border-slate-800 mt-4 md:mt-0 shadow-lg">
-          <div className="text-right pr-4 border-r border-slate-700">
-            <p className="text-xs text-slate-400 font-medium mb-1">Spot Price</p>
-            <div className="flex items-center gap-2 justify-end">
-              <p className="text-2xl font-bold text-white">${metadata.spot_price.toFixed(2)}</p>
-              <span className={`px-2 py-0.5 rounded text-xs font-bold border ${isPositiveGamma ? 'bg-emerald-950/80 text-emerald-400 border-emerald-900' : 'bg-red-950/80 text-red-400 border-red-900'}`}>
-                {isPositiveGamma ? '🟢 +Gamma' : '🔴 -Gamma'}
-              </span>
-            </div>
-          </div>
-          <button 
-            onClick={() => setShowEducation(!showEducation)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition-colors ${showEducation ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`}
+        <div className="flex items-center gap-4 mt-2 xl:mt-0">
+          {/* Donation / Support Button */}
+          <a 
+            href="YOUR_PAYMENT_LINK_HERE" 
+            target="_blank" 
+            rel="noreferrer"
+            className="flex items-center gap-2 bg-pink-600 hover:bg-pink-500 text-white px-4 py-2.5 rounded-xl text-sm font-bold transition-all shadow-lg shadow-pink-900/20 group"
           >
-            <BookOpen size={16} />
-            {showEducation ? 'Hide Guide' : 'Show Guide'}
-          </button>
+            <Heart size={18} className="group-hover:animate-pulse" />
+            Support Us
+          </a>
+
+          <div className="flex items-center gap-4 bg-slate-900 p-2.5 rounded-xl border border-slate-800 shadow-lg">
+            <div className="text-right pr-4 border-r border-slate-700">
+              <p className="text-xs text-slate-400 font-medium mb-1">Spot Price</p>
+              <div className="flex items-center gap-2 justify-end">
+                <p className="text-xl font-bold text-white">${metadata.spot_price.toFixed(2)}</p>
+              </div>
+            </div>
+            <button 
+              onClick={() => setShowEducation(!showEducation)}
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-bold transition-colors ${showEducation ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`}
+            >
+              <BookOpen size={16} /> Guide
+            </button>
+          </div>
         </div>
       </header>
 
-      {/* Main Content */}
-      <div className={`mb-8 p-5 rounded-2xl border flex flex-col md:flex-row gap-4 items-start md:items-center ${marketContext.color}`}>
-        <div className="p-3 bg-slate-950/50 rounded-full shrink-0">
-          <Lightbulb size={24} />
+      {/* Quick Start Guide (Collapsible) */}
+      {showEducation && (
+        <div className="mb-6 bg-slate-800/50 border border-slate-700 p-5 rounded-2xl flex flex-col md:flex-row gap-6 animate-in slide-in-from-top-4">
+          <div className="flex-1">
+            <h3 className="text-white font-bold flex items-center gap-2 mb-2"><Info size={18} className="text-blue-400"/> How to use this dashboard?</h3>
+            <p className="text-sm text-slate-300 leading-relaxed mb-3">
+              This dashboard tracks the massive options positions held by Wall Street Market Makers. Their hedging activities act as invisible magnets and walls for the stock price.
+            </p>
+            <ul className="text-sm text-slate-400 space-y-1.5 list-disc pl-4">
+              <li><strong className="text-blue-400">Zero Gamma:</strong> The trend boundary. Above it = Calm/Bullish. Below it = High Volatility/Bearish.</li>
+              <li><strong className="text-emerald-400">Call Wall:</strong> Major resistance ceiling. Hard to break above.</li>
+              <li><strong className="text-red-400">Put Wall:</strong> Major support floor. Hard to break below.</li>
+            </ul>
+          </div>
+          <div className="w-full md:w-1/3 border-t md:border-t-0 md:border-l border-slate-700 pt-4 md:pt-0 md:pl-6 flex flex-col justify-center">
+             <p className="text-xs text-slate-400 mb-2">Data Updated: {metadata.updated_at}</p>
+             <p className="text-xs text-slate-400">Source: <span className="text-slate-200 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">{metadata.expiration_date}</span></p>
+          </div>
         </div>
+      )}
+
+      {/* 🟢 Ad Space Placeholder 1 (Top Banner) */}
+      <div className="w-full h-24 mb-6 bg-slate-900/30 border-2 border-dashed border-slate-700/50 rounded-2xl flex flex-col items-center justify-center text-slate-500 hover:bg-slate-900/50 hover:border-slate-600 transition-colors cursor-pointer group">
+        <Megaphone size={24} className="mb-1 opacity-50 group-hover:opacity-80" />
+        <span className="text-sm font-medium tracking-widest uppercase">Advertisement Space (728 x 90)</span>
+      </div>
+
+      {/* AI Market Context */}
+      <div className={`mb-6 p-5 rounded-2xl border flex flex-col md:flex-row gap-4 items-start md:items-center ${marketContext.color}`}>
+        <div className="p-3 bg-slate-950/50 rounded-full shrink-0"><Lightbulb size={24} /></div>
         <div>
           <h3 className="font-bold text-lg mb-1">AI Market Context: {marketContext.title}</h3>
-          <p className="text-sm opacity-80 leading-relaxed">{marketContext.desc}</p>
+          <p className="text-sm opacity-90 leading-relaxed">{marketContext.desc}</p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      {/* 🌟 核心指标前置 (4 Metrics Horizontal Layout) */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div className={`bg-slate-900 border ${isNearFlip ? 'border-blue-500 shadow-blue-900/20 shadow-lg' : 'border-slate-800'} p-5 rounded-2xl flex flex-col justify-center`}>
+          <h3 className="text-blue-400 font-bold flex items-center gap-2 mb-1 text-sm"><ArrowUpDown size={16} /> Zero Gamma</h3>
+          <div className="text-3xl font-black text-white font-mono">${indicators.zero_gamma.toFixed(2)}</div>
+        </div>
+        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl flex flex-col justify-center">
+          <h3 className="text-purple-400 font-bold flex items-center gap-2 mb-1 text-sm"><Target size={16} /> Max Pain</h3>
+          <div className="text-3xl font-black text-white font-mono">${indicators.max_pain.toFixed(2)}</div>
+        </div>
+        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl flex flex-col justify-center">
+          <h3 className="text-emerald-400 font-bold flex items-center gap-2 mb-1 text-sm"><TrendingUp size={16} /> Call Wall (Resist)</h3>
+          <div className="text-3xl font-black text-white font-mono">${indicators.call_wall.toFixed(2)}</div>
+        </div>
+        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl flex flex-col justify-center">
+          <h3 className="text-red-400 font-bold flex items-center gap-2 mb-1 text-sm"><ShieldAlert size={16} /> Put Wall (Support)</h3>
+          <div className="text-3xl font-black text-white font-mono">${indicators.put_wall.toFixed(2)}</div>
+        </div>
+      </div>
+
+      {/* Main Layout Split: Chart & Right Sidebar */}
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
         
-        {/* Left Chart */}
-        <div className="lg:col-span-8 bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col shadow-xl">
+        {/* Left: Global GEX Profile Chart (Takes 9 columns) */}
+        <div className="xl:col-span-9 bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col shadow-xl">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-bold text-white flex items-center gap-2">
               <span className="w-1.5 h-6 bg-blue-500 rounded-full"></span> Global Net GEX Profile
             </h2>
           </div>
 
-          <div className="relative mt-4 flex-1">
+          <div className="relative mt-2 flex-1">
             <div className="absolute left-1/2 top-0 bottom-0 w-px bg-slate-700/50 z-0"></div>
             <div className="flex justify-between text-xs text-slate-500 mb-2 px-2 uppercase font-medium">
               <span>← Put Dominant (-Gamma)</span><span>Strike</span><span>Call Dominant (+Gamma) →</span>
@@ -251,7 +274,7 @@ const App = () => {
                 const isSpotNear = Math.abs(data.strike - metadata.spot_price) <= (metadata.spot_price * 0.005);
 
                 return (
-                  <div key={data.strike} className={`flex items-center relative z-10 hover:bg-slate-800/80 rounded-md p-1.5 -mx-1.5 transition-colors ${isZeroGamma ? 'bg-blue-900/10' : ''}`}>
+                  <div key={data.strike} className={`flex items-center relative z-10 hover:bg-slate-800/80 rounded-md p-1.5 -mx-1.5 transition-colors ${isZeroGamma ? 'bg-blue-900/20' : ''}`}>
                     <div className="flex-1 flex justify-end items-center pr-4">
                       {!isCallDominant && data.net_gex !== 0 && (
                         <div className="h-5 rounded-l-sm bg-red-500/80 border-r border-red-400" style={{ width: `${widthPercent}%` }}></div>
@@ -262,7 +285,7 @@ const App = () => {
                         </div>
                       )}
                     </div>
-                    <div className={`w-16 text-center font-mono text-sm relative z-20 ${isSpotNear ? 'text-blue-400 font-bold bg-slate-900 rounded px-1 ring-1 ring-blue-500/50' : 'text-slate-400'}`}>
+                    <div className={`w-16 text-center font-mono text-sm relative z-20 ${isSpotNear ? 'text-white font-bold bg-blue-600 rounded px-1 shadow-lg shadow-blue-900/50' : 'text-slate-400'}`}>
                       {data.strike}
                     </div>
                     <div className="flex-1 flex justify-start items-center pl-4 relative">
@@ -284,24 +307,28 @@ const App = () => {
           </div>
         </div>
 
-        {/* Right Metrics */}
-        <div className="lg:col-span-4 flex flex-col gap-4">
-          <div className={`bg-slate-900 border ${isNearFlip ? 'border-blue-500' : 'border-slate-800'} p-5 rounded-2xl`}>
-            <h3 className="text-blue-400 font-bold flex items-center gap-2 mb-2"><ArrowUpDown size={18} /> Zero Gamma</h3>
-            <div className="text-3xl font-black text-white font-mono">${indicators.zero_gamma.toFixed(2)}</div>
+        {/* Right Sidebar: Monetization & Ad Space (Takes 3 columns) */}
+        <div className="xl:col-span-3 flex flex-col gap-6">
+          
+          {/* Premium Teaser Box */}
+          <div className="bg-gradient-to-b from-slate-800 to-slate-900 border border-slate-700 p-6 rounded-2xl flex flex-col items-center text-center shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-20 h-20 bg-amber-500/10 rounded-bl-full blur-xl"></div>
+            <Lock className="text-amber-500 mb-4" size={36} />
+            <h3 className="text-white font-bold text-lg mb-2">Want to search any ticker?</h3>
+            <p className="text-slate-400 text-sm mb-6 leading-relaxed">
+              Unlock real-time Greek profiling for 5,000+ US stocks. Custom search feature is coming to Premium members.
+            </p>
+            <button className="w-full bg-slate-800 border border-slate-600 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl text-sm transition-colors">
+              Join Waitlist
+            </button>
           </div>
-          <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
-            <h3 className="text-purple-400 font-bold flex items-center gap-2 mb-2"><Target size={18} /> Max Pain</h3>
-            <div className="text-3xl font-black text-white font-mono">${indicators.max_pain.toFixed(2)}</div>
+
+          {/* 🟢 Ad Space Placeholder 2 (Sidebar Skyscraper) */}
+          <div className="w-full h-96 bg-slate-900/30 border-2 border-dashed border-slate-700/50 rounded-2xl flex flex-col items-center justify-center text-slate-500 hover:bg-slate-900/50 hover:border-slate-600 transition-colors cursor-pointer group flex-1">
+            <Megaphone size={32} className="mb-2 opacity-50 group-hover:opacity-80" />
+            <span className="text-sm font-medium tracking-widest uppercase text-center px-4">Advertisement<br/>(300 x 600)</span>
           </div>
-          <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
-            <h3 className="text-emerald-400 font-bold flex items-center gap-2 mb-2"><TrendingUp size={18} /> Call Wall (Resistance)</h3>
-            <div className="text-3xl font-black text-white font-mono">${indicators.call_wall.toFixed(2)}</div>
-          </div>
-          <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
-            <h3 className="text-red-400 font-bold flex items-center gap-2 mb-2"><ShieldAlert size={18} /> Put Wall (Support)</h3>
-            <div className="text-3xl font-black text-white font-mono">${indicators.put_wall.toFixed(2)}</div>
-          </div>
+
         </div>
       </div>
     </div>
