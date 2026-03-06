@@ -5,7 +5,7 @@ import { Target, Info, AlertTriangle, TrendingUp, ShieldAlert, BookOpen, Lightbu
 // ⚠️ Webhook Configuration (No Database Needed!)
 // ============================================================================
 // Replace this with your Discord / Slack / Telegram Webhook URL
-const FEEDBACK_WEBHOOK_URL = "https://discord.com/api/webhooks/1479532998834655363/kSjET4a37ROm2eL3DZ_Y6nUBKEgruCYbXLiZ1eOr_Ry9h2Ga5rEUZppdUswdkUnnXmLM"; 
+const FEEDBACK_WEBHOOK_URL = import.meta.env.VITE_FEEDBACK_WEBHOOK_URL;
 
 // 模拟数据库 (当 fetch 失败时作为沙盒环境的兜底数据)
 const mockDatabase = {
