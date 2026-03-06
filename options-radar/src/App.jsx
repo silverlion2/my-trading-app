@@ -279,7 +279,7 @@ const App = () => {
             <span className="text-slate-600">|</span>
             <span>Target Expiry: <strong className="text-slate-200">{metadata.expiration_date}</strong></span>
             <span className="text-slate-600">|</span>
-            <span>Updated: {metadata.updated_at}</span>
+            <span>Updated: {metadata.updated_at} EST</span>
           </p>
         </div>
 
@@ -336,10 +336,41 @@ const App = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="flex flex-col gap-8">
         
-        {/* Left: Net GEX Profile Chart */}
-        <div className="lg:col-span-8 bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col">
+        {/* Top 4 Key Metrics (Moved to top) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className={`bg-slate-900 border ${isNearFlip ? 'border-blue-500' : 'border-slate-800'} p-5 rounded-2xl relative overflow-hidden group transition-colors`}>
+            <div className="absolute -right-4 -top-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity"><ArrowUpDown size={120} /></div>
+            <h3 className="text-blue-400 font-bold flex items-center gap-2"><ArrowUpDown size={18} /> Zero Gamma (Flip Point)</h3>
+            <div className="text-3xl font-black text-white font-mono mt-1 mb-3">${indicators.zero_gamma.toFixed(2)}</div>
+            {showEducation && <p className="text-xs text-slate-400 bg-slate-950 p-2.5 rounded-xl border border-slate-800">The bull/bear boundary. Trade with the flow.</p>}
+          </div>
+
+          <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl relative overflow-hidden group hover:border-purple-500/50 transition-colors">
+            <div className="absolute -right-4 -top-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity"><Target size={120} /></div>
+            <h3 className="text-purple-400 font-bold flex items-center gap-2"><Target size={18} /> Max Pain</h3>
+            <div className="text-3xl font-black text-white font-mono mt-1 mb-3">${indicators.max_pain.toFixed(2)}</div>
+            {showEducation && <p className="text-xs text-slate-400 bg-slate-950 p-2.5 rounded-xl border border-slate-800">The price where option buyers lose the most. Acts as a magnet.</p>}
+          </div>
+
+          <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl relative overflow-hidden group hover:border-emerald-500/50 transition-colors">
+            <div className="absolute -right-4 -top-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity"><TrendingUp size={120} /></div>
+            <h3 className="text-emerald-400 font-bold flex items-center gap-2"><TrendingUp size={18} /> Call Wall (Resistance)</h3>
+            <div className="text-3xl font-black text-white font-mono mt-1 mb-3">${indicators.call_wall.toFixed(2)}</div>
+            {showEducation && <p className="text-xs text-slate-400 bg-slate-950 p-2.5 rounded-xl border border-slate-800">The massive ceiling defended by dealers. Hard to break.</p>}
+          </div>
+
+           <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl relative overflow-hidden group hover:border-red-500/50 transition-colors">
+            <div className="absolute -right-4 -top-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity"><ShieldAlert size={120} /></div>
+            <h3 className="text-red-400 font-bold flex items-center gap-2"><ShieldAlert size={18} /> Put Wall (Support)</h3>
+            <div className="text-3xl font-black text-white font-mono mt-1 mb-3">${indicators.put_wall.toFixed(2)}</div>
+            {showEducation && <p className="text-xs text-slate-400 bg-slate-950 p-2.5 rounded-xl border border-slate-800">The absolute physical floor in the negative gamma zone.</p>}
+          </div>
+        </div>
+
+        {/* Net GEX Profile Chart */}
+        <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-bold text-white flex items-center gap-2">
               <span className="w-1.5 h-6 bg-blue-500 rounded-full"></span>
@@ -422,37 +453,6 @@ const App = () => {
                <span className="flex items-center gap-2"><div className="w-3 h-3 bg-emerald-500/80 rounded-sm"></div> Call Dominant (+GEX)</span>
                <span className="flex items-center gap-2"><div className="w-3 h-3 bg-red-500/80 rounded-sm"></div> Put Dominant (-GEX)</span>
             </div>
-          </div>
-        </div>
-
-        {/* Right: Top 4 Key Metrics */}
-        <div className="lg:col-span-4 flex flex-col gap-5">
-          <div className={`bg-slate-900 border ${isNearFlip ? 'border-blue-500' : 'border-slate-800'} p-5 rounded-2xl relative overflow-hidden group transition-colors`}>
-            <div className="absolute -right-4 -top-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity"><ArrowUpDown size={120} /></div>
-            <h3 className="text-blue-400 font-bold flex items-center gap-2"><ArrowUpDown size={18} /> Zero Gamma (Flip Point)</h3>
-            <div className="text-3xl font-black text-white font-mono mt-1 mb-3">${indicators.zero_gamma.toFixed(2)}</div>
-            {showEducation && <p className="text-xs text-slate-400 bg-slate-950 p-2.5 rounded-xl border border-slate-800">The bull/bear boundary. Trade with the flow.</p>}
-          </div>
-
-          <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl relative overflow-hidden group hover:border-purple-500/50 transition-colors">
-            <div className="absolute -right-4 -top-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity"><Target size={120} /></div>
-            <h3 className="text-purple-400 font-bold flex items-center gap-2"><Target size={18} /> Max Pain</h3>
-            <div className="text-3xl font-black text-white font-mono mt-1 mb-3">${indicators.max_pain.toFixed(2)}</div>
-            {showEducation && <p className="text-xs text-slate-400 bg-slate-950 p-2.5 rounded-xl border border-slate-800">The price where option buyers lose the most. Acts as a magnet.</p>}
-          </div>
-
-          <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl relative overflow-hidden group hover:border-emerald-500/50 transition-colors">
-            <div className="absolute -right-4 -top-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity"><TrendingUp size={120} /></div>
-            <h3 className="text-emerald-400 font-bold flex items-center gap-2"><TrendingUp size={18} /> Call Wall (Resistance)</h3>
-            <div className="text-3xl font-black text-white font-mono mt-1 mb-3">${indicators.call_wall.toFixed(2)}</div>
-            {showEducation && <p className="text-xs text-slate-400 bg-slate-950 p-2.5 rounded-xl border border-slate-800">The massive ceiling defended by dealers. Hard to break.</p>}
-          </div>
-
-           <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl relative overflow-hidden group hover:border-red-500/50 transition-colors">
-            <div className="absolute -right-4 -top-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity"><ShieldAlert size={120} /></div>
-            <h3 className="text-red-400 font-bold flex items-center gap-2"><ShieldAlert size={18} /> Put Wall (Support)</h3>
-            <div className="text-3xl font-black text-white font-mono mt-1 mb-3">${indicators.put_wall.toFixed(2)}</div>
-            {showEducation && <p className="text-xs text-slate-400 bg-slate-950 p-2.5 rounded-xl border border-slate-800">The absolute physical floor in the negative gamma zone.</p>}
           </div>
         </div>
       </div>
