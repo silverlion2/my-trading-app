@@ -2,10 +2,10 @@ name: 自动更新期权雷达数据
 
 on:
   schedule:
-    # 每天 UTC 06:00 运行 (约美东时间凌晨 1:00 或 2:00，夏令时差异)
-    # 运行日期为周二到周六 (对应抓取周一到周五的收盘结算数据)
-    - cron: '0 6 * * 2-6'
-  workflow_dispatch: # 依然保留手动触发按钮
+    # 每天 UTC 11:00 运行 (对应美东时间早晨 6:00 / 夏令时早晨 7:00)
+    # 完美避开深夜的 OCC 结算延迟，确保拿到 100% 完整的 T-1 期权链
+    - cron: '0 11 * * 2-6'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -29,7 +29,6 @@ jobs:
           pip install pandas numpy scipy requests
 
       - name: Run Python script
-        # 🔑 从 GitHub Secrets 中安全注入 MarketData 的 API 密钥
         env:
           MARKETDATA_TOKEN: ${{ secrets.MARKETDATA_TOKEN }}
         run: |
@@ -49,9 +48,9 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add .
           if [[ -n $(git status --porcelain) ]]; then
-            git commit -m "Auto-update: Daily Options Data (Midnight EOD Batch)"
+            git commit -m "Auto-update: Daily Options Data (Morning EOD Batch)"
             git push
-            echo "✅ 凌晨 EOD 数据更新成功并推送到仓库！"
+            echo "✅ 早晨 EOD 数据更新成功并推送到仓库！"
           else
             echo "⏭️ 数据没有变化，跳过提交。"
           fi
