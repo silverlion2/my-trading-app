@@ -1,66 +1,113 @@
 import React, { useState, useEffect } from 'react';
-import { Target, Info, AlertTriangle, TrendingUp, ShieldAlert, BookOpen, Lightbulb, Activity, ArrowUpDown, Search, Loader2, Lock, X, Coffee, Megaphone, Heart } from 'lucide-react';
+import { Target, Info, AlertTriangle, TrendingUp, ShieldAlert, BookOpen, Lightbulb, Activity, ArrowUpDown, Search, Loader2, Zap, X, MessageSquare } from 'lucide-react';
 
 // ============================================================================
-// 1. 本地 Mock 数据兜底 (防报错)
+// ⚠️ Webhook Configuration (No Database Needed!)
 // ============================================================================
+// Replace this with your Discord / Slack / Telegram Webhook URL
+const FEEDBACK_WEBHOOK_URL = "https://discord.com/api/webhooks/1479532998834655363/kSjET4a37ROm2eL3DZ_Y6nUBKEgruCYbXLiZ1eOr_Ry9h2Ga5rEUZppdUswdkUnnXmLM"; 
+
+// 模拟数据库 (当 fetch 失败时作为沙盒环境的兜底数据)
 const mockDatabase = {
   "SPY": {
-    metadata: { ticker: "SPY", spot_price: 508.45, expiration_date: "Mocked Data", updated_at: "Please run Python script" },
+    metadata: { ticker: "SPY", spot_price: 508.45, expiration_date: "2024-03-15", updated_at: "Mocked Data (Preview)" },
     indicators: { max_pain: 507.00, call_wall: 515.00, put_wall: 495.00, zero_gamma: 502.00 },
     gex_chart_data: [
       { strike: 490, net_gex: -120000 }, { strike: 495, net_gex: -450000 }, { strike: 500, net_gex: -210000 },
       { strike: 502, net_gex: 0 }, { strike: 505, net_gex: 50000 }, { strike: 507, net_gex: 80000 },
       { strike: 510, net_gex: 230000 }, { strike: 515, net_gex: 580000 }, { strike: 520, net_gex: 150000 }
     ]
+  },
+  "QQQ": {
+    metadata: { ticker: "QQQ", spot_price: 438.20, expiration_date: "2024-03-15", updated_at: "Mocked Data (Preview)" },
+    indicators: { max_pain: 440.00, call_wall: 445.00, put_wall: 430.00, zero_gamma: 441.00 },
+    gex_chart_data: [
+      { strike: 425, net_gex: -80000 }, { strike: 430, net_gex: -320000 }, { strike: 435, net_gex: -150000 },
+      { strike: 438, net_gex: -40000 }, { strike: 440, net_gex: 20000 }, { strike: 441, net_gex: 0 },
+      { strike: 445, net_gex: 410000 }, { strike: 450, net_gex: 120000 }
+    ]
+  },
+  "TSLA": {
+    metadata: { ticker: "TSLA", spot_price: 172.50, expiration_date: "2024-03-15", updated_at: "Mocked Data (Preview)" },
+    indicators: { max_pain: 175.00, call_wall: 185.00, put_wall: 160.00, zero_gamma: 168.00 },
+    gex_chart_data: [
+      { strike: 155, net_gex: -30000 }, { strike: 160, net_gex: -180000 }, { strike: 165, net_gex: -60000 },
+      { strike: 168, net_gex: 0 }, { strike: 170, net_gex: 40000 }, { strike: 172.5, net_gex: 55000 },
+      { strike: 175, net_gex: 90000 }, { strike: 180, net_gex: 120000 }, { strike: 185, net_gex: 210000 }
+    ]
   }
 };
 
 const App = () => {
-  // 核心状态
+  // State for data and UI
   const [database, setDatabase] = useState(null);
+  const [isMockMode, setIsMockMode] = useState(false);
   const [activeTicker, setActiveTicker] = useState("SPY");
   const [searchInput, setSearchInput] = useState("");
   const [showEducation, setShowEducation] = useState(true);
-  const [isMockMode, setIsMockMode] = useState(false);
 
-  // Premium 弹窗状态
-  const [showPremiumModal, setShowPremiumModal] = useState(false);
-  const [targetTicker, setTargetTicker] = useState("");
+  // Ad State (Control visibility of ad slots)
+  const [isAdActive, setIsAdActive] = useState(false);
 
-  // 加载每日跑批的静态 JSON
+  // Feedback State
+  const [showFeedbackModal, setShowFeedbackModal] = useState(false);
+  const [feedbackText, setFeedbackText] = useState("");
+  const [isSubmittingFeedback, setIsSubmittingFeedback] = useState(false);
+  const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
+  const [toastMsg, setToastMsg] = useState("");
+
+  const showToast = (msg) => {
+    setToastMsg(msg);
+    setTimeout(() => setToastMsg(""), 3000);
+  };
+
+  // Fetch real data on mount
   useEffect(() => {
-    const fetchStaticData = async () => {
+    const fetchData = async () => {
       try {
         const response = await fetch('/dashboard_data.json');
-        if (!response.ok) throw new Error("文件不存在");
+        if (!response.ok) throw new Error("Failed to load dashboard_data.json");
         const data = await response.json();
         setDatabase(data);
         setIsMockMode(false);
-        if (!data["SPY"] && Object.keys(data).length > 0) {
-          setActiveTicker(Object.keys(data)[0]);
-        }
+        if (!data["SPY"] && Object.keys(data).length > 0) setActiveTicker(Object.keys(data)[0]);
       } catch (err) {
+        console.warn("Fetch failed, falling back to mock data.", err);
         setDatabase(mockDatabase);
         setIsMockMode(true);
       }
     };
-    fetchStaticData();
+    fetchData();
   }, []);
 
-  const handleSearch = (e) => {
-    if (e.key === 'Enter') {
-      const val = searchInput.trim().toUpperCase();
-      if (!val) return;
-
-      if (database[val]) {
-        setActiveTicker(val);
-        setSearchInput("");
+  // ============================================================================
+  // Feedback Logic (Webhook approach - Zero Billing!)
+  // ============================================================================
+  const submitFeedback = async () => {
+    if (!feedbackText.trim()) return;
+    setIsSubmittingFeedback(true);
+    
+    try {
+      if (FEEDBACK_WEBHOOK_URL && FEEDBACK_WEBHOOK_URL.startsWith('http')) {
+        // Send to Discord / Slack Webhook
+        await fetch(FEEDBACK_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            content: `🚀 **New Feedback for GexEdge**\n> ${feedbackText}`
+          })
+        });
       } else {
-        setTargetTicker(val);
-        setShowPremiumModal(true);
-        setSearchInput("");
+        // Simulate network delay if webhook is not configured yet
+        await new Promise(res => setTimeout(res, 800));
+        console.log("Feedback recorded locally (Webhook not set):", feedbackText);
       }
+      setFeedbackSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      showToast("❌ Failed to submit feedback. Please try again.");
+    } finally {
+      setIsSubmittingFeedback(false);
     }
   };
 
@@ -68,76 +115,145 @@ const App = () => {
     return (
       <div className="min-h-screen bg-slate-950 text-slate-200 flex flex-col items-center justify-center">
         <Loader2 className="animate-spin text-blue-500 mb-4" size={48} />
-        <h2 className="text-lg font-bold animate-pulse">Loading Options Matrix...</h2>
+        <h2 className="text-lg font-bold animate-pulse">Loading Options Flow Data...</h2>
       </div>
     );
   }
 
   const activeData = database[activeTicker];
-  if (!activeData) return <div className="min-h-screen bg-slate-950 p-8">No data available</div>;
+  if (!activeData) return <div className="min-h-screen bg-slate-950 text-slate-200 p-8">Ticker not found.</div>;
 
   const { metadata, indicators, gex_chart_data } = activeData;
   const maxGexAbs = Math.max(...gex_chart_data.map(d => Math.abs(d.net_gex)));
+
+  const handleSearch = (e) => {
+    if (e.key === 'Enter') {
+      const val = searchInput.trim().toUpperCase();
+      if (database[val]) { setActiveTicker(val); setSearchInput(""); }
+      else showToast("Ticker not found in free tier. Support us for more!");
+    }
+  };
+
+  const handleSelect = (ticker) => {
+    if (database[ticker]) { setActiveTicker(ticker); setSearchInput(""); }
+  };
 
   const isPositiveGamma = metadata.spot_price >= indicators.zero_gamma;
   const diffToZeroGamma = Math.abs(metadata.spot_price - indicators.zero_gamma);
   const isNearFlip = diffToZeroGamma <= (metadata.spot_price * 0.005); 
 
   const getMarketContext = () => {
-    const diffToMaxPain = Math.abs(metadata.spot_price - indicators.max_pain);
-    const isPinning = diffToMaxPain <= (metadata.spot_price * 0.005);
+    const isPinning = Math.abs(metadata.spot_price - indicators.max_pain) <= (metadata.spot_price * 0.005);
     const isNearCallWall = indicators.call_wall - metadata.spot_price <= (metadata.spot_price * 0.01);
     const isNearPutWall = metadata.spot_price - indicators.put_wall <= (metadata.spot_price * 0.01);
 
-    if (isNearFlip) return { title: "Zero Gamma Battleground", color: "text-blue-400 border-blue-900 bg-blue-950/20", desc: "Spot is testing the Zero Gamma flip point. Holding above means a steady grind higher; breaking below triggers high-volatility negative feedback." };
-    if (isPinning) return { title: "Max Pain Pinning", color: "text-purple-400 border-purple-900 bg-purple-950/20", desc: "Dealers are hedging to pin the spot near Max Pain. High Theta decay zone. Directional buying is not recommended." };
-    if (isNearCallWall) return { title: "Testing Call Wall Resistance", color: "text-emerald-400 border-emerald-900 bg-emerald-950/20", desc: "Approaching massive Call Wall resistance. Hard to break, but a high-volume breakout could trigger a Gamma Squeeze." };
-    if (isNearPutWall) return { title: "Testing Put Wall Support", color: "text-red-400 border-red-900 bg-red-950/20", desc: "Testing the ultimate Put Wall support. High probability of a bounce. A high-volume breakdown indicates panic selling." };
-    return { 
-      title: isPositiveGamma ? "Positive Gamma (Low Volatility Grind)" : "Negative Gamma (High Volatility Trend)", 
-      color: isPositiveGamma ? "text-emerald-400 border-emerald-900 bg-emerald-950/20" : "text-amber-400 border-amber-900 bg-amber-950/20",
-      desc: isPositiveGamma ? "Market is calm. Dealers are buying dips and selling rips, suppressing volatility. Look for support to buy." : "Market is fragile. Dealers are selling dips and buying rips, amplifying volatility. Follow the trend, don't catch falling knives." 
-    };
+    if (isNearFlip) return { title: "Zero Gamma Battleground", description: `Spot is testing the Flip Point at $${indicators.zero_gamma}. Holding above means Positive Gamma (lower volatility). Breaking below triggers Negative Gamma (selling pressure).`, color: "text-blue-400 border-blue-900 bg-blue-950/20" };
+    if (isPinning) return { title: `Max Pain Pinning`, description: `Spot is pinned tightly to Max Pain $${indicators.max_pain}. Dealers are hedging to keep the price anchored. Selling premium is favored here.`, color: "text-purple-400 border-purple-900 bg-purple-950/20" };
+    if (isNearCallWall) return { title: "Testing Call Wall (Gamma Squeeze Alert)", description: `Price is approaching the massive Call Wall at $${indicators.call_wall}. If broken with volume, it forces dealer buying, triggering a Gamma Squeeze.`, color: "text-emerald-400 border-emerald-900 bg-emerald-950/20" };
+    if (isNearPutWall) return { title: "Testing Put Wall (Support Zone)", description: `Testing the ultimate Put Wall at $${indicators.put_wall}. Acts as strong support. If decisively broken, panic selling may follow.`, color: "text-red-400 border-red-900 bg-red-950/20" };
+    
+    return isPositiveGamma 
+      ? { title: "Positive Gamma (Buy the Dip)", description: "Market is in Positive Gamma. Dealers are buying dips and selling rips, suppressing volatility.", color: "text-emerald-400 border-emerald-900 bg-emerald-950/20" }
+      : { title: "Negative Gamma (Trend Following)", description: "Market is in Negative Gamma. Dealers are selling dips and buying rips, exacerbating volatility.", color: "text-amber-400 border-amber-900 bg-amber-950/20" };
   };
 
   const marketContext = getMarketContext();
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 p-4 md:p-6 lg:p-8 font-sans relative">
+    <div className="min-h-screen bg-slate-950 text-slate-200 p-4 md:p-8 font-sans selection:bg-blue-500/30 relative">
       
-      {/* ⚠️ Premium Upsell Modal */}
-      {showPremiumModal && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-700 p-8 rounded-2xl shadow-2xl max-w-lg w-full relative animate-in zoom-in-95 duration-200">
-            <button onClick={() => setShowPremiumModal(false)} className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors"><X size={24}/></button>
-            <div className="flex items-center gap-3 mb-4 text-amber-400">
-              <Lock size={28} /> <h2 className="text-2xl font-bold text-white">Premium Feature</h2>
-            </div>
-            <p className="text-slate-300 mb-6 text-base leading-relaxed">
-              Ticker <strong className="text-white bg-slate-800 px-2 py-0.5 rounded border border-slate-700">{targetTicker}</strong> is not in our pre-loaded Top 20 list.<br/><br/>
-              Customized ticker search and on-the-fly live computation will be available for <span className="text-amber-400 font-bold">Premium users</span> in the future. Stay tuned!
-            </p>
-            <div className="flex justify-end mt-4">
-              <button onClick={() => setShowPremiumModal(false)} className="bg-amber-600 hover:bg-amber-500 text-white font-bold px-6 py-2.5 rounded-lg shadow-lg transition-colors">Got it</button>
-            </div>
+      {toastMsg && (
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-slate-800 border border-slate-700 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 animate-in slide-in-from-top-4">
+          <Info size={18} className="text-blue-400" /> {toastMsg}
+        </div>
+      )}
+
+      {isMockMode && (
+        <div className="mb-6 bg-amber-900/50 border border-amber-500/50 text-amber-200 px-4 py-3 rounded-xl text-sm flex items-start gap-3">
+          <AlertTriangle className="shrink-0 mt-0.5" size={18} />
+          <div>
+            <strong>Preview Mode Active:</strong> Failed to fetch <code>/dashboard_data.json</code>. Showing fallback mock data.
           </div>
         </div>
       )}
 
-      {/* Header & Navigation */}
-      <header className="flex flex-col xl:flex-row justify-between items-start xl:items-center mb-6 gap-4">
+      {/* Feedback Modal */}
+      {showFeedbackModal && (
+        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-slate-900 border border-slate-700 p-8 rounded-2xl shadow-2xl max-w-lg w-full relative">
+            <button onClick={() => setShowFeedbackModal(false)} className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors">
+              <X size={24}/>
+            </button>
+            
+            {!feedbackSubmitted ? (
+              <>
+                <div className="flex items-center gap-3 mb-4 text-blue-400">
+                  <MessageSquare size={28} /> <h2 className="text-2xl font-bold text-white">Share Your Thoughts</h2>
+                </div>
+                <p className="text-slate-300 mb-6 text-sm leading-relaxed">
+                  We're building GexEdge for traders like you. Whether it's a feature request, a bug report, or just saying hi—your voice means the world to us and shapes our future roadmap! ❤️
+                </p>
+                <textarea 
+                  rows="4"
+                  placeholder="Tell us what you think..." 
+                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-4 py-3 mb-6 focus:outline-none focus:border-blue-500 text-white resize-none"
+                  value={feedbackText}
+                  onChange={e => setFeedbackText(e.target.value)}
+                />
+                <div className="flex justify-end gap-3">
+                  <button onClick={() => setShowFeedbackModal(false)} className="px-5 py-2 rounded-lg text-slate-400 hover:bg-slate-800 transition-colors">
+                    Cancel
+                  </button>
+                  <button 
+                    onClick={submitFeedback} 
+                    disabled={isSubmittingFeedback || !feedbackText.trim()}
+                    className="bg-blue-600 hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold px-6 py-2 rounded-lg shadow-lg flex items-center gap-2 transition-colors"
+                  >
+                    {isSubmittingFeedback ? <Loader2 size={18} className="animate-spin" /> : <Zap size={18} />} 
+                    {isSubmittingFeedback ? 'Sending...' : 'Send Feedback'}
+                  </button>
+                </div>
+              </>
+            ) : (
+              <div className="text-center py-6">
+                <div className="w-16 h-16 bg-emerald-900/20 text-emerald-400 border border-emerald-900 rounded-full flex items-center justify-center mx-auto mb-5 shadow-[0_0_15px_rgba(52,211,153,0.2)]">
+                  <Activity size={32} />
+                </div>
+                <h2 className="text-2xl font-bold text-white mb-3">Thank You! 🎉</h2>
+                <p className="text-slate-300 mb-8 text-sm leading-relaxed">
+                  Your voice has been heard. We read every single message and use it to make GexEdge better for the entire trading community. Happy trading and stay profitable! 🚀
+                </p>
+                <button 
+                  onClick={() => setShowFeedbackModal(false)} 
+                  className="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold px-8 py-2.5 rounded-lg shadow-lg transition-colors w-full"
+                >
+                  Close
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Header Info */}
+      <header className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
         <div>
-          <h1 className="text-3xl font-black tracking-tight text-white flex items-center gap-3">
-            <Activity className="text-blue-500" size={32} />
-            Smart Options Radar
+          <h1 className="text-3xl font-black tracking-tight text-white flex items-baseline gap-3">
+            <span className="flex items-center gap-2">
+              <Activity className="text-blue-500" size={32} />
+              GexEdge
+            </span>
+            <span className="text-sm font-medium text-slate-400 hidden md:inline-block tracking-normal">
+              — The Smart Options Radar
+            </span>
           </h1>
           
           <div className="flex flex-wrap items-center gap-3 mt-4">
-            <div className="flex flex-wrap bg-slate-900 rounded-lg p-1 border border-slate-800 max-w-3xl">
+            <div className="flex flex-wrap bg-slate-900 rounded-lg p-1 border border-slate-800 max-w-2xl">
               {Object.keys(database).map(ticker => (
                 <button
                   key={ticker}
-                  onClick={() => setActiveTicker(ticker)}
+                  onClick={() => handleSelect(ticker)}
                   className={`px-3 py-1.5 rounded-md text-sm font-bold transition-all ${activeTicker === ticker ? 'bg-blue-600 text-white shadow-md' : 'text-slate-400 hover:text-white hover:bg-slate-800'}`}
                 >
                   {ticker}
@@ -145,139 +261,134 @@ const App = () => {
               ))}
             </div>
             
-            <div className="relative flex items-center group">
+            <div className="relative flex items-center">
               <div className="absolute left-3 text-slate-500"><Search size={16} /></div>
               <input
                 type="text"
-                placeholder="Search ticker..."
+                placeholder="Search Ticker..."
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value.toUpperCase())}
                 onKeyDown={handleSearch}
-                className="pl-9 pr-4 py-1.5 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white uppercase placeholder:text-slate-500 focus:outline-none focus:border-blue-500 transition-all w-40 md:w-48"
+                className="pl-9 pr-4 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-sm text-white uppercase placeholder:text-slate-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all w-48"
               />
-              <div className="absolute right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                <Lock size={14} className="text-amber-500" />
-              </div>
             </div>
           </div>
+
+          <p className="text-slate-400 mt-4 flex items-center gap-2 text-sm">
+            <span>Ticker: <strong className="text-blue-400 text-base">{metadata.ticker}</strong></span>
+            <span className="text-slate-600">|</span>
+            <span>Target Expiry: <strong className="text-slate-200">{metadata.expiration_date}</strong></span>
+            <span className="text-slate-600">|</span>
+            <span>Updated: {metadata.updated_at}</span>
+          </p>
         </div>
 
-        <div className="flex items-center gap-4 mt-2 xl:mt-0">
-          {/* Donation / Support Button */}
-          <a 
-            href="https://buy.stripe.com/test_5kQ00bh2u5jP6G5du52B200" 
-            target="_blank" 
-            rel="noreferrer"
-            className="flex items-center gap-2 bg-pink-600 hover:bg-pink-500 text-white px-4 py-2.5 rounded-xl text-sm font-bold transition-all shadow-lg shadow-pink-900/20 group"
+        <div className="flex flex-col md:flex-row items-end md:items-center gap-4">
+          {/* Feedback Button */}
+          <button 
+            onClick={() => {
+              setFeedbackSubmitted(false);
+              setFeedbackText("");
+              setShowFeedbackModal(true);
+            }}
+            className="flex items-center gap-2 text-sm text-slate-400 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 px-4 py-2.5 rounded-xl transition-all shadow-sm"
           >
-            <Heart size={18} className="group-hover:animate-pulse" />
-            Support Us
-          </a>
+            <MessageSquare size={16} />
+            <span className="hidden sm:inline font-medium">Feedback</span>
+          </button>
 
-          <div className="flex items-center gap-4 bg-slate-900 p-2.5 rounded-xl border border-slate-800 shadow-lg">
+          {/* Spot Price Block */}
+          <div className="flex items-center gap-4 bg-slate-900 p-3 rounded-xl border border-slate-800 shadow-lg">
             <div className="text-right pr-4 border-r border-slate-700">
               <p className="text-xs text-slate-400 font-medium mb-1">Spot Price</p>
               <div className="flex items-center gap-2 justify-end">
-                <p className="text-xl font-bold text-white">${metadata.spot_price.toFixed(2)}</p>
+                <p className="text-2xl font-bold text-white">${metadata.spot_price.toFixed(2)}</p>
+                <span className={`px-2 py-0.5 rounded text-xs font-bold border ${isPositiveGamma ? 'bg-emerald-950/80 text-emerald-400 border-emerald-900' : 'bg-red-950/80 text-red-400 border-red-900'}`}>
+                  {isPositiveGamma ? '🟢 +Gamma' : '🔴 -Gamma'}
+                </span>
               </div>
             </div>
             <button 
               onClick={() => setShowEducation(!showEducation)}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-bold transition-colors ${showEducation ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`}
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition-colors ${showEducation ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`}
             >
-              <BookOpen size={16} /> Guide
+              <BookOpen size={16} /> {showEducation ? 'Hide Guide' : 'Show Guide'}
             </button>
           </div>
         </div>
       </header>
 
-      {/* Quick Start Guide (Collapsible) */}
-      {showEducation && (
-        <div className="mb-6 bg-slate-800/50 border border-slate-700 p-5 rounded-2xl flex flex-col md:flex-row gap-6 animate-in slide-in-from-top-4">
-          <div className="flex-1">
-            <h3 className="text-white font-bold flex items-center gap-2 mb-2"><Info size={18} className="text-blue-400"/> How to use this dashboard?</h3>
-            <p className="text-sm text-slate-300 leading-relaxed mb-3">
-              This dashboard tracks the massive options positions held by Wall Street Market Makers. Their hedging activities act as invisible magnets and walls for the stock price.
-            </p>
-            <ul className="text-sm text-slate-400 space-y-1.5 list-disc pl-4">
-              <li><strong className="text-blue-400">Zero Gamma:</strong> The trend boundary. Above it = Calm/Bullish. Below it = High Volatility/Bearish.</li>
-              <li><strong className="text-emerald-400">Call Wall:</strong> Major resistance ceiling. Hard to break above.</li>
-              <li><strong className="text-red-400">Put Wall:</strong> Major support floor. Hard to break below.</li>
-            </ul>
-          </div>
-          <div className="w-full md:w-1/3 border-t md:border-t-0 md:border-l border-slate-700 pt-4 md:pt-0 md:pl-6 flex flex-col justify-center">
-             <p className="text-xs text-slate-400 mb-2">Data Updated: {metadata.updated_at}</p>
-             <p className="text-xs text-slate-400">Source: <span className="text-slate-200 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">{metadata.expiration_date}</span></p>
-          </div>
+      {/* Ad Placement */}
+      {isAdActive && (
+        <div className="w-full max-w-[728px] h-[90px] mx-auto bg-slate-900 border border-slate-800 rounded-xl mb-8 flex items-center justify-center text-slate-500 text-sm shadow-inner">
+          <span className="opacity-50">Advertisement Space (728x90)</span>
         </div>
       )}
 
-      {/* 🟢 Ad Space Placeholder 1 (Top Banner) */}
-      <div className="w-full h-24 mb-6 bg-slate-900/30 border-2 border-dashed border-slate-700/50 rounded-2xl flex flex-col items-center justify-center text-slate-500 hover:bg-slate-900/50 hover:border-slate-600 transition-colors cursor-pointer group">
-        <Megaphone size={24} className="mb-1 opacity-50 group-hover:opacity-80" />
-        <span className="text-sm font-medium tracking-widest uppercase">Advertisement Space (728 x 90)</span>
-      </div>
-
-      {/* AI Market Context */}
-      <div className={`mb-6 p-5 rounded-2xl border flex flex-col md:flex-row gap-4 items-start md:items-center ${marketContext.color}`}>
-        <div className="p-3 bg-slate-950/50 rounded-full shrink-0"><Lightbulb size={24} /></div>
+      {/* Smart Market Context Banner */}
+      <div className={`mb-8 p-5 rounded-2xl border flex flex-col md:flex-row gap-4 items-start md:items-center ${marketContext.color}`}>
+        <div className="p-3 bg-slate-950/50 rounded-full shrink-0">
+          <Lightbulb size={24} />
+        </div>
         <div>
           <h3 className="font-bold text-lg mb-1">AI Market Context: {marketContext.title}</h3>
-          <p className="text-sm opacity-90 leading-relaxed">{marketContext.desc}</p>
+          <p className="text-sm opacity-80 leading-relaxed">{marketContext.description}</p>
         </div>
       </div>
 
-      {/* 🌟 核心指标前置 (4 Metrics Horizontal Layout) */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <div className={`bg-slate-900 border ${isNearFlip ? 'border-blue-500 shadow-blue-900/20 shadow-lg' : 'border-slate-800'} p-5 rounded-2xl flex flex-col justify-center`}>
-          <h3 className="text-blue-400 font-bold flex items-center gap-2 mb-1 text-sm"><ArrowUpDown size={16} /> Zero Gamma</h3>
-          <div className="text-3xl font-black text-white font-mono">${indicators.zero_gamma.toFixed(2)}</div>
-        </div>
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl flex flex-col justify-center">
-          <h3 className="text-purple-400 font-bold flex items-center gap-2 mb-1 text-sm"><Target size={16} /> Max Pain</h3>
-          <div className="text-3xl font-black text-white font-mono">${indicators.max_pain.toFixed(2)}</div>
-        </div>
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl flex flex-col justify-center">
-          <h3 className="text-emerald-400 font-bold flex items-center gap-2 mb-1 text-sm"><TrendingUp size={16} /> Call Wall (Resist)</h3>
-          <div className="text-3xl font-black text-white font-mono">${indicators.call_wall.toFixed(2)}</div>
-        </div>
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl flex flex-col justify-center">
-          <h3 className="text-red-400 font-bold flex items-center gap-2 mb-1 text-sm"><ShieldAlert size={16} /> Put Wall (Support)</h3>
-          <div className="text-3xl font-black text-white font-mono">${indicators.put_wall.toFixed(2)}</div>
-        </div>
-      </div>
-
-      {/* Main Layout Split: Chart & Right Sidebar */}
-      <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         
-        {/* Left: Global GEX Profile Chart (Takes 9 columns) */}
-        <div className="xl:col-span-9 bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col shadow-xl">
+        {/* Left: Net GEX Profile Chart */}
+        <div className="lg:col-span-8 bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-bold text-white flex items-center gap-2">
-              <span className="w-1.5 h-6 bg-blue-500 rounded-full"></span> Global Net GEX Profile
+              <span className="w-1.5 h-6 bg-blue-500 rounded-full"></span>
+              Net GEX Profile & Gamma Zones
             </h2>
           </div>
 
-          <div className="relative mt-2 flex-1">
+          {showEducation && (
+            <div className="mb-6 text-sm text-slate-300 bg-blue-950/20 border border-blue-900/50 p-4 rounded-xl leading-relaxed">
+              <strong className="text-blue-400 block mb-1">Beginner's Guide: Understanding Gamma Zones</strong>
+              👉 The <strong className="text-blue-400">Flip Point (Zero Axis)</strong> is the waterline. When Spot is above it, we are in the <strong className="text-emerald-400">Positive Gamma Zone (above water)</strong>: volatility is compressed, favoring mean-reversion and buying dips.<br/>
+              👉 Dropping below the Flip Point enters the <strong className="text-red-400">Negative Gamma Zone (underwater)</strong>: dealer hedging acts as trend-amplifiers, leading to explosive, volatile moves.
+            </div>
+          )}
+
+          {/* Pure CSS Horizontal Bar Chart */}
+          <div className="relative mt-4 flex-1">
             <div className="absolute left-1/2 top-0 bottom-0 w-px bg-slate-700/50 z-0"></div>
+            
             <div className="flex justify-between text-xs text-slate-500 mb-2 px-2 uppercase font-medium">
-              <span>← Put Dominant (-Gamma)</span><span>Strike</span><span>Call Dominant (+Gamma) →</span>
+              <span>← Put Dominant (Dealer +Gamma)</span>
+              <span>Strike</span>
+              <span>Call Dominant (Dealer -Gamma) →</span>
             </div>
 
             <div className="flex flex-col py-2 relative">
+              <div className="absolute top-0 bottom-0 left-0 right-0 z-0 pointer-events-none flex flex-col">
+                <div className="flex-1 bg-red-950/10 border-b border-dashed border-red-900/30 relative">
+                  <div className="absolute left-2 top-2 text-xs font-bold text-red-900/60 uppercase tracking-widest">Negative Gamma Zone</div>
+                </div>
+                <div className="flex-1 bg-emerald-950/10 relative">
+                  <div className="absolute right-2 bottom-2 text-xs font-bold text-emerald-900/60 uppercase tracking-widest">Positive Gamma Zone</div>
+                </div>
+              </div>
+
               {gex_chart_data.map((data) => {
                 const isCallDominant = data.net_gex > 0;
                 const widthPercent = data.net_gex === 0 || maxGexAbs === 0 ? 0 : (Math.abs(data.net_gex) / maxGexAbs) * 100;
+                
                 const isCallWall = data.strike === indicators.call_wall;
                 const isPutWall = data.strike === indicators.put_wall;
                 const isZeroGamma = data.strike === indicators.zero_gamma;
                 const isSpotNear = Math.abs(data.strike - metadata.spot_price) <= (metadata.spot_price * 0.005);
 
                 return (
-                  <div key={data.strike} className={`flex items-center relative z-10 hover:bg-slate-800/80 rounded-md p-1.5 -mx-1.5 transition-colors ${isZeroGamma ? 'bg-blue-900/20' : ''}`}>
+                  <div key={data.strike} className={`flex items-center relative z-10 group hover:bg-slate-800/80 rounded-md p-1.5 -mx-1.5 transition-colors ${isZeroGamma ? 'bg-blue-900/20 my-1' : ''}`}>
                     <div className="flex-1 flex justify-end items-center pr-4">
                       {!isCallDominant && data.net_gex !== 0 && (
-                        <div className="h-5 rounded-l-sm bg-red-500/80 border-r border-red-400" style={{ width: `${widthPercent}%` }}></div>
+                        <div className="h-5 rounded-l-sm bg-red-500/80 border-r border-red-400 transition-all duration-500" style={{ width: `${widthPercent}%` }}></div>
                       )}
                       {isZeroGamma && (
                         <div className="mr-2 text-xs font-bold text-blue-400 bg-blue-950 px-2 py-0.5 rounded border border-blue-800 flex items-center gap-1">
@@ -285,18 +396,19 @@ const App = () => {
                         </div>
                       )}
                     </div>
-                    <div className={`w-16 text-center font-mono text-sm relative z-20 ${isSpotNear ? 'text-white font-bold bg-blue-600 rounded px-1 shadow-lg shadow-blue-900/50' : 'text-slate-400'}`}>
+
+                    <div className={`w-16 text-center font-mono text-sm relative z-20 ${isSpotNear ? 'text-blue-400 font-bold bg-slate-900 rounded-md px-1 ring-1 ring-blue-500/50' : isZeroGamma ? 'text-blue-300 font-bold' : 'text-slate-400'}`}>
                       {data.strike}
+                      {isSpotNear && <div className="absolute top-1/2 -translate-y-1/2 -left-4 w-2 h-2 bg-blue-500 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.8)] animate-pulse"></div>}
                     </div>
+
                     <div className="flex-1 flex justify-start items-center pl-4 relative">
                       {isCallDominant && data.net_gex !== 0 && (
-                        <div className="h-5 rounded-r-sm bg-emerald-500/80 border-l border-emerald-400" style={{ width: `${widthPercent}%` }}></div>
+                        <div className="h-5 rounded-r-sm bg-emerald-500/80 border-l border-emerald-400 transition-all duration-500" style={{ width: `${widthPercent}%` }}></div>
                       )}
                       {(isCallWall || isPutWall) && (
-                        <div className={`absolute left-full ml-2 whitespace-nowrap text-[10px] px-1.5 py-0.5 rounded
-                          ${isCallWall ? 'bg-emerald-950 text-emerald-400 border border-emerald-900' : 'bg-red-950 text-red-400 border border-red-900'}`}
-                        >
-                          {isCallWall ? 'Call Wall' : 'Put Wall'}
+                        <div className={`absolute left-full ml-2 whitespace-nowrap text-xs px-2 py-0.5 rounded flex items-center gap-1 ${isCallWall ? 'bg-emerald-950/80 text-emerald-400 border border-emerald-900' : 'bg-red-950/80 text-red-400 border border-red-900'}`}>
+                          {isCallWall ? 'Call Wall (Resistance)' : 'Put Wall (Support)'}
                         </div>
                       )}
                     </div>
@@ -304,33 +416,51 @@ const App = () => {
                 );
               })}
             </div>
+            
+            <div className="mt-6 flex items-center justify-center gap-6 text-xs text-slate-500 pt-4 border-t border-slate-800 uppercase">
+               <span className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></div> Spot Price</span>
+               <span className="flex items-center gap-2"><div className="w-3 h-3 bg-emerald-500/80 rounded-sm"></div> Call Dominant (+GEX)</span>
+               <span className="flex items-center gap-2"><div className="w-3 h-3 bg-red-500/80 rounded-sm"></div> Put Dominant (-GEX)</span>
+            </div>
           </div>
         </div>
 
-        {/* Right Sidebar: Monetization & Ad Space (Takes 3 columns) */}
-        <div className="xl:col-span-3 flex flex-col gap-6">
-          
-          {/* Premium Teaser Box */}
-          <div className="bg-gradient-to-b from-slate-800 to-slate-900 border border-slate-700 p-6 rounded-2xl flex flex-col items-center text-center shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-20 h-20 bg-amber-500/10 rounded-bl-full blur-xl"></div>
-            <Lock className="text-amber-500 mb-4" size={36} />
-            <h3 className="text-white font-bold text-lg mb-2">Want to search any ticker?</h3>
-            <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-              Unlock real-time Greek profiling for 5,000+ US stocks. Custom search feature is coming to Premium members.
-            </p>
-            <button className="w-full bg-slate-800 border border-slate-600 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl text-sm transition-colors">
-              Join Waitlist
-            </button>
+        {/* Right: Top 4 Key Metrics */}
+        <div className="lg:col-span-4 flex flex-col gap-5">
+          <div className={`bg-slate-900 border ${isNearFlip ? 'border-blue-500' : 'border-slate-800'} p-5 rounded-2xl relative overflow-hidden group transition-colors`}>
+            <div className="absolute -right-4 -top-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity"><ArrowUpDown size={120} /></div>
+            <h3 className="text-blue-400 font-bold flex items-center gap-2"><ArrowUpDown size={18} /> Zero Gamma (Flip Point)</h3>
+            <div className="text-3xl font-black text-white font-mono mt-1 mb-3">${indicators.zero_gamma.toFixed(2)}</div>
+            {showEducation && <p className="text-xs text-slate-400 bg-slate-950 p-2.5 rounded-xl border border-slate-800">The bull/bear boundary. Trade with the flow.</p>}
           </div>
 
-          {/* 🟢 Ad Space Placeholder 2 (Sidebar Skyscraper) */}
-          <div className="w-full h-96 bg-slate-900/30 border-2 border-dashed border-slate-700/50 rounded-2xl flex flex-col items-center justify-center text-slate-500 hover:bg-slate-900/50 hover:border-slate-600 transition-colors cursor-pointer group flex-1">
-            <Megaphone size={32} className="mb-2 opacity-50 group-hover:opacity-80" />
-            <span className="text-sm font-medium tracking-widest uppercase text-center px-4">Advertisement<br/>(300 x 600)</span>
+          <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl relative overflow-hidden group hover:border-purple-500/50 transition-colors">
+            <div className="absolute -right-4 -top-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity"><Target size={120} /></div>
+            <h3 className="text-purple-400 font-bold flex items-center gap-2"><Target size={18} /> Max Pain</h3>
+            <div className="text-3xl font-black text-white font-mono mt-1 mb-3">${indicators.max_pain.toFixed(2)}</div>
+            {showEducation && <p className="text-xs text-slate-400 bg-slate-950 p-2.5 rounded-xl border border-slate-800">The price where option buyers lose the most. Acts as a magnet.</p>}
           </div>
 
+          <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl relative overflow-hidden group hover:border-emerald-500/50 transition-colors">
+            <div className="absolute -right-4 -top-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity"><TrendingUp size={120} /></div>
+            <h3 className="text-emerald-400 font-bold flex items-center gap-2"><TrendingUp size={18} /> Call Wall (Resistance)</h3>
+            <div className="text-3xl font-black text-white font-mono mt-1 mb-3">${indicators.call_wall.toFixed(2)}</div>
+            {showEducation && <p className="text-xs text-slate-400 bg-slate-950 p-2.5 rounded-xl border border-slate-800">The massive ceiling defended by dealers. Hard to break.</p>}
+          </div>
+
+           <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl relative overflow-hidden group hover:border-red-500/50 transition-colors">
+            <div className="absolute -right-4 -top-4 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity"><ShieldAlert size={120} /></div>
+            <h3 className="text-red-400 font-bold flex items-center gap-2"><ShieldAlert size={18} /> Put Wall (Support)</h3>
+            <div className="text-3xl font-black text-white font-mono mt-1 mb-3">${indicators.put_wall.toFixed(2)}</div>
+            {showEducation && <p className="text-xs text-slate-400 bg-slate-950 p-2.5 rounded-xl border border-slate-800">The absolute physical floor in the negative gamma zone.</p>}
+          </div>
         </div>
       </div>
+
+      <footer className="mt-12 text-center text-sm text-slate-500 border-t border-slate-800 pt-6 pb-4 flex justify-between items-center px-4">
+        <p>Data is for educational purposes only. Options trading involves high risk.</p>
+        <p className="opacity-50">Built with Python & React</p>
+      </footer>
     </div>
   );
 };
