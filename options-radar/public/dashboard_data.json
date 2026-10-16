@@ -2,17 +2,21 @@
   "NVDA": {
     "metadata": {
       "ticker": "NVDA",
-      "spot_price": 221.3,
-      "expiration_date": "Historical Aggregated (2026-10-14)",
-      "updated_at": "2026-10-15 15:31:15"
+      "spot_price": 217.23,
+      "expiration_date": "Historical Aggregated (2026-10-15)",
+      "updated_at": "2026-10-16 15:17:21"
     },
     "indicators": {
       "max_pain": 220.0,
       "call_wall": 220.0,
       "put_wall": 220.0,
-      "zero_gamma": 216.82
+      "zero_gamma": 218.49
     },
     "gex_chart_data": [
+      {
+        "strike": 165.0,
+        "net_gex": -0.0
+      },
       {
         "strike": 170.0,
         "net_gex": -0.0
@@ -27,119 +31,119 @@
       },
       {
         "strike": 185.0,
-        "net_gex": -0.0
+        "net_gex": -0.24
       },
       {
         "strike": 190.0,
-        "net_gex": -1.34
+        "net_gex": -69.13
       },
       {
         "strike": 195.0,
-        "net_gex": -340.47
+        "net_gex": -8102.63
       },
       {
         "strike": 197.5,
-        "net_gex": -315.44
+        "net_gex": -4914.02
       },
       {
         "strike": 200.0,
-        "net_gex": -24149.96
+        "net_gex": -270308.66
       },
       {
         "strike": 202.5,
-        "net_gex": -31641.77
+        "net_gex": -326127.63
       },
       {
         "strike": 205.0,
-        "net_gex": -359980.69
+        "net_gex": -2820623.62
       },
       {
         "strike": 207.5,
-        "net_gex": -557341.07
+        "net_gex": -3361973.44
       },
       {
         "strike": 210.0,
-        "net_gex": -2264851.17
+        "net_gex": -8031321.85
       },
       {
         "strike": 212.5,
-        "net_gex": -5232670.76
+        "net_gex": -15907672.15
       },
       {
         "strike": 215.0,
-        "net_gex": 267603.95
+        "net_gex": -8988918.39
       },
       {
         "strike": 217.5,
-        "net_gex": -9595258.46
+        "net_gex": -27136416.96
       },
       {
         "strike": 220.0,
-        "net_gex": 45878119.67
+        "net_gex": 39249316.94
       },
       {
         "strike": 222.5,
-        "net_gex": -16345696.87
+        "net_gex": -8157926.42
       },
       {
         "strike": 225.0,
-        "net_gex": 330302.46
+        "net_gex": 3626258.77
       },
       {
         "strike": 227.5,
-        "net_gex": 610732.75
+        "net_gex": 2316303.72
       },
       {
         "strike": 230.0,
-        "net_gex": 20313876.12
+        "net_gex": 6334041.94
       },
       {
         "strike": 232.5,
-        "net_gex": 12048468.85
+        "net_gex": 2464023.69
       },
       {
         "strike": 235.0,
-        "net_gex": 8443661.86
+        "net_gex": 982899.6
       },
       {
         "strike": 237.5,
-        "net_gex": 1929090.18
+        "net_gex": 216761.56
       },
       {
         "strike": 240.0,
-        "net_gex": 899812.79
+        "net_gex": 76619.61
       },
       {
         "strike": 242.5,
-        "net_gex": 124326.55
+        "net_gex": 8071.59
       },
       {
         "strike": 245.0,
-        "net_gex": 34994.51
+        "net_gex": 1808.9
       },
       {
         "strike": 247.5,
-        "net_gex": 1139.79
+        "net_gex": 52.89
       },
       {
         "strike": 250.0,
-        "net_gex": 2635.6
+        "net_gex": 75.42
       },
       {
         "strike": 252.5,
-        "net_gex": 19.46
+        "net_gex": 0.55
       },
       {
         "strike": 255.0,
-        "net_gex": 22.22
+        "net_gex": 0.37
       },
       {
         "strike": 257.5,
-        "net_gex": 0.24
+        "net_gex": 0.0
       },
       {
         "strike": 260.0,
-        "net_gex": 0.73
+        "net_gex": 0.01
       },
       {
         "strike": 262.5,
@@ -152,25 +156,21 @@
       {
         "strike": 270.0,
         "net_gex": 0.0
-      },
-      {
-        "strike": 275.0,
-        "net_gex": 0.0
       }
     ]
   },
   "AVGO": {
     "metadata": {
       "ticker": "AVGO",
-      "spot_price": 346.25,
-      "expiration_date": "Historical Aggregated (2026-10-14)",
-      "updated_at": "2026-10-15 15:32:02"
+      "spot_price": 344.33,
+      "expiration_date": "Historical Aggregated (2026-10-15)",
+      "updated_at": "2026-10-16 15:17:56"
     },
     "indicators": {
       "max_pain": 360.0,
       "call_wall": 350.0,
       "put_wall": 340.0,
-      "zero_gamma": 357.18
+      "zero_gamma": 355.43
     },
     "gex_chart_data": [
       {
@@ -195,159 +195,163 @@
       },
       {
         "strike": 295.0,
-        "net_gex": -0.0
+        "net_gex": -0.02
       },
       {
         "strike": 300.0,
-        "net_gex": -3.64
+        "net_gex": -11.73
       },
       {
         "strike": 305.0,
-        "net_gex": -7.22
+        "net_gex": -17.3
       },
       {
         "strike": 310.0,
-        "net_gex": -1542.45
+        "net_gex": -3836.81
       },
       {
         "strike": 315.0,
-        "net_gex": -1147.55
+        "net_gex": -2731.41
       },
       {
         "strike": 320.0,
-        "net_gex": -139905.86
+        "net_gex": -272476.53
+      },
+      {
+        "strike": 322.5,
+        "net_gex": -7836.16
       },
       {
         "strike": 325.0,
-        "net_gex": -135722.74
+        "net_gex": -266464.34
       },
       {
         "strike": 327.5,
-        "net_gex": -40825.41
+        "net_gex": -134864.44
       },
       {
         "strike": 330.0,
-        "net_gex": -2219291.05
+        "net_gex": -3584579.58
       },
       {
         "strike": 332.5,
-        "net_gex": -595694.92
+        "net_gex": -914760.89
       },
       {
         "strike": 335.0,
-        "net_gex": -2351578.86
+        "net_gex": -3169089.32
       },
       {
         "strike": 337.5,
-        "net_gex": -1704595.92
+        "net_gex": -2208238.57
       },
       {
         "strike": 340.0,
-        "net_gex": -10101142.71
+        "net_gex": -12118354.94
       },
       {
         "strike": 342.5,
-        "net_gex": -516237.65
+        "net_gex": -992241.55
       },
       {
         "strike": 345.0,
-        "net_gex": -2536181.29
+        "net_gex": -3486630.89
       },
       {
         "strike": 347.5,
-        "net_gex": -2111114.65
+        "net_gex": -1495553.73
       },
       {
         "strike": 350.0,
-        "net_gex": -6584838.17
+        "net_gex": -4294845.51
       },
       {
         "strike": 352.5,
-        "net_gex": -524994.98
+        "net_gex": -294253.42
       },
       {
         "strike": 355.0,
-        "net_gex": -2743581.02
+        "net_gex": -1333254.71
       },
       {
         "strike": 357.5,
-        "net_gex": -5166.09
+        "net_gex": 196077.54
       },
       {
         "strike": 360.0,
-        "net_gex": 807871.04
+        "net_gex": 864768.81
       },
       {
         "strike": 362.5,
-        "net_gex": 795677.16
+        "net_gex": 470566.09
       },
       {
         "strike": 365.0,
-        "net_gex": 499601.38
+        "net_gex": 376091.3
       },
       {
         "strike": 367.5,
-        "net_gex": 114547.96
+        "net_gex": 129617.13
       },
       {
         "strike": 370.0,
-        "net_gex": 252646.28
+        "net_gex": 169039.52
       },
       {
         "strike": 372.5,
-        "net_gex": 54614.98
+        "net_gex": 33110.15
       },
       {
         "strike": 375.0,
-        "net_gex": 92572.63
+        "net_gex": 49322.34
       },
       {
         "strike": 377.5,
-        "net_gex": 17784.47
+        "net_gex": 8612.64
       },
       {
         "strike": 380.0,
-        "net_gex": 22048.46
+        "net_gex": 9081.18
       },
       {
         "strike": 382.5,
-        "net_gex": 1134.73
+        "net_gex": 486.95
       },
       {
         "strike": 385.0,
-        "net_gex": 1643.05
+        "net_gex": 675.74
       },
       {
         "strike": 387.5,
-        "net_gex": 182.75
+        "net_gex": 72.53
       },
       {
         "strike": 390.0,
-        "net_gex": 562.49
+        "net_gex": 239.68
       },
       {
         "strike": 392.5,
-        "net_gex": 10.04
+        "net_gex": 3.56
       },
       {
         "strike": 395.0,
-        "net_gex": 6.84
+        "net_gex": 2.43
       },
       {
         "strike": 397.5,
-        "net_gex": 0.32
+        "net_gex": 0.11
       },
       {
         "strike": 400.0,
-        "net_gex": 7.16
+        "net_gex": 2.13
       },
       {
         "strike": 402.5,
-        "net_gex": 0.01
+        "net_gex": 0.0
       },
       {
         "strike": 405.0,
-        "net_gex": 0.2
+        "net_gex": 0.05
       },
       {
         "strike": 407.5,
@@ -355,7 +359,7 @@
       },
       {
         "strike": 410.0,
-        "net_gex": 0.03
+        "net_gex": 0.01
       },
       {
         "strike": 412.5,
@@ -388,25 +392,21 @@
       {
         "strike": 430.0,
         "net_gex": 0.0
-      },
-      {
-        "strike": 432.5,
-        "net_gex": 0.0
       }
     ]
   },
   "PLTR": {
     "metadata": {
       "ticker": "PLTR",
-      "spot_price": 200.97,
-      "expiration_date": "Historical Aggregated (2026-10-14)",
-      "updated_at": "2026-10-15 15:32:05"
+      "spot_price": 200.5,
+      "expiration_date": "Historical Aggregated (2026-10-15)",
+      "updated_at": "2026-10-16 15:17:59"
     },
     "indicators": {
       "max_pain": 185.0,
       "call_wall": 200.0,
       "put_wall": 200.0,
-      "zero_gamma": 196.8
+      "zero_gamma": 196.91
     },
     "gex_chart_data": [
       {
@@ -439,107 +439,107 @@
       },
       {
         "strike": 170.0,
-        "net_gex": -0.01
+        "net_gex": -0.02
       },
       {
         "strike": 172.5,
-        "net_gex": -0.11
+        "net_gex": -0.18
       },
       {
         "strike": 175.0,
-        "net_gex": -2.38
+        "net_gex": -1.65
       },
       {
         "strike": 177.5,
-        "net_gex": -19.93
+        "net_gex": -26.2
       },
       {
         "strike": 180.0,
-        "net_gex": -331.91
+        "net_gex": -306.77
       },
       {
         "strike": 182.5,
-        "net_gex": -143.96
+        "net_gex": -143.58
       },
       {
         "strike": 185.0,
-        "net_gex": -13141.86
+        "net_gex": -19333.24
       },
       {
         "strike": 187.5,
-        "net_gex": -20948.33
+        "net_gex": -22924.98
       },
       {
         "strike": 190.0,
-        "net_gex": -424500.43
+        "net_gex": -739207.78
       },
       {
         "strike": 192.5,
-        "net_gex": -861075.3
+        "net_gex": -942544.07
       },
       {
         "strike": 195.0,
-        "net_gex": -1552354.28
+        "net_gex": -2497634.16
       },
       {
         "strike": 197.5,
-        "net_gex": -4906923.31
+        "net_gex": -5423994.28
       },
       {
         "strike": 200.0,
-        "net_gex": 7655825.84
+        "net_gex": 6779841.9
       },
       {
         "strike": 202.5,
-        "net_gex": 2947860.28
+        "net_gex": 4819871.05
       },
       {
         "strike": 205.0,
-        "net_gex": 6613803.84
+        "net_gex": 8463846.35
       },
       {
         "strike": 207.5,
-        "net_gex": 5209299.74
+        "net_gex": 5563869.56
       },
       {
         "strike": 210.0,
-        "net_gex": 3837125.98
+        "net_gex": 3510373.45
       },
       {
         "strike": 212.5,
-        "net_gex": 1789644.68
+        "net_gex": 1532963.0
       },
       {
         "strike": 215.0,
-        "net_gex": 766935.98
+        "net_gex": 735931.23
       },
       {
         "strike": 217.5,
-        "net_gex": 32342.96
+        "net_gex": 24752.12
       },
       {
         "strike": 220.0,
-        "net_gex": 68291.43
+        "net_gex": 48460.4
       },
       {
         "strike": 222.5,
-        "net_gex": 7825.13
+        "net_gex": 5394.6
       },
       {
         "strike": 225.0,
-        "net_gex": 1439.52
+        "net_gex": 820.1
       },
       {
         "strike": 227.5,
-        "net_gex": 23.33
+        "net_gex": 15.77
       },
       {
         "strike": 230.0,
-        "net_gex": 19.17
+        "net_gex": 11.64
       },
       {
         "strike": 235.0,
-        "net_gex": 0.03
+        "net_gex": 0.02
       },
       {
         "strike": 240.0,
@@ -558,25 +558,17 @@
   "COIN": {
     "metadata": {
       "ticker": "COIN",
-      "spot_price": 172.89,
-      "expiration_date": "Historical Aggregated (2026-10-14)",
-      "updated_at": "2026-10-15 15:32:08"
+      "spot_price": 183.81,
+      "expiration_date": "Historical Aggregated (2026-10-15)",
+      "updated_at": "2026-10-16 15:18:05"
     },
     "indicators": {
-      "max_pain": 180.0,
-      "call_wall": 180.0,
-      "put_wall": 170.0,
-      "zero_gamma": 174.6
+      "max_pain": 177.5,
+      "call_wall": 185.0,
+      "put_wall": 180.0,
+      "zero_gamma": 174.31
     },
     "gex_chart_data": [
-      {
-        "strike": 130.0,
-        "net_gex": -0.0
-      },
-      {
-        "strike": 135.0,
-        "net_gex": -0.0
-      },
       {
         "strike": 140.0,
         "net_gex": -0.0
@@ -587,106 +579,126 @@
       },
       {
         "strike": 150.0,
-        "net_gex": 0.85
+        "net_gex": 0.0
       },
       {
         "strike": 155.0,
-        "net_gex": -699.44
+        "net_gex": -0.0
       },
       {
         "strike": 157.5,
-        "net_gex": -571.09
+        "net_gex": -0.01
       },
       {
         "strike": 160.0,
-        "net_gex": -56776.9
+        "net_gex": -3.55
       },
       {
         "strike": 162.5,
-        "net_gex": -54491.88
+        "net_gex": -14.47
       },
       {
         "strike": 165.0,
-        "net_gex": -2372538.11
+        "net_gex": -1937.27
       },
       {
         "strike": 167.5,
-        "net_gex": -1113085.1
+        "net_gex": -4320.57
       },
       {
         "strike": 170.0,
-        "net_gex": -8113734.35
+        "net_gex": -95463.57
       },
       {
         "strike": 172.5,
-        "net_gex": -1491944.32
+        "net_gex": -97040.52
       },
       {
         "strike": 175.0,
-        "net_gex": -885896.44
+        "net_gex": -98642.38
       },
       {
         "strike": 177.5,
-        "net_gex": 1826010.51
+        "net_gex": 1323753.38
       },
       {
         "strike": 180.0,
-        "net_gex": 3117654.32
+        "net_gex": 7215386.37
       },
       {
         "strike": 182.5,
-        "net_gex": 448668.54
+        "net_gex": 3637288.69
       },
       {
         "strike": 185.0,
-        "net_gex": 458972.55
+        "net_gex": 12368409.11
       },
       {
         "strike": 187.5,
-        "net_gex": 110160.34
+        "net_gex": 9638520.26
       },
       {
         "strike": 190.0,
-        "net_gex": 8183.75
+        "net_gex": 4027077.2
       },
       {
         "strike": 192.5,
-        "net_gex": 2788.98
+        "net_gex": 2375874.33
       },
       {
         "strike": 195.0,
-        "net_gex": 179.72
+        "net_gex": 319536.56
       },
       {
         "strike": 197.5,
-        "net_gex": 3.03
+        "net_gex": 24052.71
       },
       {
         "strike": 200.0,
-        "net_gex": 1.38
+        "net_gex": 38322.81
       },
       {
         "strike": 202.5,
-        "net_gex": 0.01
+        "net_gex": 978.62
       },
       {
         "strike": 205.0,
-        "net_gex": 0.01
+        "net_gex": 1582.68
       },
       {
         "strike": 207.5,
-        "net_gex": 0.0
+        "net_gex": 38.82
       },
       {
         "strike": 210.0,
-        "net_gex": 0.0
+        "net_gex": 16.81
       },
       {
         "strike": 212.5,
-        "net_gex": 0.0
+        "net_gex": 0.34
       },
       {
         "strike": 215.0,
+        "net_gex": 0.04
+      },
+      {
+        "strike": 217.5,
+        "net_gex": 0.0
+      },
+      {
+        "strike": 220.0,
+        "net_gex": 0.0
+      },
+      {
+        "strike": 222.5,
+        "net_gex": 0.0
+      },
+      {
+        "strike": 225.0,
+        "net_gex": 0.0
+      },
+      {
+        "strike": 227.5,
         "net_gex": 0.0
       }
     ]
@@ -694,15 +706,15 @@
   "SPY": {
     "metadata": {
       "ticker": "SPY",
-      "spot_price": 769.6,
-      "expiration_date": "Historical Aggregated (2026-10-14)",
-      "updated_at": "2026-10-15 15:31:02"
+      "spot_price": 771.79,
+      "expiration_date": "Historical Aggregated (2026-10-15)",
+      "updated_at": "2026-10-16 15:17:10"
     },
     "indicators": {
-      "max_pain": 772.0,
+      "max_pain": 770.0,
       "call_wall": 785.0,
       "put_wall": 772.0,
-      "zero_gamma": 778.42
+      "zero_gamma": 775.68
     },
     "gex_chart_data": [
       {
@@ -763,599 +775,599 @@
       },
       {
         "strike": 650.0,
-        "net_gex": -0.04
+        "net_gex": -0.02
       },
       {
         "strike": 655.0,
-        "net_gex": -0.09
+        "net_gex": -0.05
       },
       {
         "strike": 660.0,
-        "net_gex": -0.58
+        "net_gex": -0.3
       },
       {
         "strike": 665.0,
-        "net_gex": -1.16
+        "net_gex": -0.9
       },
       {
         "strike": 670.0,
-        "net_gex": -18.39
+        "net_gex": -10.34
       },
       {
         "strike": 675.0,
-        "net_gex": -87.04
+        "net_gex": -50.55
       },
       {
         "strike": 680.0,
-        "net_gex": -675.14
+        "net_gex": -383.71
       },
       {
         "strike": 685.0,
-        "net_gex": -1295.96
+        "net_gex": -774.58
       },
       {
         "strike": 690.0,
-        "net_gex": -5241.49
+        "net_gex": -3244.72
       },
       {
         "strike": 695.0,
-        "net_gex": -5059.44
+        "net_gex": -3328.05
       },
       {
         "strike": 700.0,
-        "net_gex": -58949.26
+        "net_gex": -38329.01
       },
       {
         "strike": 701.0,
-        "net_gex": -6274.96
+        "net_gex": -4651.21
       },
       {
         "strike": 702.0,
-        "net_gex": -5652.51
+        "net_gex": -3828.13
       },
       {
         "strike": 703.0,
-        "net_gex": -5398.59
+        "net_gex": -5574.06
       },
       {
         "strike": 704.0,
-        "net_gex": -7525.82
+        "net_gex": -14124.19
       },
       {
         "strike": 705.0,
-        "net_gex": -112041.65
+        "net_gex": -78265.27
       },
       {
         "strike": 706.0,
-        "net_gex": -57848.66
+        "net_gex": -40247.11
       },
       {
         "strike": 707.0,
-        "net_gex": -12768.93
+        "net_gex": -9047.42
       },
       {
         "strike": 708.0,
-        "net_gex": -30739.92
+        "net_gex": -42917.0
       },
       {
         "strike": 709.0,
-        "net_gex": -26814.6
+        "net_gex": -19759.65
       },
       {
         "strike": 710.0,
-        "net_gex": -217927.94
+        "net_gex": -154293.71
       },
       {
         "strike": 711.0,
-        "net_gex": -60264.75
+        "net_gex": -41948.48
       },
       {
         "strike": 712.0,
-        "net_gex": -106800.92
+        "net_gex": -68762.02
       },
       {
         "strike": 713.0,
-        "net_gex": -32997.43
+        "net_gex": -26807.89
       },
       {
         "strike": 714.0,
-        "net_gex": -246888.73
+        "net_gex": -168802.61
       },
       {
         "strike": 715.0,
-        "net_gex": -210487.25
+        "net_gex": -249415.88
       },
       {
         "strike": 716.0,
-        "net_gex": -385230.77
+        "net_gex": -327118.81
       },
       {
         "strike": 717.0,
-        "net_gex": -47933.55
+        "net_gex": -50483.36
       },
       {
         "strike": 718.0,
-        "net_gex": -199485.31
+        "net_gex": -161713.34
       },
       {
         "strike": 719.0,
-        "net_gex": -67416.37
+        "net_gex": -89757.67
       },
       {
         "strike": 720.0,
-        "net_gex": -1752817.04
+        "net_gex": -1307989.62
       },
       {
         "strike": 721.0,
-        "net_gex": -87903.18
+        "net_gex": -92911.8
       },
       {
         "strike": 722.0,
-        "net_gex": -1547256.2
+        "net_gex": -1208212.07
       },
       {
         "strike": 723.0,
-        "net_gex": -553094.0
+        "net_gex": -626952.53
       },
       {
         "strike": 724.0,
-        "net_gex": -2558530.36
+        "net_gex": -2636886.11
       },
       {
         "strike": 725.0,
-        "net_gex": -4660628.07
+        "net_gex": -4032930.39
       },
       {
         "strike": 726.0,
-        "net_gex": -1806778.83
+        "net_gex": -1493834.04
       },
       {
         "strike": 727.0,
-        "net_gex": -2247226.08
+        "net_gex": -1765064.87
       },
       {
         "strike": 728.0,
-        "net_gex": -3232667.12
+        "net_gex": -2629090.22
       },
       {
         "strike": 729.0,
-        "net_gex": -5708347.83
+        "net_gex": -4523747.25
       },
       {
         "strike": 730.0,
-        "net_gex": -10672545.77
+        "net_gex": -8560513.84
       },
       {
         "strike": 731.0,
-        "net_gex": -399127.17
+        "net_gex": -383989.79
       },
       {
         "strike": 732.0,
-        "net_gex": -13281705.33
+        "net_gex": -10785593.21
       },
       {
         "strike": 733.0,
-        "net_gex": -5523996.36
+        "net_gex": -4460061.15
       },
       {
         "strike": 734.0,
-        "net_gex": -4548632.24
+        "net_gex": -3772673.19
       },
       {
         "strike": 735.0,
-        "net_gex": -7656821.39
+        "net_gex": -6356983.51
       },
       {
         "strike": 736.0,
-        "net_gex": -13232375.94
+        "net_gex": -10869707.45
       },
       {
         "strike": 737.0,
-        "net_gex": -1907958.9
+        "net_gex": -1556980.92
       },
       {
         "strike": 738.0,
-        "net_gex": -3411376.83
+        "net_gex": -2703394.13
       },
       {
         "strike": 739.0,
-        "net_gex": -9082669.25
+        "net_gex": -7560412.47
       },
       {
         "strike": 740.0,
-        "net_gex": -22773532.88
+        "net_gex": -18477036.0
       },
       {
         "strike": 741.0,
-        "net_gex": -1862238.07
+        "net_gex": -1846856.61
       },
       {
         "strike": 742.0,
-        "net_gex": -5303494.55
+        "net_gex": -4535016.43
       },
       {
         "strike": 743.0,
-        "net_gex": -2503341.77
+        "net_gex": -2180326.14
       },
       {
         "strike": 744.0,
-        "net_gex": -2392270.2
+        "net_gex": -2339387.04
       },
       {
         "strike": 745.0,
-        "net_gex": -19389188.43
+        "net_gex": -16753381.37
       },
       {
         "strike": 746.0,
-        "net_gex": -1750402.9
+        "net_gex": -2143909.14
       },
       {
         "strike": 747.0,
-        "net_gex": -2958870.46
+        "net_gex": -2688327.64
       },
       {
         "strike": 748.0,
-        "net_gex": -12685327.27
+        "net_gex": -10329523.76
       },
       {
         "strike": 749.0,
-        "net_gex": -4491618.06
+        "net_gex": -5129401.34
       },
       {
         "strike": 750.0,
-        "net_gex": -55060587.45
+        "net_gex": -48517094.94
       },
       {
         "strike": 751.0,
-        "net_gex": -13526829.12
+        "net_gex": -10833383.84
       },
       {
         "strike": 752.0,
-        "net_gex": -11799930.71
+        "net_gex": -14826343.57
       },
       {
         "strike": 753.0,
-        "net_gex": -34829893.66
+        "net_gex": -31460365.2
       },
       {
         "strike": 754.0,
-        "net_gex": -3903724.22
+        "net_gex": -3951550.02
       },
       {
         "strike": 755.0,
-        "net_gex": -39381644.32
+        "net_gex": -30005363.13
       },
       {
         "strike": 756.0,
-        "net_gex": -6480493.71
+        "net_gex": -11437426.63
       },
       {
         "strike": 757.0,
-        "net_gex": -36404870.53
+        "net_gex": -32076427.31
       },
       {
         "strike": 758.0,
-        "net_gex": -11245022.21
+        "net_gex": -12192042.64
       },
       {
         "strike": 759.0,
-        "net_gex": -6921559.9
+        "net_gex": -8792815.65
       },
       {
         "strike": 760.0,
-        "net_gex": -29855233.31
+        "net_gex": -25514279.24
       },
       {
         "strike": 761.0,
-        "net_gex": -3836769.53
+        "net_gex": -5103581.65
       },
       {
         "strike": 762.0,
-        "net_gex": -10486754.87
+        "net_gex": -10509167.48
       },
       {
         "strike": 763.0,
-        "net_gex": -10873269.06
+        "net_gex": -11259832.68
       },
       {
         "strike": 764.0,
-        "net_gex": -4595467.99
+        "net_gex": -4890069.12
       },
       {
         "strike": 765.0,
-        "net_gex": -36153650.7
+        "net_gex": -40401489.62
       },
       {
         "strike": 766.0,
-        "net_gex": -191389.44
+        "net_gex": 1987633.23
       },
       {
         "strike": 767.0,
-        "net_gex": -3661589.62
+        "net_gex": -3994270.15
       },
       {
         "strike": 768.0,
-        "net_gex": -21817797.18
+        "net_gex": -19835939.28
       },
       {
         "strike": 769.0,
-        "net_gex": -2221573.03
+        "net_gex": -3417118.98
       },
       {
         "strike": 770.0,
-        "net_gex": -15914226.88
+        "net_gex": -8778097.37
       },
       {
         "strike": 771.0,
-        "net_gex": -4805847.72
+        "net_gex": 1607161.66
       },
       {
         "strike": 772.0,
-        "net_gex": -68941316.63
+        "net_gex": -60058218.27
       },
       {
         "strike": 773.0,
-        "net_gex": -34675475.4
+        "net_gex": -27728801.1
       },
       {
         "strike": 774.0,
-        "net_gex": -7780773.79
+        "net_gex": -4398935.43
       },
       {
         "strike": 775.0,
-        "net_gex": 8702446.93
+        "net_gex": 31608906.67
       },
       {
         "strike": 776.0,
-        "net_gex": 4632393.84
+        "net_gex": 7173242.49
       },
       {
         "strike": 777.0,
-        "net_gex": -2223637.83
+        "net_gex": 1436718.16
       },
       {
         "strike": 778.0,
-        "net_gex": 6713152.04
+        "net_gex": 16251964.44
       },
       {
         "strike": 779.0,
-        "net_gex": 1499703.55
+        "net_gex": 4294656.36
       },
       {
         "strike": 780.0,
-        "net_gex": 25363238.18
+        "net_gex": 38382672.96
       },
       {
         "strike": 781.0,
-        "net_gex": 10092375.64
+        "net_gex": 17010743.61
       },
       {
         "strike": 782.0,
-        "net_gex": 15074066.28
+        "net_gex": 14421595.32
       },
       {
         "strike": 783.0,
-        "net_gex": 9343903.73
+        "net_gex": 14344975.89
       },
       {
         "strike": 784.0,
-        "net_gex": 9280299.93
+        "net_gex": 11466566.29
       },
       {
         "strike": 785.0,
-        "net_gex": 59523480.01
+        "net_gex": 70434078.26
       },
       {
         "strike": 786.0,
-        "net_gex": 9850930.94
+        "net_gex": 9385867.35
       },
       {
         "strike": 787.0,
-        "net_gex": 5496169.36
+        "net_gex": 6080719.99
       },
       {
         "strike": 788.0,
-        "net_gex": 4168159.82
+        "net_gex": 4104196.3
       },
       {
         "strike": 789.0,
-        "net_gex": 3839582.16
+        "net_gex": 3990195.57
       },
       {
         "strike": 790.0,
-        "net_gex": 29829980.99
+        "net_gex": 31298479.91
       },
       {
         "strike": 791.0,
-        "net_gex": 6508960.1
+        "net_gex": 7891572.21
       },
       {
         "strike": 792.0,
-        "net_gex": 3328391.42
+        "net_gex": 4026608.37
       },
       {
         "strike": 793.0,
-        "net_gex": 6964509.8
+        "net_gex": 8699665.27
       },
       {
         "strike": 794.0,
-        "net_gex": 5373358.69
+        "net_gex": 6689325.82
       },
       {
         "strike": 795.0,
-        "net_gex": 27898056.06
+        "net_gex": 31146026.08
       },
       {
         "strike": 796.0,
-        "net_gex": 4773107.49
+        "net_gex": 5232764.13
       },
       {
         "strike": 797.0,
-        "net_gex": 9338683.05
+        "net_gex": 10694035.67
       },
       {
         "strike": 798.0,
-        "net_gex": 4075406.69
+        "net_gex": 4547353.48
       },
       {
         "strike": 799.0,
-        "net_gex": 2858146.72
+        "net_gex": 3140607.51
       },
       {
         "strike": 800.0,
-        "net_gex": 14172589.06
+        "net_gex": 15991053.49
       },
       {
         "strike": 801.0,
-        "net_gex": 371539.68
+        "net_gex": 747759.13
       },
       {
         "strike": 802.0,
-        "net_gex": 795659.67
+        "net_gex": 3284180.41
       },
       {
         "strike": 803.0,
-        "net_gex": 1983738.43
+        "net_gex": 3772034.46
       },
       {
         "strike": 804.0,
-        "net_gex": 1116782.87
+        "net_gex": 1504166.28
       },
       {
         "strike": 805.0,
-        "net_gex": 4202182.77
+        "net_gex": 5044214.45
       },
       {
         "strike": 806.0,
-        "net_gex": 2910570.82
+        "net_gex": 3462240.96
       },
       {
         "strike": 807.0,
-        "net_gex": 721161.77
+        "net_gex": 1042744.16
       },
       {
         "strike": 808.0,
-        "net_gex": 2276105.37
+        "net_gex": 2900862.17
       },
       {
         "strike": 809.0,
-        "net_gex": 1558772.05
+        "net_gex": 1902685.04
       },
       {
         "strike": 810.0,
-        "net_gex": 4428609.58
+        "net_gex": 5458653.9
       },
       {
         "strike": 811.0,
-        "net_gex": 70169.29
+        "net_gex": 86532.68
       },
       {
         "strike": 812.0,
-        "net_gex": 2400882.33
+        "net_gex": 2975700.95
       },
       {
         "strike": 813.0,
-        "net_gex": 43203.57
+        "net_gex": 53825.82
       },
       {
         "strike": 814.0,
-        "net_gex": 201115.23
+        "net_gex": 251843.51
       },
       {
         "strike": 815.0,
-        "net_gex": 2335248.31
+        "net_gex": 2775178.56
       },
       {
         "strike": 816.0,
-        "net_gex": 15833.49
+        "net_gex": 20030.14
       },
       {
         "strike": 817.0,
-        "net_gex": 3739.2
+        "net_gex": 4754.37
       },
       {
         "strike": 818.0,
-        "net_gex": 70658.28
+        "net_gex": 88956.88
       },
       {
         "strike": 819.0,
-        "net_gex": 36903.08
+        "net_gex": 98791.12
       },
       {
         "strike": 820.0,
-        "net_gex": 1364940.03
+        "net_gex": 1754382.53
       },
       {
         "strike": 825.0,
-        "net_gex": 737601.54
+        "net_gex": 982753.58
       },
       {
         "strike": 830.0,
-        "net_gex": 467762.43
+        "net_gex": 635317.11
       },
       {
         "strike": 835.0,
-        "net_gex": 45128.99
+        "net_gex": 62810.88
       },
       {
         "strike": 840.0,
-        "net_gex": 19085.31
+        "net_gex": 27229.23
       },
       {
         "strike": 845.0,
-        "net_gex": 4998.99
+        "net_gex": 7309.89
       },
       {
         "strike": 850.0,
-        "net_gex": 11541.53
+        "net_gex": 17289.66
       },
       {
         "strike": 855.0,
-        "net_gex": 361.94
+        "net_gex": 555.72
       },
       {
         "strike": 860.0,
-        "net_gex": 425.83
+        "net_gex": 669.84
       },
       {
         "strike": 865.0,
-        "net_gex": 113.97
+        "net_gex": 183.64
       },
       {
         "strike": 870.0,
-        "net_gex": 76.5
+        "net_gex": 126.24
       },
       {
         "strike": 875.0,
-        "net_gex": 13.74
+        "net_gex": 23.22
       },
       {
         "strike": 880.0,
-        "net_gex": 1.32
+        "net_gex": 2.29
       },
       {
         "strike": 885.0,
-        "net_gex": 3.49
+        "net_gex": 6.18
       },
       {
         "strike": 890.0,
-        "net_gex": 0.88
+        "net_gex": 1.6
       },
       {
         "strike": 895.0,
-        "net_gex": 0.12
+        "net_gex": 0.21
       },
       {
         "strike": 900.0,
-        "net_gex": 0.16
+        "net_gex": 0.31
       },
       {
         "strike": 905.0,
-        "net_gex": 0.03
+        "net_gex": 0.06
       },
       {
         "strike": 910.0,
-        "net_gex": 0.01
+        "net_gex": 0.02
       },
       {
         "strike": 915.0,
@@ -1402,15 +1414,15 @@
   "QQQ": {
     "metadata": {
       "ticker": "QQQ",
-      "spot_price": 728.95,
-      "expiration_date": "Historical Aggregated (2026-10-14)",
-      "updated_at": "2026-10-15 15:31:06"
+      "spot_price": 728,
+      "expiration_date": "Historical Aggregated (2026-10-15)",
+      "updated_at": "2026-10-16 15:17:13"
     },
     "indicators": {
-      "max_pain": 735.0,
+      "max_pain": 732.0,
       "call_wall": 740.0,
       "put_wall": 730.0,
-      "zero_gamma": 741.6
+      "zero_gamma": 736.68
     },
     "gex_chart_data": [
       {
@@ -1467,11 +1479,11 @@
       },
       {
         "strike": 615.0,
-        "net_gex": -0.0
+        "net_gex": -0.01
       },
       {
         "strike": 620.0,
-        "net_gex": -0.17
+        "net_gex": -0.24
       },
       {
         "strike": 621.0,
@@ -1483,735 +1495,735 @@
       },
       {
         "strike": 623.0,
-        "net_gex": -0.01
-      },
-      {
-        "strike": 624.0,
-        "net_gex": -0.0
-      },
-      {
-        "strike": 625.0,
-        "net_gex": -0.48
-      },
-      {
-        "strike": 626.0,
-        "net_gex": -0.0
-      },
-      {
-        "strike": 627.0,
         "net_gex": -0.03
       },
       {
-        "strike": 628.0,
-        "net_gex": -0.1
+        "strike": 624.0,
+        "net_gex": -0.01
       },
       {
-        "strike": 629.0,
+        "strike": 625.0,
+        "net_gex": -0.64
+      },
+      {
+        "strike": 626.0,
+        "net_gex": -0.01
+      },
+      {
+        "strike": 627.0,
+        "net_gex": -0.04
+      },
+      {
+        "strike": 628.0,
         "net_gex": -0.13
       },
       {
+        "strike": 629.0,
+        "net_gex": -0.18
+      },
+      {
         "strike": 630.0,
-        "net_gex": -4.97
+        "net_gex": -6.48
       },
       {
         "strike": 631.0,
-        "net_gex": -0.09
-      },
-      {
-        "strike": 632.0,
-        "net_gex": -0.0
-      },
-      {
-        "strike": 633.0,
-        "net_gex": -0.17
-      },
-      {
-        "strike": 634.0,
-        "net_gex": -0.2
-      },
-      {
-        "strike": 635.0,
-        "net_gex": -3.9
-      },
-      {
-        "strike": 636.0,
-        "net_gex": -0.12
-      },
-      {
-        "strike": 637.0,
-        "net_gex": -0.6
-      },
-      {
-        "strike": 638.0,
-        "net_gex": -0.38
-      },
-      {
-        "strike": 639.0,
-        "net_gex": -0.55
-      },
-      {
-        "strike": 640.0,
-        "net_gex": -149.89
-      },
-      {
-        "strike": 641.0,
         "net_gex": -0.15
       },
       {
+        "strike": 632.0,
+        "net_gex": -0.02
+      },
+      {
+        "strike": 633.0,
+        "net_gex": -0.26
+      },
+      {
+        "strike": 634.0,
+        "net_gex": -0.26
+      },
+      {
+        "strike": 635.0,
+        "net_gex": -5.06
+      },
+      {
+        "strike": 636.0,
+        "net_gex": -0.36
+      },
+      {
+        "strike": 637.0,
+        "net_gex": -0.77
+      },
+      {
+        "strike": 638.0,
+        "net_gex": -0.4
+      },
+      {
+        "strike": 639.0,
+        "net_gex": -0.74
+      },
+      {
+        "strike": 640.0,
+        "net_gex": -191.83
+      },
+      {
+        "strike": 641.0,
+        "net_gex": -0.65
+      },
+      {
         "strike": 642.0,
-        "net_gex": -5.4
+        "net_gex": -7.62
       },
       {
         "strike": 643.0,
-        "net_gex": -1.03
+        "net_gex": -2.19
       },
       {
         "strike": 644.0,
-        "net_gex": -0.25
+        "net_gex": -0.36
       },
       {
         "strike": 645.0,
-        "net_gex": -88.84
+        "net_gex": -111.34
       },
       {
         "strike": 646.0,
-        "net_gex": -7.81
+        "net_gex": -9.83
       },
       {
         "strike": 647.0,
-        "net_gex": -5.89
+        "net_gex": -7.39
       },
       {
         "strike": 648.0,
-        "net_gex": -3.37
+        "net_gex": -4.21
       },
       {
         "strike": 649.0,
-        "net_gex": -6.24
+        "net_gex": -11.95
       },
       {
         "strike": 650.0,
-        "net_gex": -2696.81
+        "net_gex": -3390.46
       },
       {
         "strike": 651.0,
-        "net_gex": -372.2
+        "net_gex": -454.65
       },
       {
         "strike": 652.0,
-        "net_gex": -304.83
+        "net_gex": -419.07
       },
       {
         "strike": 653.0,
-        "net_gex": -190.76
+        "net_gex": -224.47
       },
       {
         "strike": 654.0,
-        "net_gex": -245.59
+        "net_gex": -301.83
       },
       {
         "strike": 655.0,
-        "net_gex": -8835.67
+        "net_gex": -10826.63
       },
       {
         "strike": 656.0,
-        "net_gex": -878.22
+        "net_gex": -1076.7
       },
       {
         "strike": 657.0,
-        "net_gex": -386.65
+        "net_gex": -471.07
       },
       {
         "strike": 658.0,
-        "net_gex": -338.18
+        "net_gex": -431.32
       },
       {
         "strike": 659.0,
-        "net_gex": -656.86
+        "net_gex": -857.17
       },
       {
         "strike": 660.0,
-        "net_gex": -24425.5
+        "net_gex": -29515.41
       },
       {
         "strike": 661.0,
-        "net_gex": -1446.77
+        "net_gex": -1742.4
       },
       {
         "strike": 662.0,
-        "net_gex": -2796.81
+        "net_gex": -3393.9
       },
       {
         "strike": 663.0,
-        "net_gex": -9512.68
+        "net_gex": -11569.5
       },
       {
         "strike": 664.0,
-        "net_gex": -5372.96
+        "net_gex": -6857.21
       },
       {
         "strike": 665.0,
-        "net_gex": -35605.04
+        "net_gex": -42281.73
       },
       {
         "strike": 666.0,
-        "net_gex": -3441.82
+        "net_gex": -5545.36
       },
       {
         "strike": 667.0,
-        "net_gex": -6324.36
+        "net_gex": -8415.84
       },
       {
         "strike": 668.0,
-        "net_gex": -3920.3
+        "net_gex": -4770.58
       },
       {
         "strike": 669.0,
-        "net_gex": -29910.09
+        "net_gex": -35182.49
       },
       {
         "strike": 670.0,
-        "net_gex": -389024.29
+        "net_gex": -455851.53
       },
       {
         "strike": 671.0,
-        "net_gex": -6127.78
+        "net_gex": -6416.37
       },
       {
         "strike": 672.0,
-        "net_gex": -14664.79
+        "net_gex": -17141.84
       },
       {
         "strike": 673.0,
-        "net_gex": -53325.13
+        "net_gex": -65674.23
       },
       {
         "strike": 674.0,
-        "net_gex": -114215.4
+        "net_gex": -132451.21
       },
       {
         "strike": 675.0,
-        "net_gex": -427987.86
+        "net_gex": -493843.6
       },
       {
         "strike": 676.0,
-        "net_gex": -32025.23
+        "net_gex": -36613.5
       },
       {
         "strike": 677.0,
-        "net_gex": -41366.65
+        "net_gex": -48435.46
       },
       {
         "strike": 678.0,
-        "net_gex": -64935.81
+        "net_gex": -74043.91
       },
       {
         "strike": 679.0,
-        "net_gex": -102083.08
+        "net_gex": -116264.47
       },
       {
         "strike": 680.0,
-        "net_gex": -1452184.69
+        "net_gex": -1569093.43
       },
       {
         "strike": 681.0,
-        "net_gex": -84908.48
+        "net_gex": -103956.87
       },
       {
         "strike": 682.0,
-        "net_gex": -112461.11
+        "net_gex": -127741.01
       },
       {
         "strike": 683.0,
-        "net_gex": -161995.55
+        "net_gex": -183081.49
       },
       {
         "strike": 684.0,
-        "net_gex": -61284.81
+        "net_gex": -70953.42
       },
       {
         "strike": 685.0,
-        "net_gex": -1017017.03
+        "net_gex": -1125829.83
       },
       {
         "strike": 686.0,
-        "net_gex": -141536.25
+        "net_gex": -161940.74
       },
       {
         "strike": 687.0,
-        "net_gex": -208665.11
+        "net_gex": -233378.02
       },
       {
         "strike": 688.0,
-        "net_gex": -604969.6
+        "net_gex": -576384.59
       },
       {
         "strike": 689.0,
-        "net_gex": -279343.38
+        "net_gex": -290456.6
       },
       {
         "strike": 690.0,
-        "net_gex": -3966631.32
+        "net_gex": -4291124.42
       },
       {
         "strike": 691.0,
-        "net_gex": -170889.47
+        "net_gex": -244292.52
       },
       {
         "strike": 692.0,
-        "net_gex": -227358.44
+        "net_gex": -229064.74
       },
       {
         "strike": 693.0,
-        "net_gex": -490048.64
+        "net_gex": -518565.8
       },
       {
         "strike": 694.0,
-        "net_gex": -1204073.91
+        "net_gex": -1363625.77
       },
       {
         "strike": 695.0,
-        "net_gex": -8286157.1
+        "net_gex": -8995090.93
       },
       {
         "strike": 696.0,
-        "net_gex": -666627.7
+        "net_gex": -709783.69
       },
       {
         "strike": 697.0,
-        "net_gex": -531278.11
+        "net_gex": -547161.62
       },
       {
         "strike": 698.0,
-        "net_gex": -477887.5
+        "net_gex": -501344.41
       },
       {
         "strike": 699.0,
-        "net_gex": -970453.85
+        "net_gex": -1969164.57
       },
       {
         "strike": 700.0,
-        "net_gex": -23100006.85
+        "net_gex": -24465579.22
       },
       {
         "strike": 701.0,
-        "net_gex": -602931.81
+        "net_gex": -682293.95
       },
       {
         "strike": 702.0,
-        "net_gex": -1437167.81
+        "net_gex": -1771793.73
       },
       {
         "strike": 703.0,
-        "net_gex": -1613818.12
+        "net_gex": -1746184.56
       },
       {
         "strike": 704.0,
-        "net_gex": -895907.88
+        "net_gex": -2527620.1
       },
       {
         "strike": 705.0,
-        "net_gex": -22012165.54
+        "net_gex": -25106285.27
       },
       {
         "strike": 706.0,
-        "net_gex": -3302350.4
+        "net_gex": -3903486.39
       },
       {
         "strike": 707.0,
-        "net_gex": -9791914.56
+        "net_gex": -10781224.67
       },
       {
         "strike": 708.0,
-        "net_gex": -885622.7
+        "net_gex": -1742577.18
       },
       {
         "strike": 709.0,
-        "net_gex": -1920053.02
+        "net_gex": -1361854.74
       },
       {
         "strike": 710.0,
-        "net_gex": -17999410.92
+        "net_gex": -21446185.47
       },
       {
         "strike": 711.0,
-        "net_gex": -2047537.77
+        "net_gex": -3377121.03
       },
       {
         "strike": 712.0,
-        "net_gex": -6851442.82
+        "net_gex": -10145366.14
       },
       {
         "strike": 713.0,
-        "net_gex": -7545526.84
+        "net_gex": -10271897.76
       },
       {
         "strike": 714.0,
-        "net_gex": -2682329.99
+        "net_gex": -1542580.1
       },
       {
         "strike": 715.0,
-        "net_gex": -13317795.38
+        "net_gex": -14608968.24
       },
       {
         "strike": 716.0,
-        "net_gex": -13780888.86
+        "net_gex": -15251971.58
       },
       {
         "strike": 717.0,
-        "net_gex": -25223481.92
+        "net_gex": -25228865.28
       },
       {
         "strike": 718.0,
-        "net_gex": 4500018.62
+        "net_gex": 3224458.0
       },
       {
         "strike": 719.0,
-        "net_gex": -3227710.42
+        "net_gex": -3648224.43
       },
       {
         "strike": 720.0,
-        "net_gex": -826296.87
+        "net_gex": -2326550.81
       },
       {
         "strike": 721.0,
-        "net_gex": -558546.1
+        "net_gex": -1104860.1
       },
       {
         "strike": 722.0,
-        "net_gex": -5919046.73
+        "net_gex": -7832409.2
       },
       {
         "strike": 723.0,
-        "net_gex": -3389021.64
+        "net_gex": -5941166.48
       },
       {
         "strike": 724.0,
-        "net_gex": -15994669.78
+        "net_gex": -18567917.34
       },
       {
         "strike": 725.0,
-        "net_gex": -23208470.19
+        "net_gex": -22385558.3
       },
       {
         "strike": 726.0,
-        "net_gex": -874115.88
+        "net_gex": -3257450.44
       },
       {
         "strike": 727.0,
-        "net_gex": -7248096.09
+        "net_gex": -6701495.62
       },
       {
         "strike": 728.0,
-        "net_gex": -9837364.2
+        "net_gex": -10891425.33
       },
       {
         "strike": 729.0,
-        "net_gex": -5413932.44
+        "net_gex": -3499280.72
       },
       {
         "strike": 730.0,
-        "net_gex": -18599150.18
+        "net_gex": -4320202.69
       },
       {
         "strike": 731.0,
-        "net_gex": -95646.01
+        "net_gex": 555503.26
       },
       {
         "strike": 732.0,
-        "net_gex": -15624264.09
+        "net_gex": -8458154.85
       },
       {
         "strike": 733.0,
-        "net_gex": -5833673.96
+        "net_gex": -3655977.41
       },
       {
         "strike": 734.0,
-        "net_gex": -29967988.55
+        "net_gex": -21516817.01
       },
       {
         "strike": 735.0,
-        "net_gex": -3793495.16
+        "net_gex": 12344776.45
       },
       {
         "strike": 736.0,
-        "net_gex": -2947362.09
+        "net_gex": -648615.27
       },
       {
         "strike": 737.0,
-        "net_gex": -3400670.86
+        "net_gex": -924807.07
       },
       {
         "strike": 738.0,
-        "net_gex": -3804531.44
+        "net_gex": -1168000.97
       },
       {
         "strike": 739.0,
-        "net_gex": -688053.67
+        "net_gex": 877781.59
       },
       {
         "strike": 740.0,
-        "net_gex": -8056359.43
+        "net_gex": 13538738.54
       },
       {
         "strike": 741.0,
-        "net_gex": -4318969.89
+        "net_gex": 74835.16
       },
       {
         "strike": 742.0,
-        "net_gex": -2526835.62
+        "net_gex": -1306249.4
       },
       {
         "strike": 743.0,
-        "net_gex": 111192.19
+        "net_gex": 954378.2
       },
       {
         "strike": 744.0,
-        "net_gex": -409996.25
+        "net_gex": 5553836.43
       },
       {
         "strike": 745.0,
-        "net_gex": -3290848.7
+        "net_gex": 2739584.46
       },
       {
         "strike": 746.0,
-        "net_gex": -6768240.11
+        "net_gex": -5378042.55
       },
       {
         "strike": 747.0,
-        "net_gex": 220178.78
+        "net_gex": 1272892.89
       },
       {
         "strike": 748.0,
-        "net_gex": 1619415.12
+        "net_gex": 1868872.11
       },
       {
         "strike": 749.0,
-        "net_gex": 1109596.55
+        "net_gex": 2578240.93
       },
       {
         "strike": 750.0,
-        "net_gex": 23802182.12
+        "net_gex": 22799858.46
       },
       {
         "strike": 751.0,
-        "net_gex": 660852.81
+        "net_gex": 1221454.66
       },
       {
         "strike": 752.0,
-        "net_gex": 2480645.3
+        "net_gex": 1617473.36
       },
       {
         "strike": 753.0,
-        "net_gex": -376660.63
+        "net_gex": 1064567.44
       },
       {
         "strike": 754.0,
-        "net_gex": 1277403.99
+        "net_gex": 2542008.85
       },
       {
         "strike": 755.0,
-        "net_gex": 10577555.58
+        "net_gex": 9304522.2
       },
       {
         "strike": 756.0,
-        "net_gex": 2329668.78
+        "net_gex": 2645028.49
       },
       {
         "strike": 757.0,
-        "net_gex": 1309644.44
+        "net_gex": 1298426.68
       },
       {
         "strike": 758.0,
-        "net_gex": 1607588.46
+        "net_gex": 1353713.68
       },
       {
         "strike": 759.0,
-        "net_gex": 479397.43
+        "net_gex": 1354546.26
       },
       {
         "strike": 760.0,
-        "net_gex": 27516917.56
+        "net_gex": 27077630.59
       },
       {
         "strike": 761.0,
-        "net_gex": 1377119.81
+        "net_gex": 1226822.12
       },
       {
         "strike": 762.0,
-        "net_gex": 1308669.09
+        "net_gex": 1440449.26
       },
       {
         "strike": 763.0,
-        "net_gex": 1201333.55
+        "net_gex": 1222245.84
       },
       {
         "strike": 764.0,
-        "net_gex": 1356900.29
+        "net_gex": 1274836.3
       },
       {
         "strike": 765.0,
-        "net_gex": 4404410.32
+        "net_gex": 4020321.87
       },
       {
         "strike": 766.0,
-        "net_gex": 1326888.29
+        "net_gex": 1005201.51
       },
       {
         "strike": 767.0,
-        "net_gex": 1096605.04
+        "net_gex": 792737.79
       },
       {
         "strike": 768.0,
-        "net_gex": 564840.16
+        "net_gex": 486579.97
       },
       {
         "strike": 769.0,
-        "net_gex": 549479.76
+        "net_gex": 483903.11
       },
       {
         "strike": 770.0,
-        "net_gex": 7230072.5
+        "net_gex": 6483579.59
       },
       {
         "strike": 771.0,
-        "net_gex": 340827.42
+        "net_gex": 287314.75
       },
       {
         "strike": 772.0,
-        "net_gex": 482989.39
+        "net_gex": 424502.4
       },
       {
         "strike": 773.0,
-        "net_gex": 214991.48
+        "net_gex": 191046.29
       },
       {
         "strike": 774.0,
-        "net_gex": 499274.42
+        "net_gex": 435913.39
       },
       {
         "strike": 775.0,
-        "net_gex": 2848383.53
+        "net_gex": 2498177.15
       },
       {
         "strike": 776.0,
-        "net_gex": 117095.94
+        "net_gex": 110313.07
       },
       {
         "strike": 777.0,
-        "net_gex": 100575.89
+        "net_gex": 88025.56
       },
       {
         "strike": 778.0,
-        "net_gex": 63917.62
+        "net_gex": 77545.04
       },
       {
         "strike": 779.0,
-        "net_gex": 46551.13
+        "net_gex": 41455.46
       },
       {
         "strike": 780.0,
-        "net_gex": 1060527.58
+        "net_gex": 880265.12
       },
       {
         "strike": 781.0,
-        "net_gex": 25250.47
+        "net_gex": 22134.7
       },
       {
         "strike": 782.0,
-        "net_gex": 30021.84
+        "net_gex": 26063.03
       },
       {
         "strike": 783.0,
-        "net_gex": 13658.27
+        "net_gex": 18304.79
       },
       {
         "strike": 784.0,
-        "net_gex": 28672.75
+        "net_gex": 22511.89
       },
       {
         "strike": 785.0,
-        "net_gex": 568891.47
+        "net_gex": 485720.83
       },
       {
         "strike": 786.0,
-        "net_gex": 17082.5
+        "net_gex": 13584.77
       },
       {
         "strike": 787.0,
-        "net_gex": 19899.72
+        "net_gex": 17153.74
       },
       {
         "strike": 788.0,
-        "net_gex": 6888.13
+        "net_gex": 4914.06
       },
       {
         "strike": 789.0,
-        "net_gex": 7881.73
+        "net_gex": 7772.93
       },
       {
         "strike": 790.0,
-        "net_gex": 234782.56
+        "net_gex": 200879.91
       },
       {
         "strike": 791.0,
-        "net_gex": 5458.08
+        "net_gex": 5492.34
       },
       {
         "strike": 792.0,
-        "net_gex": 3760.76
+        "net_gex": 3607.94
       },
       {
         "strike": 793.0,
-        "net_gex": 3799.34
+        "net_gex": 3730.57
       },
       {
         "strike": 795.0,
-        "net_gex": 34559.69
+        "net_gex": 29191.75
       },
       {
         "strike": 800.0,
-        "net_gex": 67239.27
+        "net_gex": 55696.58
       },
       {
         "strike": 805.0,
-        "net_gex": 4455.03
+        "net_gex": 3713.04
       },
       {
         "strike": 810.0,
-        "net_gex": 1738.86
+        "net_gex": 1344.09
       },
       {
         "strike": 815.0,
-        "net_gex": 422.48
+        "net_gex": 331.46
       },
       {
         "strike": 820.0,
-        "net_gex": 366.45
+        "net_gex": 263.79
       },
       {
         "strike": 825.0,
-        "net_gex": 184.0
+        "net_gex": 150.03
       },
       {
         "strike": 830.0,
-        "net_gex": 21.48
+        "net_gex": 17.69
       },
       {
         "strike": 835.0,
-        "net_gex": 4.58
+        "net_gex": 3.91
       },
       {
         "strike": 840.0,
-        "net_gex": 2.62
+        "net_gex": 1.91
       },
       {
         "strike": 845.0,
-        "net_gex": 0.36
+        "net_gex": 0.27
       },
       {
         "strike": 850.0,
-        "net_gex": 0.4
+        "net_gex": 0.3
       },
       {
         "strike": 855.0,
@@ -2256,31 +2268,23 @@
       {
         "strike": 905.0,
         "net_gex": 0.0
-      },
-      {
-        "strike": 910.0,
-        "net_gex": 0.0
       }
     ]
   },
   "IWM": {
     "metadata": {
       "ticker": "IWM",
-      "spot_price": 271.37,
-      "expiration_date": "Historical Aggregated (2026-10-14)",
-      "updated_at": "2026-10-15 15:31:11"
+      "spot_price": 275.08,
+      "expiration_date": "Historical Aggregated (2026-10-15)",
+      "updated_at": "2026-10-16 15:17:18"
     },
     "indicators": {
-      "max_pain": 282.0,
+      "max_pain": 280.0,
       "call_wall": 280.0,
       "put_wall": 275.0,
-      "zero_gamma": 286.23
+      "zero_gamma": 283.46
     },
     "gex_chart_data": [
-      {
-        "strike": 205.0,
-        "net_gex": -0.0
-      },
       {
         "strike": 210.0,
         "net_gex": -0.0
@@ -2299,311 +2303,311 @@
       },
       {
         "strike": 230.0,
-        "net_gex": -0.03
+        "net_gex": -0.0
       },
       {
         "strike": 235.0,
-        "net_gex": -2.41
+        "net_gex": -0.12
       },
       {
         "strike": 240.0,
-        "net_gex": -135.57
+        "net_gex": -10.31
       },
       {
         "strike": 245.0,
-        "net_gex": -4812.06
+        "net_gex": -547.99
       },
       {
         "strike": 250.0,
-        "net_gex": -260895.24
+        "net_gex": -44445.45
       },
       {
         "strike": 251.0,
-        "net_gex": -47704.58
+        "net_gex": -8794.8
       },
       {
         "strike": 252.0,
-        "net_gex": -110433.12
+        "net_gex": -21957.77
       },
       {
         "strike": 253.0,
-        "net_gex": -70926.65
+        "net_gex": -21633.45
       },
       {
         "strike": 254.0,
-        "net_gex": -357220.85
+        "net_gex": -83504.18
       },
       {
         "strike": 255.0,
-        "net_gex": -1643035.43
+        "net_gex": -414326.67
       },
       {
         "strike": 256.0,
-        "net_gex": -1759467.64
+        "net_gex": -489927.49
       },
       {
         "strike": 257.0,
-        "net_gex": -123506.02
+        "net_gex": -36632.77
       },
       {
         "strike": 258.0,
-        "net_gex": -715371.7
+        "net_gex": -258019.97
       },
       {
         "strike": 259.0,
-        "net_gex": -935534.42
+        "net_gex": -311014.55
       },
       {
         "strike": 260.0,
-        "net_gex": -11239472.51
+        "net_gex": -4423150.89
       },
       {
         "strike": 261.0,
-        "net_gex": -1734104.49
+        "net_gex": -704636.81
       },
       {
         "strike": 262.0,
-        "net_gex": -6119573.43
+        "net_gex": -2594938.72
       },
       {
         "strike": 263.0,
-        "net_gex": -9701719.69
+        "net_gex": -4472276.55
       },
       {
         "strike": 264.0,
-        "net_gex": -7072872.01
+        "net_gex": -4245384.2
       },
       {
         "strike": 265.0,
-        "net_gex": -46779038.13
+        "net_gex": -27579216.12
       },
       {
         "strike": 266.0,
-        "net_gex": -34257811.77
+        "net_gex": -20358653.85
       },
       {
         "strike": 267.0,
-        "net_gex": -49420501.79
+        "net_gex": -40054372.18
       },
       {
         "strike": 268.0,
-        "net_gex": -32486113.72
+        "net_gex": -22874746.43
       },
       {
         "strike": 269.0,
-        "net_gex": -91110891.16
+        "net_gex": -65161165.36
       },
       {
         "strike": 270.0,
-        "net_gex": -101983813.8
+        "net_gex": -76165689.07
       },
       {
         "strike": 271.0,
-        "net_gex": -83529935.7
+        "net_gex": -55641017.01
       },
       {
         "strike": 272.0,
-        "net_gex": -99824285.73
+        "net_gex": -84327050.19
       },
       {
         "strike": 273.0,
-        "net_gex": -93064178.44
+        "net_gex": -75765107.08
       },
       {
         "strike": 274.0,
-        "net_gex": -60267199.7
+        "net_gex": -46639696.43
       },
       {
         "strike": 275.0,
-        "net_gex": -109594147.97
+        "net_gex": -105007173.92
       },
       {
         "strike": 276.0,
-        "net_gex": -24581377.4
+        "net_gex": -19364629.69
       },
       {
         "strike": 277.0,
-        "net_gex": -31865079.52
+        "net_gex": -33742969.74
       },
       {
         "strike": 278.0,
-        "net_gex": -16362627.75
+        "net_gex": -20040884.52
       },
       {
         "strike": 279.0,
-        "net_gex": -30862948.05
+        "net_gex": -45178025.25
       },
       {
         "strike": 280.0,
-        "net_gex": -25880233.38
+        "net_gex": -19371056.64
       },
       {
         "strike": 281.0,
-        "net_gex": -6482982.44
+        "net_gex": -1306665.13
       },
       {
         "strike": 282.0,
-        "net_gex": 625711.63
+        "net_gex": 609156.95
       },
       {
         "strike": 283.0,
-        "net_gex": 2194986.61
+        "net_gex": 15064839.35
       },
       {
         "strike": 284.0,
-        "net_gex": 109910.01
+        "net_gex": 11562166.8
       },
       {
         "strike": 285.0,
-        "net_gex": -150801.95
+        "net_gex": 25537835.98
       },
       {
         "strike": 286.0,
-        "net_gex": 2585562.32
+        "net_gex": 10053855.3
       },
       {
         "strike": 287.0,
-        "net_gex": 1075496.16
+        "net_gex": 4560695.72
       },
       {
         "strike": 288.0,
-        "net_gex": 733922.31
+        "net_gex": 3339676.08
       },
       {
         "strike": 289.0,
-        "net_gex": 4269291.39
+        "net_gex": 12880036.94
       },
       {
         "strike": 290.0,
-        "net_gex": 867961.16
+        "net_gex": 3064809.58
       },
       {
         "strike": 291.0,
-        "net_gex": 72256.23
+        "net_gex": 245079.8
       },
       {
         "strike": 292.0,
-        "net_gex": 595816.91
+        "net_gex": 2204643.24
       },
       {
         "strike": 293.0,
-        "net_gex": 193943.16
+        "net_gex": 767404.93
       },
       {
         "strike": 294.0,
-        "net_gex": 123110.52
+        "net_gex": 521626.51
       },
       {
         "strike": 295.0,
-        "net_gex": 279700.48
+        "net_gex": 1270450.85
       },
       {
         "strike": 296.0,
-        "net_gex": 67877.04
+        "net_gex": 323809.66
       },
       {
         "strike": 297.0,
-        "net_gex": 27313.4
+        "net_gex": 140457.96
       },
       {
         "strike": 298.0,
-        "net_gex": 34404.02
+        "net_gex": 190634.24
       },
       {
         "strike": 299.0,
-        "net_gex": 22801.14
+        "net_gex": 134928.1
       },
       {
         "strike": 300.0,
-        "net_gex": 38612.49
+        "net_gex": 244038.97
       },
       {
         "strike": 301.0,
-        "net_gex": 3888.97
+        "net_gex": 26280.42
       },
       {
         "strike": 302.0,
-        "net_gex": 1900.74
+        "net_gex": 13719.84
       },
       {
         "strike": 303.0,
-        "net_gex": 840.3
+        "net_gex": 6476.22
       },
       {
         "strike": 304.0,
-        "net_gex": 457.2
+        "net_gex": 3758.17
       },
       {
         "strike": 305.0,
-        "net_gex": 2123.31
+        "net_gex": 18581.64
       },
       {
         "strike": 306.0,
-        "net_gex": 105.47
+        "net_gex": 986.18
       },
       {
         "strike": 307.0,
-        "net_gex": 148.02
+        "net_gex": 1479.34
       },
       {
         "strike": 308.0,
-        "net_gex": 28.74
+        "net_gex": 306.41
       },
       {
         "strike": 309.0,
-        "net_gex": 16.42
+        "net_gex": 186.55
       },
       {
         "strike": 310.0,
-        "net_gex": 70.15
+        "net_gex": 848.75
       },
       {
         "strike": 311.0,
-        "net_gex": 2.4
+        "net_gex": 31.07
       },
       {
         "strike": 312.0,
-        "net_gex": 11.48
+        "net_gex": 158.08
       },
       {
         "strike": 313.0,
-        "net_gex": 0.4
+        "net_gex": 5.88
       },
       {
         "strike": 314.0,
-        "net_gex": 0.73
+        "net_gex": 11.4
       },
       {
         "strike": 315.0,
-        "net_gex": 2.05
+        "net_gex": 34.1
       },
       {
         "strike": 316.0,
-        "net_gex": 0.08
+        "net_gex": 1.4
       },
       {
         "strike": 317.0,
-        "net_gex": 0.02
+        "net_gex": 0.4
       },
       {
         "strike": 318.0,
-        "net_gex": 0.03
+        "net_gex": 0.58
       },
       {
         "strike": 319.0,
-        "net_gex": 0.0
+        "net_gex": 0.08
       },
       {
         "strike": 320.0,
-        "net_gex": 0.03
+        "net_gex": 0.76
       },
       {
         "strike": 321.0,
-        "net_gex": 0.0
+        "net_gex": 0.02
       },
       {
         "strike": 322.0,
-        "net_gex": 0.0
+        "net_gex": 0.02
       },
       {
         "strike": 323.0,
@@ -2611,11 +2615,11 @@
       },
       {
         "strike": 324.0,
-        "net_gex": 0.0
+        "net_gex": 0.01
       },
       {
         "strike": 325.0,
-        "net_gex": 0.0
+        "net_gex": 0.01
       },
       {
         "strike": 330.0,
@@ -2624,23 +2628,31 @@
       {
         "strike": 335.0,
         "net_gex": 0.0
+      },
+      {
+        "strike": 340.0,
+        "net_gex": 0.0
       }
     ]
   },
   "TSLA": {
     "metadata": {
       "ticker": "TSLA",
-      "spot_price": 367.16,
-      "expiration_date": "Historical Aggregated (2026-10-14)",
-      "updated_at": "2026-10-15 15:31:19"
+      "spot_price": 362.44,
+      "expiration_date": "Historical Aggregated (2026-10-15)",
+      "updated_at": "2026-10-16 15:17:24"
     },
     "indicators": {
-      "max_pain": 372.5,
-      "call_wall": 380.0,
+      "max_pain": 370.0,
+      "call_wall": 360.0,
       "put_wall": 360.0,
-      "zero_gamma": 370.14
+      "zero_gamma": 369.09
     },
     "gex_chart_data": [
+      {
+        "strike": 275.0,
+        "net_gex": -0.0
+      },
       {
         "strike": 280.0,
         "net_gex": -0.0
@@ -2667,183 +2679,183 @@
       },
       {
         "strike": 310.0,
-        "net_gex": -0.01
+        "net_gex": -0.11
       },
       {
         "strike": 315.0,
-        "net_gex": -0.18
+        "net_gex": -2.7
       },
       {
         "strike": 320.0,
-        "net_gex": -14.43
+        "net_gex": -186.83
       },
       {
         "strike": 325.0,
-        "net_gex": -104.72
+        "net_gex": -1095.0
       },
       {
         "strike": 330.0,
-        "net_gex": -2249.98
+        "net_gex": -14826.25
       },
       {
         "strike": 332.5,
-        "net_gex": -754.27
+        "net_gex": -4236.25
       },
       {
         "strike": 335.0,
-        "net_gex": -1446.09
+        "net_gex": -13016.65
       },
       {
         "strike": 337.5,
-        "net_gex": -3897.04
+        "net_gex": -23623.49
       },
       {
         "strike": 340.0,
-        "net_gex": -247382.71
+        "net_gex": -912614.92
       },
       {
         "strike": 342.5,
-        "net_gex": -25971.07
+        "net_gex": -226565.78
       },
       {
         "strike": 345.0,
-        "net_gex": -264990.82
+        "net_gex": -944123.85
       },
       {
         "strike": 347.5,
-        "net_gex": -324270.33
+        "net_gex": -998668.09
       },
       {
         "strike": 350.0,
-        "net_gex": -1417344.93
+        "net_gex": -3239530.22
       },
       {
         "strike": 352.5,
-        "net_gex": -313045.18
+        "net_gex": -989615.74
       },
       {
         "strike": 355.0,
-        "net_gex": -1176796.31
+        "net_gex": -1827439.02
       },
       {
         "strike": 357.5,
-        "net_gex": -1392150.35
+        "net_gex": -3606860.16
       },
       {
         "strike": 360.0,
-        "net_gex": -6526633.07
+        "net_gex": -8444801.35
       },
       {
         "strike": 362.5,
-        "net_gex": -2117099.92
+        "net_gex": -2301640.09
       },
       {
         "strike": 365.0,
-        "net_gex": -1857534.23
+        "net_gex": -5647436.75
       },
       {
         "strike": 367.5,
-        "net_gex": -2626036.02
+        "net_gex": -270026.47
       },
       {
         "strike": 370.0,
-        "net_gex": -2756349.4
+        "net_gex": -1105911.71
       },
       {
         "strike": 372.5,
-        "net_gex": 187650.19
+        "net_gex": 656371.68
       },
       {
         "strike": 375.0,
-        "net_gex": -894800.22
+        "net_gex": -90862.64
       },
       {
         "strike": 377.5,
-        "net_gex": 3040898.1
+        "net_gex": 1658902.84
       },
       {
         "strike": 380.0,
-        "net_gex": 483037.66
+        "net_gex": 976064.04
       },
       {
         "strike": 382.5,
-        "net_gex": 2279179.04
+        "net_gex": 905844.76
       },
       {
         "strike": 385.0,
-        "net_gex": 2458870.27
+        "net_gex": 1028067.69
       },
       {
         "strike": 387.5,
-        "net_gex": 782887.0
+        "net_gex": 315864.88
       },
       {
         "strike": 390.0,
-        "net_gex": 845621.34
+        "net_gex": 300392.57
       },
       {
         "strike": 392.5,
-        "net_gex": 538726.22
+        "net_gex": 127539.67
       },
       {
         "strike": 395.0,
-        "net_gex": 149707.67
+        "net_gex": 50383.12
       },
       {
         "strike": 397.5,
-        "net_gex": 141823.88
+        "net_gex": 30896.88
       },
       {
         "strike": 400.0,
-        "net_gex": 144647.86
+        "net_gex": 22799.7
       },
       {
         "strike": 402.5,
-        "net_gex": 10017.33
+        "net_gex": 1459.98
       },
       {
         "strike": 405.0,
-        "net_gex": 18098.99
+        "net_gex": 2435.67
       },
       {
         "strike": 407.5,
-        "net_gex": 1072.71
+        "net_gex": 161.07
       },
       {
         "strike": 410.0,
-        "net_gex": 1826.12
+        "net_gex": 216.83
       },
       {
         "strike": 412.5,
-        "net_gex": 108.39
+        "net_gex": 11.62
       },
       {
         "strike": 415.0,
-        "net_gex": 145.43
+        "net_gex": 12.16
       },
       {
         "strike": 417.5,
-        "net_gex": 5.1
+        "net_gex": 0.36
       },
       {
         "strike": 420.0,
-        "net_gex": 36.31
+        "net_gex": 3.17
       },
       {
         "strike": 422.5,
-        "net_gex": 0.48
+        "net_gex": 0.19
       },
       {
         "strike": 425.0,
-        "net_gex": 2.05
+        "net_gex": 0.11
       },
       {
         "strike": 427.5,
-        "net_gex": 0.02
+        "net_gex": 0.0
       },
       {
         "strike": 430.0,
-        "net_gex": 0.18
+        "net_gex": 0.01
       },
       {
         "strike": 432.5,
@@ -2868,25 +2880,21 @@
       {
         "strike": 450.0,
         "net_gex": 0.0
-      },
-      {
-        "strike": 455.0,
-        "net_gex": 0.0
       }
     ]
   },
   "AAPL": {
     "metadata": {
       "ticker": "AAPL",
-      "spot_price": 342.96,
-      "expiration_date": "Historical Aggregated (2026-10-14)",
-      "updated_at": "2026-10-15 15:31:22"
+      "spot_price": 342,
+      "expiration_date": "Historical Aggregated (2026-10-15)",
+      "updated_at": "2026-10-16 15:17:29"
     },
     "indicators": {
       "max_pain": 330.0,
       "call_wall": 340.0,
       "put_wall": 335.0,
-      "zero_gamma": 325.27
+      "zero_gamma": 327.29
     },
     "gex_chart_data": [
       {
@@ -2915,147 +2923,155 @@
       },
       {
         "strike": 290.0,
-        "net_gex": -0.01
+        "net_gex": -0.02
       },
       {
         "strike": 295.0,
-        "net_gex": -0.9
+        "net_gex": -1.67
       },
       {
         "strike": 300.0,
-        "net_gex": -34.67
+        "net_gex": -59.92
       },
       {
         "strike": 302.5,
-        "net_gex": -2.15
+        "net_gex": -3.8
       },
       {
         "strike": 305.0,
-        "net_gex": -382.96
+        "net_gex": -636.65
       },
       {
         "strike": 307.5,
-        "net_gex": -177.33
+        "net_gex": -269.81
       },
       {
         "strike": 310.0,
-        "net_gex": -2584.96
+        "net_gex": -3896.1
       },
       {
         "strike": 312.5,
-        "net_gex": -3492.55
+        "net_gex": -5033.87
       },
       {
         "strike": 315.0,
-        "net_gex": -26616.82
+        "net_gex": -35665.29
       },
       {
         "strike": 317.5,
-        "net_gex": -32102.92
+        "net_gex": -44182.64
       },
       {
         "strike": 320.0,
-        "net_gex": -512504.02
+        "net_gex": -602046.69
       },
       {
         "strike": 322.5,
-        "net_gex": -157428.38
+        "net_gex": -211064.23
       },
       {
         "strike": 325.0,
-        "net_gex": -490492.11
+        "net_gex": -604481.04
       },
       {
         "strike": 327.5,
-        "net_gex": -1412026.14
+        "net_gex": -2122156.61
       },
       {
         "strike": 330.0,
-        "net_gex": -3305489.63
+        "net_gex": -5396987.09
       },
       {
         "strike": 332.5,
-        "net_gex": -2049649.59
+        "net_gex": -4073660.36
       },
       {
         "strike": 335.0,
-        "net_gex": -1087642.58
+        "net_gex": -4272428.58
       },
       {
         "strike": 337.5,
-        "net_gex": -4685987.79
+        "net_gex": -6658200.11
       },
       {
         "strike": 340.0,
-        "net_gex": 164944600.73
+        "net_gex": 132780750.64
       },
       {
         "strike": 342.5,
-        "net_gex": 4271866.05
+        "net_gex": -353388.0
       },
       {
         "strike": 345.0,
-        "net_gex": 40915859.01
+        "net_gex": 38653284.63
       },
       {
         "strike": 347.5,
-        "net_gex": 9894720.06
+        "net_gex": 10821084.65
       },
       {
         "strike": 350.0,
-        "net_gex": 35630846.43
+        "net_gex": 33693405.17
       },
       {
         "strike": 352.5,
-        "net_gex": 7611928.58
+        "net_gex": 8156098.22
       },
       {
         "strike": 355.0,
-        "net_gex": 13297876.89
+        "net_gex": 13160604.52
       },
       {
         "strike": 357.5,
-        "net_gex": 4169484.59
+        "net_gex": 4066363.51
       },
       {
         "strike": 360.0,
-        "net_gex": 15838663.27
+        "net_gex": 12878951.19
       },
       {
         "strike": 362.5,
-        "net_gex": 209923.7
+        "net_gex": 332430.57
       },
       {
         "strike": 365.0,
-        "net_gex": 1159301.93
+        "net_gex": 895765.91
+      },
+      {
+        "strike": 367.5,
+        "net_gex": 769.72
       },
       {
         "strike": 370.0,
-        "net_gex": 265965.87
+        "net_gex": 193242.3
+      },
+      {
+        "strike": 372.5,
+        "net_gex": 3595.09
       },
       {
         "strike": 375.0,
-        "net_gex": 29685.9
+        "net_gex": 20553.82
       },
       {
         "strike": 380.0,
-        "net_gex": 4749.25
+        "net_gex": 3096.9
       },
       {
         "strike": 385.0,
-        "net_gex": 522.33
+        "net_gex": 324.27
       },
       {
         "strike": 390.0,
-        "net_gex": 92.08
+        "net_gex": 54.19
       },
       {
         "strike": 395.0,
-        "net_gex": 0.48
+        "net_gex": 0.27
       },
       {
         "strike": 400.0,
-        "net_gex": 0.57
+        "net_gex": 0.3
       },
       {
         "strike": 405.0,
@@ -3082,17 +3098,21 @@
   "MSFT": {
     "metadata": {
       "ticker": "MSFT",
-      "spot_price": 543.45,
-      "expiration_date": "Historical Aggregated (2026-10-13)",
-      "updated_at": "2026-10-14 15:44:29"
+      "spot_price": 539.44,
+      "expiration_date": "Historical Aggregated (2026-10-15)",
+      "updated_at": "2026-10-16 15:17:33"
     },
     "indicators": {
-      "max_pain": 495.0,
+      "max_pain": 500.0,
       "call_wall": 550.0,
       "put_wall": 540.0,
-      "zero_gamma": 483.54
+      "zero_gamma": 486.99
     },
     "gex_chart_data": [
+      {
+        "strike": 405.0,
+        "net_gex": 0.0
+      },
       {
         "strike": 410.0,
         "net_gex": -0.0
@@ -3115,306 +3135,306 @@
       },
       {
         "strike": 435.0,
-        "net_gex": -0.01
+        "net_gex": -0.0
       },
       {
         "strike": 440.0,
-        "net_gex": -0.29
+        "net_gex": -0.0
       },
       {
         "strike": 445.0,
-        "net_gex": -0.91
+        "net_gex": -0.0
       },
       {
         "strike": 450.0,
-        "net_gex": -15.39
+        "net_gex": -0.0
       },
       {
         "strike": 455.0,
-        "net_gex": -15.11
+        "net_gex": -0.0
       },
       {
         "strike": 460.0,
-        "net_gex": -36.65
+        "net_gex": -0.01
       },
       {
         "strike": 465.0,
-        "net_gex": -308.53
+        "net_gex": -0.33
       },
       {
         "strike": 470.0,
-        "net_gex": -2480.68
+        "net_gex": -7.62
       },
       {
         "strike": 472.5,
-        "net_gex": -1424.66
+        "net_gex": -7.08
       },
       {
         "strike": 475.0,
-        "net_gex": -2538.15
+        "net_gex": -20.21
       },
       {
         "strike": 477.5,
-        "net_gex": -993.82
+        "net_gex": -12.19
       },
       {
         "strike": 480.0,
-        "net_gex": -13735.95
+        "net_gex": -265.75
       },
       {
         "strike": 482.5,
-        "net_gex": -2788.72
+        "net_gex": -76.17
       },
       {
         "strike": 485.0,
-        "net_gex": -32670.02
+        "net_gex": -1395.35
       },
       {
         "strike": 487.5,
-        "net_gex": -9971.55
+        "net_gex": -600.29
       },
       {
         "strike": 490.0,
-        "net_gex": 14808.27
+        "net_gex": 1191.3
       },
       {
         "strike": 492.5,
-        "net_gex": -7432.6
+        "net_gex": -893.35
       },
       {
         "strike": 495.0,
-        "net_gex": -5462.31
+        "net_gex": -1352.03
       },
       {
         "strike": 497.5,
-        "net_gex": -44692.86
+        "net_gex": -9443.57
       },
       {
         "strike": 500.0,
-        "net_gex": 1159733.53
+        "net_gex": 317610.96
       },
       {
         "strike": 502.5,
-        "net_gex": -33110.23
+        "net_gex": -10303.94
       },
       {
         "strike": 505.0,
-        "net_gex": -112911.52
+        "net_gex": -54091.99
       },
       {
         "strike": 507.5,
-        "net_gex": -308203.14
+        "net_gex": -158246.93
       },
       {
         "strike": 510.0,
-        "net_gex": 6327234.12
+        "net_gex": 3932653.85
       },
       {
         "strike": 512.5,
-        "net_gex": -169930.82
+        "net_gex": -104109.01
       },
       {
         "strike": 515.0,
-        "net_gex": 333401.43
+        "net_gex": 231125.33
       },
       {
         "strike": 517.5,
-        "net_gex": -242977.47
+        "net_gex": -265800.53
       },
       {
         "strike": 520.0,
-        "net_gex": 3307226.24
+        "net_gex": 2724379.16
       },
       {
         "strike": 522.5,
-        "net_gex": -981947.23
+        "net_gex": -1319485.12
       },
       {
         "strike": 525.0,
-        "net_gex": 482467.3
+        "net_gex": -413713.1
       },
       {
         "strike": 527.5,
-        "net_gex": -19106.4
+        "net_gex": -1052198.3
       },
       {
         "strike": 530.0,
-        "net_gex": 6680552.99
+        "net_gex": 5754743.03
       },
       {
         "strike": 532.5,
-        "net_gex": 711066.87
+        "net_gex": -514771.26
       },
       {
         "strike": 535.0,
-        "net_gex": 3701244.12
+        "net_gex": 2900073.62
       },
       {
         "strike": 537.5,
-        "net_gex": 2484981.93
+        "net_gex": 3104215.29
       },
       {
         "strike": 540.0,
-        "net_gex": 250573.75
+        "net_gex": 254503.8
       },
       {
         "strike": 542.5,
-        "net_gex": 1456781.66
+        "net_gex": 133011.49
       },
       {
         "strike": 545.0,
-        "net_gex": 23016595.51
+        "net_gex": 24374723.82
       },
       {
         "strike": 547.5,
-        "net_gex": 1262927.67
+        "net_gex": 2552143.63
       },
       {
         "strike": 550.0,
-        "net_gex": 64982230.33
+        "net_gex": 86155776.11
       },
       {
         "strike": 552.5,
-        "net_gex": 874703.41
+        "net_gex": 1725256.96
       },
       {
         "strike": 555.0,
-        "net_gex": 13458905.04
+        "net_gex": 11996039.89
       },
       {
         "strike": 557.5,
-        "net_gex": 807780.29
+        "net_gex": 1047338.83
       },
       {
         "strike": 560.0,
-        "net_gex": 9335089.5
+        "net_gex": 6292159.14
       },
       {
         "strike": 562.5,
-        "net_gex": 379529.54
+        "net_gex": 342709.78
       },
       {
         "strike": 565.0,
-        "net_gex": 4162721.13
+        "net_gex": 2211687.32
       },
       {
         "strike": 567.5,
-        "net_gex": 183994.71
+        "net_gex": 323893.47
       },
       {
         "strike": 570.0,
-        "net_gex": 10131890.4
+        "net_gex": 3687604.84
       },
       {
         "strike": 572.5,
-        "net_gex": 130974.4
+        "net_gex": 44559.59
       },
       {
         "strike": 575.0,
-        "net_gex": 909441.14
+        "net_gex": 230629.72
       },
       {
         "strike": 577.5,
-        "net_gex": 10489.27
+        "net_gex": 3321.61
       },
       {
         "strike": 580.0,
-        "net_gex": 1145798.15
+        "net_gex": 168012.71
       },
       {
         "strike": 582.5,
-        "net_gex": 5058.43
+        "net_gex": 1016.95
       },
       {
         "strike": 585.0,
-        "net_gex": 259908.64
+        "net_gex": 21696.23
+      },
+      {
+        "strike": 587.5,
+        "net_gex": 15.82
       },
       {
         "strike": 590.0,
-        "net_gex": 188517.43
+        "net_gex": 8852.83
       },
       {
         "strike": 595.0,
-        "net_gex": 1057955.09
+        "net_gex": 26943.77
       },
       {
         "strike": 600.0,
-        "net_gex": 285050.59
+        "net_gex": 3691.56
       },
       {
         "strike": 605.0,
-        "net_gex": 40104.26
+        "net_gex": 257.22
       },
       {
         "strike": 610.0,
-        "net_gex": 4724.86
+        "net_gex": 14.16
       },
       {
         "strike": 615.0,
-        "net_gex": 3146.5
+        "net_gex": 4.25
       },
       {
         "strike": 620.0,
-        "net_gex": 6150.59
+        "net_gex": 3.57
       },
       {
         "strike": 625.0,
-        "net_gex": 477.35
+        "net_gex": 0.11
       },
       {
         "strike": 630.0,
-        "net_gex": 190.27
+        "net_gex": 0.02
       },
       {
         "strike": 635.0,
-        "net_gex": 56.33
+        "net_gex": 0.0
       },
       {
         "strike": 640.0,
-        "net_gex": 49.42
+        "net_gex": 0.0
       },
       {
         "strike": 645.0,
-        "net_gex": 9.08
+        "net_gex": 0.0
       },
       {
         "strike": 650.0,
-        "net_gex": 10.91
+        "net_gex": 0.0
       },
       {
         "strike": 655.0,
-        "net_gex": 4.92
+        "net_gex": 0.0
       },
       {
         "strike": 660.0,
-        "net_gex": 1.76
+        "net_gex": 0.0
       },
       {
         "strike": 665.0,
-        "net_gex": 0.13
+        "net_gex": 0.0
       },
       {
         "strike": 670.0,
-        "net_gex": 0.21
-      },
-      {
-        "strike": 675.0,
-        "net_gex": 0.01
+        "net_gex": 0.0
       }
     ]
   },
   "AMZN": {
     "metadata": {
       "ticker": "AMZN",
-      "spot_price": 254.08,
-      "expiration_date": "Historical Aggregated (2026-10-14)",
-      "updated_at": "2026-10-15 15:31:35"
+      "spot_price": 254.76,
+      "expiration_date": "Historical Aggregated (2026-10-15)",
+      "updated_at": "2026-10-16 15:17:38"
     },
     "indicators": {
       "max_pain": 252.5,
       "call_wall": 260.0,
       "put_wall": 250.0,
-      "zero_gamma": 251.8
+      "zero_gamma": 251.95
     },
     "gex_chart_data": [
       {
@@ -3435,123 +3455,123 @@
       },
       {
         "strike": 215.0,
-        "net_gex": -0.03
+        "net_gex": -0.01
       },
       {
         "strike": 220.0,
-        "net_gex": -3.07
+        "net_gex": -1.67
       },
       {
         "strike": 225.0,
-        "net_gex": -223.45
+        "net_gex": -137.48
       },
       {
         "strike": 227.5,
-        "net_gex": -171.06
+        "net_gex": -100.77
       },
       {
         "strike": 230.0,
-        "net_gex": -13060.81
+        "net_gex": -8464.54
       },
       {
         "strike": 232.5,
-        "net_gex": -6101.15
+        "net_gex": -4323.61
       },
       {
         "strike": 235.0,
-        "net_gex": -149186.58
+        "net_gex": -107534.7
       },
       {
         "strike": 237.5,
-        "net_gex": -102489.69
+        "net_gex": -113096.76
       },
       {
         "strike": 240.0,
-        "net_gex": -2380607.29
+        "net_gex": -1886647.73
       },
       {
         "strike": 242.5,
-        "net_gex": -468165.06
+        "net_gex": -657640.19
       },
       {
         "strike": 245.0,
-        "net_gex": -2183246.72
+        "net_gex": -2158475.66
       },
       {
         "strike": 247.5,
-        "net_gex": -2622600.92
+        "net_gex": -2519868.23
       },
       {
         "strike": 250.0,
-        "net_gex": -11230774.69
+        "net_gex": -11723832.29
       },
       {
         "strike": 252.5,
-        "net_gex": -1991732.82
+        "net_gex": -5868165.11
       },
       {
         "strike": 255.0,
-        "net_gex": -1717560.07
+        "net_gex": -928170.59
       },
       {
         "strike": 257.5,
-        "net_gex": -846145.25
+        "net_gex": 842907.7
       },
       {
         "strike": 260.0,
-        "net_gex": 23433691.66
+        "net_gex": 28901592.44
       },
       {
         "strike": 262.5,
-        "net_gex": 7507712.92
+        "net_gex": 11347214.3
       },
       {
         "strike": 265.0,
-        "net_gex": 12111799.26
+        "net_gex": 14143786.19
       },
       {
         "strike": 267.5,
-        "net_gex": 2711752.27
+        "net_gex": 3138304.47
       },
       {
         "strike": 270.0,
-        "net_gex": 2853127.6
+        "net_gex": 2946702.56
       },
       {
         "strike": 272.5,
-        "net_gex": 480139.92
+        "net_gex": 566783.28
       },
       {
         "strike": 275.0,
-        "net_gex": 564162.08
+        "net_gex": 802723.15
       },
       {
         "strike": 277.5,
-        "net_gex": 24402.27
+        "net_gex": 34160.87
       },
       {
         "strike": 280.0,
-        "net_gex": 45872.0
+        "net_gex": 64962.72
       },
       {
         "strike": 282.5,
-        "net_gex": 482.46
+        "net_gex": 714.59
       },
       {
         "strike": 285.0,
-        "net_gex": 2293.78
+        "net_gex": 3534.85
       },
       {
         "strike": 290.0,
-        "net_gex": 69.86
+        "net_gex": 119.23
       },
       {
         "strike": 295.0,
-        "net_gex": 2.14
+        "net_gex": 3.9
       },
       {
         "strike": 300.0,
-        "net_gex": 0.12
+        "net_gex": 0.24
       },
       {
         "strike": 305.0,
@@ -3570,15 +3590,15 @@
   "META": {
     "metadata": {
       "ticker": "META",
-      "spot_price": 737.54,
-      "expiration_date": "Historical Aggregated (2026-10-14)",
-      "updated_at": "2026-10-15 15:31:41"
+      "spot_price": 736.72,
+      "expiration_date": "Historical Aggregated (2026-10-15)",
+      "updated_at": "2026-10-16 15:17:40"
     },
     "indicators": {
       "max_pain": 700.0,
       "call_wall": 750.0,
       "put_wall": 740.0,
-      "zero_gamma": 625.5
+      "zero_gamma": 625.25
     },
     "gex_chart_data": [
       {
@@ -3643,271 +3663,271 @@
       },
       {
         "strike": 630.0,
-        "net_gex": 0.02
+        "net_gex": 0.03
       },
       {
         "strike": 635.0,
-        "net_gex": -0.07
+        "net_gex": -0.06
       },
       {
         "strike": 640.0,
-        "net_gex": 0.52
+        "net_gex": 0.64
       },
       {
         "strike": 645.0,
-        "net_gex": -2.41
+        "net_gex": -2.42
       },
       {
         "strike": 650.0,
-        "net_gex": 49.75
+        "net_gex": 62.6
       },
       {
         "strike": 655.0,
-        "net_gex": 7.09
+        "net_gex": 2.69
       },
       {
         "strike": 657.5,
-        "net_gex": -27.39
+        "net_gex": -33.34
       },
       {
         "strike": 660.0,
-        "net_gex": -10.06
+        "net_gex": -43.22
       },
       {
         "strike": 662.5,
-        "net_gex": -95.34
+        "net_gex": -112.34
       },
       {
         "strike": 665.0,
-        "net_gex": -80.21
+        "net_gex": -30.95
       },
       {
         "strike": 667.5,
-        "net_gex": -359.3
+        "net_gex": -393.18
       },
       {
         "strike": 670.0,
-        "net_gex": -565.25
+        "net_gex": -710.3
       },
       {
         "strike": 672.5,
-        "net_gex": -854.48
+        "net_gex": -1012.39
       },
       {
         "strike": 675.0,
-        "net_gex": -1766.53
+        "net_gex": -1506.84
       },
       {
         "strike": 677.5,
-        "net_gex": -2940.41
+        "net_gex": -3614.46
       },
       {
         "strike": 680.0,
-        "net_gex": 5882.18
+        "net_gex": 6990.73
       },
       {
         "strike": 682.5,
-        "net_gex": -8287.06
+        "net_gex": -9397.94
       },
       {
         "strike": 685.0,
-        "net_gex": -18803.13
+        "net_gex": -19739.74
       },
       {
         "strike": 687.5,
-        "net_gex": -9786.21
+        "net_gex": -9635.2
       },
       {
         "strike": 690.0,
-        "net_gex": -36987.73
+        "net_gex": -39300.17
       },
       {
         "strike": 692.5,
-        "net_gex": -40928.83
+        "net_gex": -58181.59
       },
       {
         "strike": 695.0,
-        "net_gex": -32764.81
+        "net_gex": -41477.02
       },
       {
         "strike": 697.5,
-        "net_gex": -104257.78
+        "net_gex": -126702.73
       },
       {
         "strike": 700.0,
-        "net_gex": 1887311.15
+        "net_gex": 2014954.23
       },
       {
         "strike": 702.5,
-        "net_gex": -139528.36
+        "net_gex": -161461.77
       },
       {
         "strike": 705.0,
-        "net_gex": 96714.01
+        "net_gex": -93249.22
       },
       {
         "strike": 707.5,
-        "net_gex": -90229.69
+        "net_gex": -131982.21
       },
       {
         "strike": 710.0,
-        "net_gex": 1857982.79
+        "net_gex": 1875600.14
       },
       {
         "strike": 712.5,
-        "net_gex": -101642.05
+        "net_gex": -230144.7
       },
       {
         "strike": 715.0,
-        "net_gex": -167039.8
+        "net_gex": -1365533.71
       },
       {
         "strike": 717.5,
-        "net_gex": -9460.93
+        "net_gex": -1235620.44
       },
       {
         "strike": 720.0,
-        "net_gex": -223091.56
+        "net_gex": -751014.63
       },
       {
         "strike": 722.5,
-        "net_gex": -38601.96
+        "net_gex": -173318.04
       },
       {
         "strike": 725.0,
-        "net_gex": 1167198.97
+        "net_gex": 44998.56
       },
       {
         "strike": 727.5,
-        "net_gex": -6584.21
+        "net_gex": -316370.48
       },
       {
         "strike": 730.0,
-        "net_gex": -9638268.59
+        "net_gex": -10454255.72
       },
       {
         "strike": 732.5,
-        "net_gex": -461806.87
+        "net_gex": -646248.37
       },
       {
         "strike": 735.0,
-        "net_gex": 459790.06
+        "net_gex": 932169.18
       },
       {
         "strike": 737.5,
-        "net_gex": 707168.99
+        "net_gex": 256023.19
       },
       {
         "strike": 740.0,
-        "net_gex": -10892545.05
+        "net_gex": -10346792.29
       },
       {
         "strike": 742.5,
-        "net_gex": -1008898.5
+        "net_gex": -464470.88
       },
       {
         "strike": 745.0,
-        "net_gex": -3723367.02
+        "net_gex": -3491387.82
       },
       {
         "strike": 747.5,
-        "net_gex": 21574.51
+        "net_gex": 647690.29
       },
       {
         "strike": 750.0,
-        "net_gex": 13074370.43
+        "net_gex": 14811555.47
       },
       {
         "strike": 752.5,
-        "net_gex": 33368.48
+        "net_gex": 1328438.41
       },
       {
         "strike": 755.0,
-        "net_gex": 1339975.9
+        "net_gex": 2808372.17
       },
       {
         "strike": 760.0,
-        "net_gex": 1711097.2
+        "net_gex": 2724710.04
       },
       {
         "strike": 765.0,
-        "net_gex": 4505982.02
+        "net_gex": 4978162.52
       },
       {
         "strike": 770.0,
-        "net_gex": 1027819.44
+        "net_gex": 1284289.37
       },
       {
         "strike": 775.0,
-        "net_gex": 2220428.66
+        "net_gex": 2015002.42
       },
       {
         "strike": 780.0,
-        "net_gex": 765803.91
+        "net_gex": 638872.57
       },
       {
         "strike": 785.0,
-        "net_gex": 186116.45
+        "net_gex": 202060.68
       },
       {
         "strike": 790.0,
-        "net_gex": 385213.53
+        "net_gex": 328396.5
       },
       {
         "strike": 795.0,
-        "net_gex": 33996.16
+        "net_gex": 33375.15
       },
       {
         "strike": 800.0,
-        "net_gex": 288232.5
+        "net_gex": 260860.34
       },
       {
         "strike": 805.0,
-        "net_gex": 15272.56
+        "net_gex": 11836.83
       },
       {
         "strike": 810.0,
-        "net_gex": 8824.25
+        "net_gex": 7522.19
       },
       {
         "strike": 815.0,
-        "net_gex": 3427.45
+        "net_gex": 2944.27
       },
       {
         "strike": 820.0,
-        "net_gex": 4988.21
+        "net_gex": 4140.87
       },
       {
         "strike": 825.0,
-        "net_gex": 3654.85
+        "net_gex": 3031.73
       },
       {
         "strike": 830.0,
-        "net_gex": 227.01
+        "net_gex": 185.66
       },
       {
         "strike": 835.0,
-        "net_gex": 44.43
+        "net_gex": 36.12
       },
       {
         "strike": 840.0,
-        "net_gex": 10.38
+        "net_gex": 8.02
       },
       {
         "strike": 845.0,
-        "net_gex": 0.91
+        "net_gex": 1.0
       },
       {
         "strike": 850.0,
-        "net_gex": 2.9
+        "net_gex": 2.46
       },
       {
         "strike": 855.0,
-        "net_gex": 0.14
+        "net_gex": 0.12
       },
       {
         "strike": 860.0,
-        "net_gex": 0.21
+        "net_gex": 0.16
       },
       {
         "strike": 865.0,
@@ -3962,15 +3982,15 @@
   "GOOGL": {
     "metadata": {
       "ticker": "GOOGL",
-      "spot_price": 347.64,
-      "expiration_date": "Historical Aggregated (2026-10-14)",
-      "updated_at": "2026-10-15 15:31:44"
+      "spot_price": 349.22,
+      "expiration_date": "Historical Aggregated (2026-10-15)",
+      "updated_at": "2026-10-16 15:17:43"
     },
     "indicators": {
       "max_pain": 345.0,
-      "call_wall": 350.0,
+      "call_wall": 355.0,
       "put_wall": 340.0,
-      "zero_gamma": 343.48
+      "zero_gamma": 343.72
     },
     "gex_chart_data": [
       {
@@ -3999,159 +4019,163 @@
       },
       {
         "strike": 295.0,
-        "net_gex": -0.02
+        "net_gex": -0.01
       },
       {
         "strike": 300.0,
-        "net_gex": -1.29
+        "net_gex": -0.48
       },
       {
         "strike": 305.0,
-        "net_gex": -17.94
+        "net_gex": -7.4
       },
       {
         "strike": 310.0,
-        "net_gex": -457.35
+        "net_gex": -212.58
       },
       {
         "strike": 312.5,
-        "net_gex": -68.49
+        "net_gex": -33.74
       },
       {
         "strike": 315.0,
-        "net_gex": -6421.01
+        "net_gex": -3182.81
       },
       {
         "strike": 317.5,
-        "net_gex": -16240.25
+        "net_gex": -8748.25
       },
       {
         "strike": 320.0,
-        "net_gex": -92300.28
+        "net_gex": -51447.64
       },
       {
         "strike": 322.5,
-        "net_gex": -20945.19
+        "net_gex": -12529.29
       },
       {
         "strike": 325.0,
-        "net_gex": -294555.48
+        "net_gex": -185769.3
       },
       {
         "strike": 327.5,
-        "net_gex": -320616.98
+        "net_gex": -209019.66
       },
       {
         "strike": 330.0,
-        "net_gex": -1496663.65
+        "net_gex": -967851.38
       },
       {
         "strike": 332.5,
-        "net_gex": -310481.6
+        "net_gex": -224793.45
       },
       {
         "strike": 335.0,
-        "net_gex": -1917896.05
+        "net_gex": -1793227.97
       },
       {
         "strike": 337.5,
-        "net_gex": -2930349.0
+        "net_gex": -2754108.04
       },
       {
         "strike": 340.0,
-        "net_gex": -7158722.56
+        "net_gex": -6888646.86
       },
       {
         "strike": 342.5,
-        "net_gex": -2285970.81
+        "net_gex": -2185109.72
       },
       {
         "strike": 345.0,
-        "net_gex": -1036341.89
+        "net_gex": -1727844.4
       },
       {
         "strike": 347.5,
-        "net_gex": 385456.47
+        "net_gex": 298474.83
       },
       {
         "strike": 350.0,
-        "net_gex": 7228473.82
+        "net_gex": 7923569.06
       },
       {
         "strike": 352.5,
-        "net_gex": -109574.36
+        "net_gex": 677664.87
       },
       {
         "strike": 355.0,
-        "net_gex": 12615709.73
+        "net_gex": 14970697.82
       },
       {
         "strike": 357.5,
-        "net_gex": 6009934.92
+        "net_gex": 8067521.21
       },
       {
         "strike": 360.0,
-        "net_gex": 11184477.75
+        "net_gex": 13967938.51
       },
       {
         "strike": 362.5,
-        "net_gex": 2988053.93
+        "net_gex": 4116538.02
       },
       {
         "strike": 365.0,
-        "net_gex": 4500596.46
+        "net_gex": 5890594.42
       },
       {
         "strike": 367.5,
-        "net_gex": 366137.23
+        "net_gex": 604559.6
       },
       {
         "strike": 370.0,
-        "net_gex": 3412167.53
+        "net_gex": 4861140.75
       },
       {
         "strike": 372.5,
-        "net_gex": 55490.26
+        "net_gex": 178280.19
       },
       {
         "strike": 375.0,
-        "net_gex": 1618776.94
+        "net_gex": 2665592.8
       },
       {
         "strike": 377.5,
-        "net_gex": 6679.43
+        "net_gex": 15963.33
       },
       {
         "strike": 380.0,
-        "net_gex": 60312.69
+        "net_gex": 139297.65
       },
       {
         "strike": 382.5,
-        "net_gex": 7948.36
+        "net_gex": 14922.27
       },
       {
         "strike": 385.0,
-        "net_gex": 7626.84
+        "net_gex": 15389.14
+      },
+      {
+        "strike": 387.5,
+        "net_gex": 49.74
       },
       {
         "strike": 390.0,
-        "net_gex": 996.18
+        "net_gex": 2062.84
       },
       {
         "strike": 395.0,
-        "net_gex": 62.17
+        "net_gex": 140.71
       },
       {
         "strike": 400.0,
-        "net_gex": 16.75
+        "net_gex": 40.57
       },
       {
         "strike": 405.0,
-        "net_gex": 0.17
+        "net_gex": 0.47
       },
       {
         "strike": 410.0,
-        "net_gex": 0.14
+        "net_gex": 0.4
       },
       {
         "strike": 415.0,
@@ -4168,21 +4192,25 @@
       {
         "strike": 430.0,
         "net_gex": 0.0
+      },
+      {
+        "strike": 435.0,
+        "net_gex": 0.0
       }
     ]
   },
   "AMD": {
     "metadata": {
       "ticker": "AMD",
-      "spot_price": 570.82,
-      "expiration_date": "Historical Aggregated (2026-10-14)",
-      "updated_at": "2026-10-15 15:31:50"
+      "spot_price": 562.23,
+      "expiration_date": "Historical Aggregated (2026-10-15)",
+      "updated_at": "2026-10-16 15:17:47"
     },
     "indicators": {
       "max_pain": 550.0,
-      "call_wall": 580.0,
-      "put_wall": 570.0,
-      "zero_gamma": 598.9
+      "call_wall": 550.0,
+      "put_wall": 560.0,
+      "zero_gamma": 592.27
     },
     "gex_chart_data": [
       {
@@ -4211,283 +4239,283 @@
       },
       {
         "strike": 480.0,
-        "net_gex": -0.0
+        "net_gex": -0.03
       },
       {
         "strike": 485.0,
-        "net_gex": -0.0
+        "net_gex": -0.12
       },
       {
         "strike": 490.0,
-        "net_gex": 0.35
+        "net_gex": 8.9
       },
       {
         "strike": 495.0,
-        "net_gex": -0.47
+        "net_gex": -10.58
       },
       {
         "strike": 500.0,
-        "net_gex": -16.06
+        "net_gex": -252.54
       },
       {
         "strike": 505.0,
-        "net_gex": -10.05
+        "net_gex": -197.93
       },
       {
         "strike": 510.0,
-        "net_gex": -84.99
+        "net_gex": -769.69
       },
       {
         "strike": 515.0,
-        "net_gex": -339.6
+        "net_gex": -2877.06
       },
       {
         "strike": 517.5,
-        "net_gex": -543.9
+        "net_gex": -4377.76
       },
       {
         "strike": 520.0,
-        "net_gex": -1729.84
+        "net_gex": -6690.02
       },
       {
         "strike": 522.5,
-        "net_gex": -3806.51
+        "net_gex": -20557.42
       },
       {
         "strike": 525.0,
-        "net_gex": -9199.53
+        "net_gex": -48475.48
       },
       {
         "strike": 527.5,
-        "net_gex": -3679.15
+        "net_gex": -41170.35
       },
       {
         "strike": 530.0,
-        "net_gex": 17895.47
+        "net_gex": 83016.47
       },
       {
         "strike": 532.5,
-        "net_gex": -59973.33
+        "net_gex": -231870.45
       },
       {
         "strike": 535.0,
-        "net_gex": -45261.61
+        "net_gex": -223775.0
       },
       {
         "strike": 537.5,
-        "net_gex": -69775.55
+        "net_gex": -412771.54
       },
       {
         "strike": 540.0,
-        "net_gex": -254548.15
+        "net_gex": -177781.62
       },
       {
         "strike": 542.5,
-        "net_gex": -205455.33
+        "net_gex": -758821.04
       },
       {
         "strike": 545.0,
-        "net_gex": -657719.87
+        "net_gex": -1520138.64
       },
       {
         "strike": 547.5,
-        "net_gex": -176954.93
+        "net_gex": -559548.25
       },
       {
         "strike": 550.0,
-        "net_gex": -379462.37
+        "net_gex": -532924.31
       },
       {
         "strike": 552.5,
-        "net_gex": -382094.67
+        "net_gex": -720062.52
       },
       {
         "strike": 555.0,
-        "net_gex": -709366.3
+        "net_gex": -1654139.79
       },
       {
         "strike": 557.5,
-        "net_gex": -654257.08
+        "net_gex": -1291954.66
       },
       {
         "strike": 560.0,
-        "net_gex": -2063118.51
+        "net_gex": -3029463.04
       },
       {
         "strike": 562.5,
-        "net_gex": -686083.51
+        "net_gex": -1030464.28
       },
       {
         "strike": 565.0,
-        "net_gex": -1190406.18
+        "net_gex": -2230997.57
       },
       {
         "strike": 567.5,
-        "net_gex": -359889.01
+        "net_gex": -352586.81
       },
       {
         "strike": 570.0,
-        "net_gex": -1879199.73
+        "net_gex": -288183.88
       },
       {
         "strike": 572.5,
-        "net_gex": -1097145.58
+        "net_gex": -733438.48
       },
       {
         "strike": 575.0,
-        "net_gex": -2267121.62
+        "net_gex": -1164590.54
       },
       {
         "strike": 577.5,
-        "net_gex": -457760.13
+        "net_gex": -294811.47
       },
       {
         "strike": 580.0,
-        "net_gex": -1103846.66
+        "net_gex": -567033.84
       },
       {
         "strike": 582.5,
-        "net_gex": -771641.78
+        "net_gex": -325942.4
       },
       {
         "strike": 585.0,
-        "net_gex": -24952.0
+        "net_gex": 198045.43
       },
       {
         "strike": 587.5,
-        "net_gex": -27976.12
+        "net_gex": -58929.72
       },
       {
         "strike": 590.0,
-        "net_gex": -1285031.83
+        "net_gex": -231555.95
       },
       {
         "strike": 592.5,
-        "net_gex": -154075.25
+        "net_gex": 2119.46
       },
       {
         "strike": 595.0,
-        "net_gex": -446783.4
+        "net_gex": -92256.86
       },
       {
         "strike": 597.5,
-        "net_gex": 98959.55
+        "net_gex": 38719.54
       },
       {
         "strike": 600.0,
-        "net_gex": -441901.02
+        "net_gex": -40628.35
       },
       {
         "strike": 602.5,
-        "net_gex": -34919.84
+        "net_gex": 16197.75
       },
       {
         "strike": 605.0,
-        "net_gex": -56330.51
+        "net_gex": -2813.34
       },
       {
         "strike": 607.5,
-        "net_gex": -24333.27
+        "net_gex": -3342.15
       },
       {
         "strike": 610.0,
-        "net_gex": 136360.94
+        "net_gex": 33804.42
       },
       {
         "strike": 612.5,
-        "net_gex": -5400.07
+        "net_gex": 884.99
       },
       {
         "strike": 615.0,
-        "net_gex": 21246.01
+        "net_gex": 6621.58
       },
       {
         "strike": 617.5,
-        "net_gex": 31340.78
+        "net_gex": 4657.42
       },
       {
         "strike": 620.0,
-        "net_gex": 28460.0
+        "net_gex": 4057.13
       },
       {
         "strike": 622.5,
-        "net_gex": 288.32
+        "net_gex": 47.07
       },
       {
         "strike": 625.0,
-        "net_gex": 16861.78
+        "net_gex": 1108.6
       },
       {
         "strike": 627.5,
-        "net_gex": 345.97
+        "net_gex": 42.96
       },
       {
         "strike": 630.0,
-        "net_gex": 6714.53
+        "net_gex": 600.6
       },
       {
         "strike": 632.5,
-        "net_gex": 1526.38
+        "net_gex": 139.75
       },
       {
         "strike": 635.0,
-        "net_gex": 1230.79
+        "net_gex": 107.47
       },
       {
         "strike": 637.5,
-        "net_gex": 156.24
+        "net_gex": 12.56
       },
       {
         "strike": 640.0,
-        "net_gex": 541.73
+        "net_gex": 21.18
       },
       {
         "strike": 642.5,
-        "net_gex": 94.55
+        "net_gex": 6.07
       },
       {
         "strike": 645.0,
-        "net_gex": 77.16
+        "net_gex": 4.09
       },
       {
         "strike": 647.5,
-        "net_gex": 6.66
+        "net_gex": 0.46
       },
       {
         "strike": 650.0,
-        "net_gex": 39.12
+        "net_gex": 2.14
       },
       {
         "strike": 652.5,
-        "net_gex": 1.03
+        "net_gex": 0.07
       },
       {
         "strike": 655.0,
-        "net_gex": 2.19
+        "net_gex": 0.12
       },
       {
         "strike": 657.5,
-        "net_gex": 0.26
-      },
-      {
-        "strike": 660.0,
-        "net_gex": 1.25
-      },
-      {
-        "strike": 662.5,
-        "net_gex": 0.06
-      },
-      {
-        "strike": 665.0,
-        "net_gex": 0.13
-      },
-      {
-        "strike": 667.5,
         "net_gex": 0.01
       },
       {
+        "strike": 660.0,
+        "net_gex": 0.05
+      },
+      {
+        "strike": 662.5,
+        "net_gex": 0.0
+      },
+      {
+        "strike": 665.0,
+        "net_gex": 0.0
+      },
+      {
+        "strike": 667.5,
+        "net_gex": 0.0
+      },
+      {
         "strike": 670.0,
-        "net_gex": 0.03
+        "net_gex": 0.0
       },
       {
         "strike": 672.5,
@@ -4540,39 +4568,27 @@
       {
         "strike": 702.5,
         "net_gex": 0.0
-      },
-      {
-        "strike": 705.0,
-        "net_gex": 0.0
-      },
-      {
-        "strike": 707.5,
-        "net_gex": 0.0
-      },
-      {
-        "strike": 710.0,
-        "net_gex": 0.0
-      },
-      {
-        "strike": 712.5,
-        "net_gex": 0.0
       }
     ]
   },
   "TSM": {
     "metadata": {
       "ticker": "TSM",
-      "spot_price": 430,
-      "expiration_date": "Historical Aggregated (2026-10-14)",
-      "updated_at": "2026-10-15 15:31:55"
+      "spot_price": 422.25,
+      "expiration_date": "Historical Aggregated (2026-10-15)",
+      "updated_at": "2026-10-16 15:17:49"
     },
     "indicators": {
-      "max_pain": 440.0,
+      "max_pain": 435.0,
       "call_wall": 430.0,
-      "put_wall": 430.0,
-      "zero_gamma": 440.64
+      "put_wall": 420.0,
+      "zero_gamma": 437.07
     },
     "gex_chart_data": [
+      {
+        "strike": 320.0,
+        "net_gex": -0.0
+      },
       {
         "strike": 330.0,
         "net_gex": -0.0
@@ -4587,203 +4603,207 @@
       },
       {
         "strike": 360.0,
-        "net_gex": -0.0
+        "net_gex": -0.09
       },
       {
         "strike": 365.0,
-        "net_gex": -0.0
+        "net_gex": -0.09
       },
       {
         "strike": 370.0,
-        "net_gex": -0.36
+        "net_gex": -15.71
       },
       {
         "strike": 375.0,
-        "net_gex": -0.44
+        "net_gex": -23.92
       },
       {
         "strike": 380.0,
-        "net_gex": -114.52
+        "net_gex": -2916.98
       },
       {
         "strike": 385.0,
-        "net_gex": -72.72
+        "net_gex": -2616.16
       },
       {
         "strike": 390.0,
-        "net_gex": -5281.0
+        "net_gex": -58432.71
       },
       {
         "strike": 395.0,
-        "net_gex": -3452.77
+        "net_gex": -93701.25
       },
       {
         "strike": 400.0,
-        "net_gex": -162235.43
+        "net_gex": -950874.06
+      },
+      {
+        "strike": 402.5,
+        "net_gex": -90992.21
       },
       {
         "strike": 405.0,
-        "net_gex": -150528.21
+        "net_gex": -807795.58
       },
       {
         "strike": 407.5,
-        "net_gex": -43935.25
+        "net_gex": -491008.66
       },
       {
         "strike": 410.0,
-        "net_gex": -478779.54
+        "net_gex": -1527573.91
       },
       {
         "strike": 412.5,
-        "net_gex": -157702.98
+        "net_gex": -543114.78
       },
       {
         "strike": 415.0,
-        "net_gex": -527293.16
+        "net_gex": -1859320.99
       },
       {
         "strike": 417.5,
-        "net_gex": -513131.52
+        "net_gex": -1066459.81
       },
       {
         "strike": 420.0,
-        "net_gex": -6203558.02
+        "net_gex": -9094223.48
       },
       {
         "strike": 422.5,
-        "net_gex": -850851.86
+        "net_gex": -1198126.96
       },
       {
         "strike": 425.0,
-        "net_gex": -1769694.09
+        "net_gex": -2371914.43
       },
       {
         "strike": 427.5,
-        "net_gex": -927140.66
+        "net_gex": -1184849.35
       },
       {
         "strike": 430.0,
-        "net_gex": 2473661.25
+        "net_gex": 3082334.68
       },
       {
         "strike": 432.5,
-        "net_gex": -1331661.23
+        "net_gex": -714254.88
       },
       {
         "strike": 435.0,
-        "net_gex": -2759607.76
+        "net_gex": -1593494.2
       },
       {
         "strike": 437.5,
-        "net_gex": -488294.82
+        "net_gex": -158106.9
       },
       {
         "strike": 440.0,
-        "net_gex": -1649676.08
+        "net_gex": -328406.06
       },
       {
         "strike": 442.5,
-        "net_gex": 118556.44
+        "net_gex": 77300.4
       },
       {
         "strike": 445.0,
-        "net_gex": 5286.76
+        "net_gex": -40791.3
       },
       {
         "strike": 447.5,
-        "net_gex": -63664.27
+        "net_gex": 809.86
       },
       {
         "strike": 450.0,
-        "net_gex": 1621190.32
+        "net_gex": 591409.51
       },
       {
         "strike": 452.5,
-        "net_gex": -9676.85
+        "net_gex": 12010.72
       },
       {
         "strike": 455.0,
-        "net_gex": 41350.42
+        "net_gex": 22971.2
       },
       {
         "strike": 457.5,
-        "net_gex": 49170.59
+        "net_gex": 11598.44
       },
       {
         "strike": 460.0,
-        "net_gex": 267810.21
+        "net_gex": 40541.21
       },
       {
         "strike": 462.5,
-        "net_gex": 11611.99
+        "net_gex": 2175.51
       },
       {
         "strike": 465.0,
-        "net_gex": 20317.61
+        "net_gex": 2433.4
       },
       {
         "strike": 467.5,
-        "net_gex": 9274.75
+        "net_gex": 1231.21
       },
       {
         "strike": 470.0,
-        "net_gex": 29817.46
+        "net_gex": 1975.72
       },
       {
         "strike": 472.5,
-        "net_gex": 930.75
+        "net_gex": 108.41
       },
       {
         "strike": 475.0,
-        "net_gex": 2988.47
+        "net_gex": 167.24
       },
       {
         "strike": 477.5,
-        "net_gex": 104.23
+        "net_gex": 6.27
       },
       {
         "strike": 480.0,
-        "net_gex": 812.3
+        "net_gex": 53.01
       },
       {
         "strike": 482.5,
-        "net_gex": 11.33
+        "net_gex": 1.15
       },
       {
         "strike": 485.0,
-        "net_gex": 48.36
+        "net_gex": 2.64
       },
       {
         "strike": 487.5,
-        "net_gex": 2.8
+        "net_gex": 0.15
       },
       {
         "strike": 490.0,
-        "net_gex": 10.98
+        "net_gex": 0.28
       },
       {
         "strike": 492.5,
-        "net_gex": 1.58
+        "net_gex": 0.03
       },
       {
         "strike": 495.0,
-        "net_gex": 1.32
+        "net_gex": 0.03
       },
       {
         "strike": 497.5,
-        "net_gex": 0.04
+        "net_gex": 0.0
       },
       {
         "strike": 500.0,
-        "net_gex": 1.08
+        "net_gex": 0.02
       },
       {
         "strike": 502.5,
-        "net_gex": 0.01
+        "net_gex": 0.0
       },
       {
         "strike": 505.0,
-        "net_gex": 0.02
+        "net_gex": 0.0
       },
       {
         "strike": 507.5,
@@ -4820,33 +4840,21 @@
       {
         "strike": 527.5,
         "net_gex": 0.0
-      },
-      {
-        "strike": 530.0,
-        "net_gex": 0.0
-      },
-      {
-        "strike": 532.5,
-        "net_gex": 0.0
-      },
-      {
-        "strike": 535.0,
-        "net_gex": 0.0
       }
     ]
   },
   "SMCI": {
     "metadata": {
       "ticker": "SMCI",
-      "spot_price": 35.78,
-      "expiration_date": "Historical Aggregated (2026-10-14)",
-      "updated_at": "2026-10-15 15:31:57"
+      "spot_price": 35.09,
+      "expiration_date": "Historical Aggregated (2026-10-15)",
+      "updated_at": "2026-10-16 15:17:52"
     },
     "indicators": {
       "max_pain": 40.0,
       "call_wall": 35.0,
       "put_wall": 35.0,
-      "zero_gamma": 39.51
+      "zero_gamma": 38.61
     },
     "gex_chart_data": [
       {
@@ -4855,95 +4863,95 @@
       },
       {
         "strike": 30.0,
-        "net_gex": -0.0
+        "net_gex": -0.15
       },
       {
         "strike": 31.0,
-        "net_gex": -1.89
+        "net_gex": -103.95
       },
       {
         "strike": 32.0,
-        "net_gex": -334.85
+        "net_gex": -6433.6
       },
       {
         "strike": 33.0,
-        "net_gex": -28794.95
+        "net_gex": -240150.41
       },
       {
         "strike": 33.5,
-        "net_gex": -9303.73
+        "net_gex": -45221.43
       },
       {
         "strike": 34.0,
-        "net_gex": 68049.05
+        "net_gex": 234514.33
       },
       {
         "strike": 34.5,
-        "net_gex": -324714.64
+        "net_gex": -1286562.58
       },
       {
         "strike": 35.0,
-        "net_gex": -3813071.55
+        "net_gex": -7354662.72
       },
       {
         "strike": 35.5,
-        "net_gex": -1126218.23
+        "net_gex": -1010430.14
       },
       {
         "strike": 36.0,
-        "net_gex": -2145507.65
+        "net_gex": -776166.75
       },
       {
         "strike": 36.5,
-        "net_gex": -438056.25
+        "net_gex": -64990.43
       },
       {
         "strike": 37.0,
-        "net_gex": -2141898.87
+        "net_gex": -478387.66
       },
       {
         "strike": 37.5,
-        "net_gex": -999081.08
+        "net_gex": -115118.02
       },
       {
         "strike": 38.0,
-        "net_gex": 35798.71
+        "net_gex": 31573.42
       },
       {
         "strike": 38.5,
-        "net_gex": -18555.6
+        "net_gex": -1592.54
       },
       {
         "strike": 39.0,
-        "net_gex": -21682.0
+        "net_gex": -578.51
       },
       {
         "strike": 39.5,
-        "net_gex": -568.96
+        "net_gex": -10.99
       },
       {
         "strike": 40.0,
-        "net_gex": 378.48
+        "net_gex": 19.84
       },
       {
         "strike": 40.5,
-        "net_gex": 14.33
+        "net_gex": 0.51
       },
       {
         "strike": 41.0,
-        "net_gex": 4.39
+        "net_gex": 0.07
       },
       {
         "strike": 41.5,
-        "net_gex": -0.1
+        "net_gex": -0.0
       },
       {
         "strike": 42.0,
-        "net_gex": 0.08
+        "net_gex": 0.0
       },
       {
         "strike": 42.5,
-        "net_gex": 0.02
+        "net_gex": 0.0
       },
       {
         "strike": 43.0,
@@ -4952,29 +4960,21 @@
       {
         "strike": 43.5,
         "net_gex": 0.0
-      },
-      {
-        "strike": 44.0,
-        "net_gex": 0.0
-      },
-      {
-        "strike": 44.5,
-        "net_gex": 0.0
       }
     ]
   },
   "MSTR": {
     "metadata": {
       "ticker": "MSTR",
-      "spot_price": 152.18,
-      "expiration_date": "Historical Aggregated (2026-10-13)",
-      "updated_at": "2026-10-14 15:45:10"
+      "spot_price": 151.29,
+      "expiration_date": "Historical Aggregated (2026-10-15)",
+      "updated_at": "2026-10-16 15:18:08"
     },
     "indicators": {
-      "max_pain": 141.0,
-      "call_wall": 157.5,
+      "max_pain": 139.0,
+      "call_wall": 155.0,
       "put_wall": 150.0,
-      "zero_gamma": 147.03
+      "zero_gamma": 128.53
     },
     "gex_chart_data": [
       {
@@ -4983,162 +4983,158 @@
       },
       {
         "strike": 120.0,
-        "net_gex": -0.01
+        "net_gex": -0.0
       },
       {
         "strike": 125.0,
-        "net_gex": -6.25
+        "net_gex": -0.0
       },
       {
         "strike": 130.0,
-        "net_gex": 766.81
+        "net_gex": 0.47
       },
       {
         "strike": 134.0,
-        "net_gex": -6686.32
+        "net_gex": -64.32
       },
       {
         "strike": 135.0,
-        "net_gex": -4015.2
+        "net_gex": -48.09
       },
       {
         "strike": 136.0,
-        "net_gex": -4838.97
+        "net_gex": -161.73
       },
       {
         "strike": 137.0,
-        "net_gex": -30648.97
+        "net_gex": -1942.84
       },
       {
         "strike": 138.0,
-        "net_gex": -61875.53
+        "net_gex": -4709.26
       },
       {
         "strike": 139.0,
-        "net_gex": -78893.74
+        "net_gex": -9524.56
       },
       {
         "strike": 140.0,
-        "net_gex": -331825.96
+        "net_gex": -74633.81
       },
       {
         "strike": 141.0,
-        "net_gex": -147196.11
+        "net_gex": -40483.79
       },
       {
         "strike": 142.0,
-        "net_gex": -1255605.37
+        "net_gex": -246079.29
       },
       {
         "strike": 143.0,
-        "net_gex": -373073.57
+        "net_gex": -200935.24
       },
       {
         "strike": 144.0,
-        "net_gex": -261859.93
+        "net_gex": -151449.12
       },
       {
         "strike": 145.0,
-        "net_gex": 792028.85
+        "net_gex": 910288.73
       },
       {
         "strike": 146.0,
-        "net_gex": -1206589.16
+        "net_gex": -626499.22
       },
       {
         "strike": 147.0,
-        "net_gex": -1034699.26
+        "net_gex": -932657.54
       },
       {
         "strike": 148.0,
-        "net_gex": -2022152.37
+        "net_gex": -1039687.27
       },
       {
         "strike": 149.0,
-        "net_gex": -521944.72
+        "net_gex": -1468004.21
       },
       {
         "strike": 150.0,
-        "net_gex": -720171.65
+        "net_gex": 1772697.03
       },
       {
         "strike": 152.5,
-        "net_gex": -398608.27
+        "net_gex": 0.0
       },
       {
         "strike": 155.0,
-        "net_gex": 14082386.68
+        "net_gex": 17211446.13
       },
       {
         "strike": 157.5,
-        "net_gex": 27958617.64
+        "net_gex": 19074182.65
       },
       {
         "strike": 160.0,
-        "net_gex": 12595572.04
+        "net_gex": 3986354.65
       },
       {
         "strike": 162.5,
-        "net_gex": 3305832.62
+        "net_gex": 724324.86
       },
       {
         "strike": 165.0,
-        "net_gex": 4452504.17
+        "net_gex": 221606.72
       },
       {
         "strike": 167.5,
-        "net_gex": 538137.01
+        "net_gex": 11563.4
       },
       {
         "strike": 170.0,
-        "net_gex": 155692.88
+        "net_gex": 918.11
       },
       {
         "strike": 172.5,
-        "net_gex": 7009.95
+        "net_gex": 10.13
       },
       {
         "strike": 175.0,
-        "net_gex": 5001.62
+        "net_gex": 1.89
       },
       {
         "strike": 177.5,
-        "net_gex": 272.89
+        "net_gex": 0.02
       },
       {
         "strike": 180.0,
-        "net_gex": 326.1
+        "net_gex": 0.0
       },
       {
         "strike": 182.5,
-        "net_gex": 5.34
+        "net_gex": 0.0
       },
       {
         "strike": 185.0,
-        "net_gex": 4.54
+        "net_gex": 0.0
       },
       {
         "strike": 187.5,
-        "net_gex": 0.22
-      },
-      {
-        "strike": 190.0,
-        "net_gex": 0.08
+        "net_gex": 0.0
       }
     ]
   },
   "NFLX": {
     "metadata": {
       "ticker": "NFLX",
-      "spot_price": 70.57,
-      "expiration_date": "Historical Aggregated (2026-10-14)",
-      "updated_at": "2026-10-15 15:32:22"
+      "spot_price": 72.61,
+      "expiration_date": "Historical Aggregated (2026-10-15)",
+      "updated_at": "2026-10-16 15:18:11"
     },
     "indicators": {
       "max_pain": 71.0,
-      "call_wall": 70.0,
-      "put_wall": 70.0,
-      "zero_gamma": 69.37
+      "call_wall": 75.0,
+      "put_wall": 72.5,
+      "zero_gamma": 68.96
     },
     "gex_chart_data": [
       {
@@ -5155,126 +5151,130 @@
       },
       {
         "strike": 60.0,
-        "net_gex": -0.07
+        "net_gex": -0.0
       },
       {
         "strike": 61.0,
-        "net_gex": -0.05
+        "net_gex": -0.0
       },
       {
         "strike": 62.0,
-        "net_gex": -3.17
+        "net_gex": -0.01
       },
       {
         "strike": 63.0,
-        "net_gex": -183.24
+        "net_gex": -0.9
       },
       {
         "strike": 64.0,
-        "net_gex": -1783.64
+        "net_gex": -16.49
       },
       {
         "strike": 65.0,
-        "net_gex": -174110.64
+        "net_gex": -3087.72
       },
       {
         "strike": 66.0,
-        "net_gex": -86276.62
+        "net_gex": -2898.48
       },
       {
         "strike": 67.0,
-        "net_gex": -531762.71
+        "net_gex": -35409.01
       },
       {
         "strike": 67.5,
-        "net_gex": -1867625.31
+        "net_gex": -166146.66
       },
       {
         "strike": 68.0,
-        "net_gex": -768977.44
+        "net_gex": -124457.58
       },
       {
         "strike": 69.0,
-        "net_gex": -2830987.3
+        "net_gex": -693408.19
       },
       {
         "strike": 70.0,
-        "net_gex": -5940091.82
+        "net_gex": 1039238.18
       },
       {
         "strike": 71.0,
-        "net_gex": 15914661.28
+        "net_gex": 12251612.07
       },
       {
         "strike": 72.0,
-        "net_gex": 9339231.94
+        "net_gex": 13430936.71
       },
       {
         "strike": 72.5,
-        "net_gex": 227978.93
+        "net_gex": 1039715.52
       },
       {
         "strike": 73.0,
-        "net_gex": 6801616.22
+        "net_gex": 13854839.68
       },
       {
         "strike": 74.0,
-        "net_gex": 2967058.05
+        "net_gex": 12773562.95
       },
       {
         "strike": 75.0,
-        "net_gex": 1862849.7
+        "net_gex": 14371736.61
       },
       {
         "strike": 76.0,
-        "net_gex": 85735.93
+        "net_gex": 1035788.15
       },
       {
         "strike": 77.0,
-        "net_gex": 33015.29
+        "net_gex": 661959.17
       },
       {
         "strike": 77.5,
-        "net_gex": 6899.14
+        "net_gex": 214053.53
       },
       {
         "strike": 78.0,
-        "net_gex": 2010.78
+        "net_gex": 68795.7
       },
       {
         "strike": 79.0,
-        "net_gex": 331.16
+        "net_gex": 19616.25
       },
       {
         "strike": 80.0,
-        "net_gex": 456.31
+        "net_gex": 44695.69
       },
       {
         "strike": 81.0,
-        "net_gex": 2.54
+        "net_gex": 424.96
       },
       {
         "strike": 82.0,
-        "net_gex": 0.15
+        "net_gex": 42.67
       },
       {
         "strike": 82.5,
-        "net_gex": 0.32
+        "net_gex": 116.3
       },
       {
         "strike": 83.0,
-        "net_gex": 0.01
+        "net_gex": 5.68
       },
       {
         "strike": 84.0,
-        "net_gex": 0.0
+        "net_gex": 0.42
       },
       {
         "strike": 85.0,
-        "net_gex": 0.0
+        "net_gex": 0.58
       },
       {
         "strike": 87.5,
+        "net_gex": 0.0
+      },
+      {
+        "strike": 90.0,
         "net_gex": 0.0
       }
     ]
@@ -5282,15 +5282,15 @@
   "JPM": {
     "metadata": {
       "ticker": "JPM",
-      "spot_price": 335.28,
-      "expiration_date": "Historical Aggregated (2026-10-14)",
-      "updated_at": "2026-10-15 15:32:26"
+      "spot_price": 335.53,
+      "expiration_date": "Historical Aggregated (2026-10-15)",
+      "updated_at": "2026-10-16 15:18:14"
     },
     "indicators": {
       "max_pain": 335.0,
       "call_wall": 340.0,
       "put_wall": 330.0,
-      "zero_gamma": 330.76
+      "zero_gamma": 331.92
     },
     "gex_chart_data": [
       {
@@ -5319,147 +5319,147 @@
       },
       {
         "strike": 285.0,
-        "net_gex": -0.01
+        "net_gex": -0.0
       },
       {
         "strike": 290.0,
-        "net_gex": -0.29
+        "net_gex": -0.25
       },
       {
         "strike": 295.0,
-        "net_gex": -13.26
+        "net_gex": -11.51
       },
       {
         "strike": 300.0,
-        "net_gex": -423.66
+        "net_gex": -373.38
       },
       {
         "strike": 302.5,
-        "net_gex": -102.91
+        "net_gex": -57.74
       },
       {
         "strike": 305.0,
-        "net_gex": -2642.23
+        "net_gex": -2275.26
       },
       {
         "strike": 307.5,
-        "net_gex": -5983.19
+        "net_gex": -5396.33
       },
       {
         "strike": 310.0,
-        "net_gex": -54181.47
+        "net_gex": -49287.54
       },
       {
         "strike": 312.5,
-        "net_gex": -76010.22
+        "net_gex": -70344.2
       },
       {
         "strike": 315.0,
-        "net_gex": -303919.01
+        "net_gex": -272326.76
       },
       {
         "strike": 317.5,
-        "net_gex": -175053.97
+        "net_gex": -157537.26
       },
       {
         "strike": 320.0,
-        "net_gex": -834144.99
+        "net_gex": -763478.67
       },
       {
         "strike": 322.5,
-        "net_gex": -495211.76
+        "net_gex": -447825.28
       },
       {
         "strike": 325.0,
-        "net_gex": -1698535.81
+        "net_gex": -1599259.21
       },
       {
         "strike": 327.5,
-        "net_gex": -724561.38
+        "net_gex": -706627.38
       },
       {
         "strike": 330.0,
-        "net_gex": -3066845.59
+        "net_gex": -5015258.8
       },
       {
         "strike": 332.5,
-        "net_gex": -234879.12
+        "net_gex": -1599328.11
       },
       {
         "strike": 335.0,
-        "net_gex": -506996.74
+        "net_gex": -756842.72
       },
       {
         "strike": 337.5,
-        "net_gex": 2084926.23
+        "net_gex": 2272660.27
       },
       {
         "strike": 340.0,
-        "net_gex": 5420313.72
+        "net_gex": 5871886.43
       },
       {
         "strike": 342.5,
-        "net_gex": 5516459.49
+        "net_gex": 5564763.65
       },
       {
         "strike": 345.0,
-        "net_gex": 5791714.73
+        "net_gex": 5739142.4
       },
       {
         "strike": 347.5,
-        "net_gex": 854206.21
+        "net_gex": 843453.7
       },
       {
         "strike": 350.0,
-        "net_gex": 2158068.21
+        "net_gex": 2185980.12
       },
       {
         "strike": 352.5,
-        "net_gex": 333432.62
+        "net_gex": 345136.78
       },
       {
         "strike": 355.0,
-        "net_gex": 775845.48
+        "net_gex": 819618.55
       },
       {
         "strike": 357.5,
-        "net_gex": 41551.99
+        "net_gex": 39880.14
       },
       {
         "strike": 360.0,
-        "net_gex": 299376.44
+        "net_gex": 319409.78
       },
       {
         "strike": 362.5,
-        "net_gex": 52861.65
+        "net_gex": 57455.8
       },
       {
         "strike": 365.0,
-        "net_gex": 21466.92
+        "net_gex": 23916.84
       },
       {
         "strike": 367.5,
-        "net_gex": 332.93
+        "net_gex": 367.56
       },
       {
         "strike": 370.0,
-        "net_gex": 4209.43
+        "net_gex": 4350.85
       },
       {
         "strike": 375.0,
-        "net_gex": 1084.09
+        "net_gex": 1223.46
       },
       {
         "strike": 380.0,
-        "net_gex": 71.0
+        "net_gex": 76.8
       },
       {
         "strike": 385.0,
-        "net_gex": 8.57
+        "net_gex": 9.92
       },
       {
         "strike": 390.0,
-        "net_gex": 0.18
+        "net_gex": 0.21
       },
       {
         "strike": 395.0,
@@ -5486,21 +5486,17 @@
   "V": {
     "metadata": {
       "ticker": "V",
-      "spot_price": 391.43,
-      "expiration_date": "Historical Aggregated (2026-10-14)",
-      "updated_at": "2026-10-15 15:32:29"
+      "spot_price": 399.75,
+      "expiration_date": "Historical Aggregated (2026-10-15)",
+      "updated_at": "2026-10-16 15:18:16"
     },
     "indicators": {
-      "max_pain": 370.0,
-      "call_wall": 390.0,
+      "max_pain": 372.5,
+      "call_wall": 400.0,
       "put_wall": 390.0,
-      "zero_gamma": 351.39
+      "zero_gamma": 351.32
     },
     "gex_chart_data": [
-      {
-        "strike": 295.0,
-        "net_gex": -0.0
-      },
       {
         "strike": 300.0,
         "net_gex": -0.0
@@ -5531,167 +5527,167 @@
       },
       {
         "strike": 335.0,
-        "net_gex": -0.02
+        "net_gex": -0.0
       },
       {
         "strike": 337.5,
-        "net_gex": -0.02
+        "net_gex": -0.0
       },
       {
         "strike": 340.0,
-        "net_gex": -0.66
+        "net_gex": -0.01
       },
       {
         "strike": 342.5,
-        "net_gex": -0.1
+        "net_gex": -0.0
       },
       {
         "strike": 345.0,
-        "net_gex": -7.48
+        "net_gex": -0.11
       },
       {
         "strike": 347.5,
-        "net_gex": -11.87
+        "net_gex": -0.22
       },
       {
         "strike": 350.0,
-        "net_gex": -237.93
+        "net_gex": -5.48
       },
       {
         "strike": 352.5,
-        "net_gex": -41.06
+        "net_gex": -1.24
       },
       {
         "strike": 355.0,
-        "net_gex": 2781.16
+        "net_gex": 99.18
       },
       {
         "strike": 357.5,
-        "net_gex": 39.08
+        "net_gex": 2.19
       },
       {
         "strike": 360.0,
-        "net_gex": 19022.77
+        "net_gex": 1044.94
       },
       {
         "strike": 362.5,
-        "net_gex": -7579.51
+        "net_gex": -525.37
       },
       {
         "strike": 365.0,
-        "net_gex": -7680.24
+        "net_gex": -637.45
       },
       {
         "strike": 367.5,
-        "net_gex": -63069.77
+        "net_gex": -6457.2
       },
       {
         "strike": 370.0,
-        "net_gex": 200466.75
+        "net_gex": 25311.34
       },
       {
         "strike": 372.5,
-        "net_gex": -224507.84
+        "net_gex": -35100.02
       },
       {
         "strike": 375.0,
-        "net_gex": -556596.88
+        "net_gex": -108586.44
       },
       {
         "strike": 377.5,
-        "net_gex": 69616.14
+        "net_gex": 12052.17
       },
       {
         "strike": 380.0,
-        "net_gex": 1311484.36
+        "net_gex": 358379.91
       },
       {
         "strike": 382.5,
-        "net_gex": -319510.22
+        "net_gex": -151660.31
       },
       {
         "strike": 385.0,
-        "net_gex": 535533.72
+        "net_gex": -85301.14
       },
       {
         "strike": 387.5,
-        "net_gex": 881281.57
+        "net_gex": -22086.09
       },
       {
         "strike": 390.0,
-        "net_gex": 1477048.86
+        "net_gex": 1113584.57
       },
       {
         "strike": 392.5,
-        "net_gex": -520877.67
+        "net_gex": -21224.79
       },
       {
         "strike": 395.0,
-        "net_gex": 1872539.75
+        "net_gex": 1877344.81
       },
       {
         "strike": 397.5,
-        "net_gex": 527173.71
+        "net_gex": 364954.2
       },
       {
         "strike": 400.0,
-        "net_gex": 1283319.92
+        "net_gex": 3030354.03
       },
       {
         "strike": 402.5,
-        "net_gex": 930063.28
+        "net_gex": 1544494.12
       },
       {
         "strike": 405.0,
-        "net_gex": 747125.12
+        "net_gex": 1517855.71
       },
       {
         "strike": 407.5,
-        "net_gex": 42729.72
+        "net_gex": 108498.15
       },
       {
         "strike": 410.0,
-        "net_gex": 231864.21
+        "net_gex": 657129.01
       },
       {
         "strike": 415.0,
-        "net_gex": 433241.66
+        "net_gex": 1860888.66
       },
       {
         "strike": 420.0,
-        "net_gex": 15520.15
+        "net_gex": 96411.0
       },
       {
         "strike": 425.0,
-        "net_gex": 3296.35
+        "net_gex": 29450.35
       },
       {
         "strike": 430.0,
-        "net_gex": 1950.57
+        "net_gex": 25286.15
       },
       {
         "strike": 435.0,
-        "net_gex": 87.99
+        "net_gex": 1605.57
       },
       {
         "strike": 440.0,
-        "net_gex": 39.89
+        "net_gex": 1039.76
       },
       {
         "strike": 445.0,
-        "net_gex": 1.47
+        "net_gex": 54.0
       },
       {
         "strike": 450.0,
-        "net_gex": 0.13
+        "net_gex": 6.74
       },
       {
         "strike": 455.0,
-        "net_gex": 0.03
+        "net_gex": 2.06
       },
       {
         "strike": 460.0,
-        "net_gex": 0.0
+        "net_gex": 0.06
       },
       {
         "strike": 465.0,
